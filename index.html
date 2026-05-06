@@ -3,1614 +3,1009 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agentic AdTech Course — Index Exchange</title>
+<title>Agentic AdTech Course</title>
 <style>
-  /* ── Index Exchange Brand Palette ──────────────────────────────────────────
-     Swamp   #001B15   primary dark (sidebar, headings)
-     Viking  #4CD3CC   teal accent
-     Stone   #F0F4F2   light background
-     Dusk    #5A7568   muted text
-     White   #FFFFFF   surfaces
-  ──────────────────────────────────────────────────────────────────────────── */
-  :root {
-    --bg:       #F0F4F2;
-    --surface:  #001B15;
-    --surface2: #F7FAF8;
-    --border:   #D0DBD5;
-    --accent:   #4CD3CC;
-    --accent2:  #1A8C6E;
-    --green:    #1A8C6E;
-    --yellow:   #D4820A;
-    --red:      #C0392B;
-    --text:     #001B15;
-    --muted:    #5A7568;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    font-size: 15px;
-    line-height: 1.65;
-    display: flex;
-    min-height: 100vh;
-  }
-
-  /* SIDEBAR */
-  #sidebar {
-    width: 260px;
-    min-width: 260px;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    overflow-y: auto;
-    z-index: 100;
-  }
-
-  .sidebar-logo {
-    padding: 20px 20px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .sidebar-logo .course-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-
-  .sidebar-logo h1 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.3;
-  }
-
-  .sidebar-logo .org {
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 3px;
-  }
-
-  .sidebar-nav {
-    padding: 12px 10px;
-    flex: 1;
-  }
-
-  .nav-section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    padding: 8px 10px 4px;
-  }
-
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.15s;
-    text-decoration: none;
-    color: rgba(255,255,255,0.6);
-    font-size: 13.5px;
-  }
-
-  .nav-item:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-  .nav-item.active { background: rgba(76,211,204,0.18); color: var(--accent); }
-
-  .nav-num {
-    width: 22px; height: 22px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.08);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    color: rgba(255,255,255,0.45);
-  }
-
-  .nav-item.active .nav-num {
-    background: rgba(76,211,204,0.25);
-    color: var(--accent);
-  }
-
-  .nav-item.completed .nav-num {
-    background: rgba(26,140,110,0.25);
-    color: #4CD3CC;
-  }
-
-  .sidebar-footer {
-    padding: 14px 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 11.5px;
-    color: rgba(255,255,255,0.35);
-  }
-
-  .sidebar-footer .update-info {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .dot-green {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* MAIN CONTENT */
-  #main {
-    margin-left: 260px;
-    flex: 1;
-    min-width: 0;
-    background: #ffffff;
-  }
-
-  /* TOP BAR */
-  .topbar {
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
-    padding: 14px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-
-  .breadcrumb {
-    font-size: 12.5px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .breadcrumb .sep { opacity: 0.4; }
-  .breadcrumb .current { color: var(--text); font-weight: 500; }
-
-  .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .progress-label {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .progress-bar-wrap {
-    width: 120px;
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), #1A8C6E);
-    border-radius: 99px;
-    transition: width 0.4s;
-  }
-
-  /* MODULE CONTENT */
-  .module-page {
-    display: none;
-    padding: 40px 40px 80px;
-    max-width: 860px;
-  }
-
-  .module-page.active { display: block; }
-
-  .module-header {
-    margin-bottom: 36px;
-  }
-
-  .module-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(76,211,204,0.1);
-    color: #0A8F89;
-    border: 1px solid rgba(76,211,204,0.4);
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .module-header h2 {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-
-  .module-meta {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-  }
-
-  .meta-badge {
-    font-size: 12px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-
-  .status-baseline {
-    background: rgba(251,191,36,0.1);
-    color: var(--yellow);
-    border: 1px solid rgba(251,191,36,0.25);
-  }
-
-  .status-updated {
-    background: rgba(52,211,153,0.1);
-    color: var(--green);
-    border: 1px solid rgba(52,211,153,0.25);
-  }
-
-  /* CONTENT BLOCKS */
-  .section {
-    margin-bottom: 36px;
-  }
-
-  .section h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .section h3 .icon {
-    width: 20px; height: 20px;
-    border-radius: 5px;
-    background: rgba(76,211,204,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-  }
-
-  p { margin-bottom: 12px; color: var(--text); }
-  p:last-child { margin-bottom: 0; }
-
-  strong { color: #fff; font-weight: 600; }
-
-  /* TABLES */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    margin-bottom: 4px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
-
-  thead tr {
-    background: #F0F4F2;
-    border-bottom: 1px solid var(--border);
-  }
-
-  th {
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  td {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-
-  tr:last-child td { border-bottom: none; }
-  tbody tr:hover { background: #F7FAF8; }
-
-  td code {
-    font-family: var(--mono);
-    font-size: 12px;
-    background: rgba(76,211,204,0.12);
-    color: #0A8F89;
-    padding: 1px 6px;
-    border-radius: 4px;
-  }
-
-  /* INFO BOXES */
-  .callout {
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 16px;
-    border-left: 3px solid;
-    font-size: 14px;
-  }
-
-  .callout-blue {
-    background: rgba(76,211,204,0.07);
-    border-color: #4CD3CC;
-  }
-
-  .callout-green {
-    background: rgba(26,140,110,0.07);
-    border-color: var(--green);
-  }
-
-  .callout-yellow {
-    background: rgba(212,130,10,0.07);
-    border-color: var(--yellow);
-  }
-
-  .callout-title {
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .callout-blue .callout-title { color: #0A8F89; }
-  .callout-green .callout-title { color: var(--green); }
-  .callout-yellow .callout-title { color: var(--yellow); }
-
-  /* RESOURCES */
-  .resources-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .resource-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    background: #F7FAF8;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    font-size: 13.5px;
-    transition: border-color 0.15s, background 0.15s;
-  }
-
-  .resource-link:hover {
-    border-color: var(--accent);
-    background: rgba(76,211,204,0.07);
-    color: #0A8F89;
-  }
-
-  .resource-icon {
-    width: 28px; height: 28px;
-    border-radius: 6px;
-    background: rgba(76,211,204,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    flex-shrink: 0;
-  }
-
-  /* CHECKPOINT */
-  .checkpoint-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .checkpoint-item {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .checkpoint-q {
-    padding: 12px 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    background: #F0F4F2;
-    font-weight: 500;
-    font-size: 14px;
-    user-select: none;
-    transition: background 0.15s;
-  }
-
-  .checkpoint-q:hover { background: rgba(76,211,204,0.07); }
-
-  .checkpoint-q .q-text { flex: 1; line-height: 1.4; }
-
-  .chevron {
-    flex-shrink: 0;
-    transition: transform 0.2s;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 2px;
-  }
-
-  .checkpoint-item.open .chevron { transform: rotate(180deg); }
-
-  .checkpoint-a {
-    display: none;
-    padding: 12px 16px;
-    font-size: 13.5px;
-    line-height: 1.55;
-    border-top: 1px solid var(--border);
-    background: rgba(52,211,153,0.04);
-  }
-
-  .checkpoint-item.open .checkpoint-a { display: block; }
-
-  .answer-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 5px;
-  }
-
-  /* ROLE IMPACT */
-  .roles-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .role-card {
-    display: flex;
-    gap: 12px;
-    padding: 12px 16px;
-    background: #F7FAF8;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    font-size: 13.5px;
-  }
-
-  .role-name {
-    font-weight: 700;
-    font-size: 12px;
-    color: #0A8F89;
-    white-space: nowrap;
-    min-width: 140px;
-    line-height: 1.55;
-  }
-
-  /* COMPARISON TABLE coloring */
-  .compare-table td:first-child { font-weight: 600; color: var(--muted); font-size: 13px; }
-
-  /* PILLAR CARDS */
-  .pillar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-    margin-bottom: 4px;
-  }
-
-  .pillar-card {
-    background: #F7FAF8;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-  }
-
-  .pillar-number {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #0A8F89;
-    margin-bottom: 4px;
-  }
-
-  .pillar-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .pillar-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* TIMELINE */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-    padding-left: 24px;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: var(--border);
-  }
-
-  .tl-item {
-    position: relative;
-    padding: 0 0 18px 20px;
-  }
-
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -1px;
-    top: 7px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid #ffffff;
-  }
-
-  .tl-date {
-    font-size: 11.5px;
-    color: #0A8F89;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
-
-  .tl-text {
-    font-size: 13.5px;
-    color: var(--text);
-    line-height: 1.45;
-  }
-
-  .tl-note {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* MONTH CARDS */
-  .month-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-
-  .month-card {
-    background: #F7FAF8;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-  }
-
-  .month-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #0A8F89;
-    margin-bottom: 8px;
-  }
-
-  .month-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .month-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .month-items li {
-    font-size: 12.5px;
-    color: var(--muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    line-height: 1.4;
-  }
-
-  .month-items li::before {
-    content: '›';
-    color: var(--accent);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  /* SIGNALS */
-  .signals-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .signal-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 14px;
-    background: #F7FAF8;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    font-size: 13.5px;
-  }
-
-  .signal-num {
-    width: 22px; height: 22px;
-    border-radius: 6px;
-    background: rgba(76,211,204,0.15);
-    color: #0A8F89;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* MARK DONE BUTTON */
-  .mark-done-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 18px;
-    background: rgba(76,211,204,0.1);
-    border: 1px solid rgba(76,211,204,0.35);
-    border-radius: 8px;
-    color: #0A8F89;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-top: 32px;
-  }
-
-  .mark-done-btn:hover { background: rgba(76,211,204,0.18); }
-  .mark-done-btn.done {
-    background: rgba(76,211,204,0.2);
-    border-color: var(--accent);
-  }
-
-  /* NAV BUTTONS */
-  .nav-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-
-  .nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 20px;
-    background: #F7FAF8;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 13.5px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-    text-decoration: none;
-  }
-
-  .nav-btn:hover { border-color: var(--accent); color: #0A8F89; }
-  .nav-btn.primary {
-    background: #001B15;
-    border-color: #001B15;
-    color: #fff;
-  }
-  .nav-btn.primary:hover { background: #0A3528; }
-  .nav-btn.disabled { opacity: 0.3; pointer-events: none; }
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
-
-  /* GITHUB PILL */
-  .github-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 2px 10px;
-    background: #F7FAF8;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .github-pill:hover { border-color: var(--accent); color: #0A8F89; }
+:root {
+  --bg:#F0F4F2; --surface:#001B15; --surface2:#ffffff;
+  --border:#D0DBD5; --accent:#4CD3CC; --accent2:#1A8C6E;
+  --green:#1A8C6E; --yellow:#D4820A; --red:#C0392B;
+  --text:#001B15; --muted:#5A7568; --sidebar-w:260px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden}
+
+/* SIDEBAR */
+#sidebar{width:var(--sidebar-w);background:var(--surface);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden}
+.sidebar-header{padding:20px 18px 12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.sidebar-title{color:#fff;font-size:15px;font-weight:700;letter-spacing:.3px}
+.sidebar-sub{color:rgba(255,255,255,.45);font-size:11px;margin-top:3px}
+.nav-section{margin-top:8px}
+.nav-section-label{color:rgba(255,255,255,.35);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:14px 18px 5px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;color:rgba(255,255,255,.65);font-size:13px;border-left:2px solid transparent;transition:all .15s;user-select:none}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(76,211,204,.08)}
+.nav-item .ico{width:16px;text-align:center;flex-shrink:0;font-size:13px}
+.nav-item .badge{margin-left:auto;font-size:10px;padding:1px 6px;border-radius:10px;background:rgba(76,211,204,.2);color:var(--accent)}
+.nav-item .badge.new{background:rgba(26,140,110,.25);color:#4ade80}
+.course-toggle .chevron{margin-left:auto;font-size:10px;transition:transform .2s;color:rgba(255,255,255,.4)}
+.course-toggle.open .chevron{transform:rotate(90deg)}
+.course-children{overflow:hidden;max-height:0;transition:max-height .25s ease}
+.course-children.open{max-height:400px}
+.nav-sub{padding:6px 18px 6px 42px;cursor:pointer;color:rgba(255,255,255,.5);font-size:12px;border-left:2px solid transparent;display:flex;align-items:center;gap:7px;transition:all .15s}
+.nav-sub:hover{color:rgba(255,255,255,.85)}
+.nav-sub.active{color:var(--accent);border-left-color:var(--accent)}
+.nav-sub .check{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0}
+.nav-sub.done .check{background:var(--accent2);border-color:var(--accent2);color:#fff}
+.sidebar-footer{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08)}
+.progress-bar-wrap{background:rgba(255,255,255,.1);border-radius:4px;height:4px;overflow:hidden}
+.progress-bar-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .4s}
+.progress-label{color:rgba(255,255,255,.4);font-size:10px;margin-bottom:5px}
+
+/* MAIN */
+#main{flex:1;overflow-y:auto;overflow-x:hidden;position:relative}
+.section{display:none;min-height:100%;animation:fadeIn .2s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* PAGE HEADER */
+.page-header{background:var(--surface2);border-bottom:1px solid var(--border);padding:22px 36px 20px;position:sticky;top:0;z-index:10}
+.page-header h1{font-size:20px;font-weight:700;color:var(--text)}
+.page-header p{color:var(--muted);font-size:13px;margin-top:4px}
+
+/* CONTENT AREA */
+.content-body{padding:28px 36px 48px;max-width:860px}
+
+/* MODULE CONTENT */
+.module-meta{display:flex;gap:8px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+.pill{font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600}
+.pill.baseline{background:#E8F0EC;color:#3a6b52}
+.pill.updated{background:#D1FAE5;color:#065F46}
+.module-date{color:var(--muted);font-size:12px}
+
+.module-body h2{font-size:18px;font-weight:700;color:var(--text);margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--border)}
+.module-body h2:first-child{margin-top:0}
+.module-body h3{font-size:12px;font-weight:700;color:var(--muted);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.5px}
+.module-body p{font-size:14px;line-height:1.7;color:#1a2e25;margin-bottom:12px}
+.module-body ul,.module-body ol{padding-left:20px;margin-bottom:12px}
+.module-body li{font-size:14px;line-height:1.7;color:#1a2e25;margin-bottom:4px}
+.module-body strong{color:var(--text)}
+.module-body blockquote{border-left:3px solid var(--accent);padding:10px 16px;background:rgba(76,211,204,.07);border-radius:0 6px 6px 0;margin:14px 0;font-size:14px;font-style:italic;color:var(--muted)}
+.module-body a{color:var(--accent2);text-decoration:none}
+.module-body a:hover{text-decoration:underline}
+.module-body code{background:#f0f4f2;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:12px}
+
+/* TABLES */
+.module-body table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.module-body th{background:var(--surface);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+.module-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.module-body tr:nth-child(even) td{background:rgba(0,27,21,.03)}
+
+/* CALLOUT */
+.callout{border-radius:8px;padding:14px 18px;margin:16px 0;font-size:13.5px;line-height:1.65}
+.callout.green{background:#D1FAE5;border-left:4px solid #059669;color:#064E3B}
+.callout.teal{background:rgba(76,211,204,.1);border-left:4px solid var(--accent);color:#003D35}
+.callout strong{display:block;margin-bottom:4px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;opacity:.8}
+
+/* CHECKPOINT */
+.checkpoint{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:18px;margin-top:24px}
+.checkpoint h3{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.checkpoint-q{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.checkpoint-a{font-size:13px;color:var(--muted);padding:8px 12px;background:rgba(76,211,204,.08);border-radius:6px;display:none}
+.checkpoint-a.show{display:block}
+.reveal-btn{font-size:12px;cursor:pointer;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:4px;padding:3px 10px;margin-top:6px;margin-bottom:14px}
+.reveal-btn:hover{background:rgba(76,211,204,.1)}
+
+/* DONE BUTTON */
+.done-btn{margin-top:28px;padding:10px 22px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
+.done-btn:hover{background:#16785e}
+.done-btn.completed{background:#6B7280;cursor:default}
+
+/* GLOSSARY TERM */
+.gloss{color:var(--accent2);border-bottom:1px dashed var(--accent2);cursor:pointer;font-weight:500;transition:color .1s}
+.gloss:hover{color:var(--accent)}
+
+/* GLOSSARY DRAWER */
+#gloss-drawer{position:fixed;top:0;right:-380px;width:360px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);z-index:100;transition:right .25s ease;overflow-y:auto;display:flex;flex-direction:column}
+#gloss-drawer.open{right:0}
+.gloss-header{background:var(--surface);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start}
+.gloss-header h2{font-size:16px;font-weight:700}
+.gloss-cat{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;font-weight:600}
+.gloss-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;padding:0 0 0 12px;line-height:1}
+.gloss-close:hover{color:#fff}
+.gloss-body{padding:20px;flex:1}
+.gloss-body p{font-size:13.5px;line-height:1.7;color:#1a2e25;margin-bottom:12px}
+.gloss-body ul{padding-left:18px;margin-bottom:10px}
+.gloss-body li{font-size:13px;line-height:1.65;color:#1a2e25;margin-bottom:3px}
+.gloss-related{margin-top:16px}
+.gloss-related-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:8px}
+.gloss-related-tags{display:flex;flex-wrap:wrap;gap:6px}
+.gloss-tag{font-size:12px;padding:4px 10px;background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--muted);cursor:pointer}
+.gloss-tag:hover{border-color:var(--accent);color:var(--accent)}
+.gloss-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--accent2);text-decoration:none;font-weight:600}
+.gloss-link:hover{text-decoration:underline}
+#gloss-overlay{display:none;position:fixed;inset:0;z-index:99}
+#gloss-overlay.on{display:block}
+
+/* FILTER PILLS */
+.filter-bar{display:flex;gap:8px;padding:20px 36px 0;flex-wrap:wrap}
+.filter-pill{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);cursor:pointer;background:#fff;color:var(--muted);transition:all .15s}
+.filter-pill:hover,.filter-pill.active{border-color:var(--accent);color:var(--accent);background:rgba(76,211,204,.08)}
+
+/* TAG CHIPS */
+.tag{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600}
+.tag.aamp{background:#DBEAFE;color:#1E40AF}
+.tag.adcp{background:#D1FAE5;color:#065F46}
+.tag.artf{background:#FEF3C7;color:#92400E}
+.tag.general{background:#F3E8FF;color:#6B21A8}
+
+/* VIDEO CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;padding:28px 36px 48px}
+.video-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow .15s,transform .1s;cursor:pointer;text-decoration:none;display:block}
+.video-card:hover{box-shadow:0 4px 18px rgba(0,27,21,.12);transform:translateY(-2px)}
+.video-thumb{height:140px;background:var(--surface);display:flex;align-items:center;justify-content:center;position:relative}
+.play-btn{width:44px;height:44px;background:rgba(76,211,204,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:#001B15}
+.video-info{padding:14px}
+.video-info h3{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:6px}
+.video-info p{font-size:12px;color:var(--muted);line-height:1.5}
+.video-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.video-source{font-size:11px;color:var(--muted)}
+
+/* ARTICLE CARDS */
+.article-list{padding:28px 36px 48px;display:flex;flex-direction:column;gap:14px}
+.article-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .15s}
+.article-card:hover{box-shadow:0 3px 14px rgba(0,27,21,.09)}
+.article-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.article-card h3{font-size:14px;font-weight:700;color:var(--text);line-height:1.4}
+.article-tags{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0}
+.article-card p{font-size:13px;color:#1a2e25;line-height:1.65}
+.article-meta{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--muted)}
+.article-meta a{color:var(--accent2);text-decoration:none;font-weight:600}
+.article-meta a:hover{text-decoration:underline}
+
+/* TOOLS */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:28px 36px 48px}
+.repo-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.repo-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.repo-icon{font-size:20px}
+.repo-name{font-size:14px;font-weight:700;color:var(--text)}
+.repo-owner{font-size:11px;color:var(--muted)}
+.repo-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
+.repo-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--accent2);font-weight:600;text-decoration:none}
+.repo-link:hover{text-decoration:underline}
+.repo-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+
+/* CHANGELOG */
+.changelog-body{padding:28px 36px 48px;max-width:780px}
+.changelog-entry{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin-bottom:20px}
+.changelog-date{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.changelog-headline{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.5}
+.changelog-section{margin-bottom:14px}
+.changelog-section h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:8px}
+.changelog-section ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+.changelog-section li{font-size:13px;color:#1a2e25;padding:7px 12px;background:var(--bg);border-radius:6px;line-height:1.55}
+.changelog-section li a{color:var(--accent2);text-decoration:none}
+.changelog-section li a:hover{text-decoration:underline}
+.comp-item{background:var(--bg);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+.comp-company{font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.comp-entry{font-size:13px;color:#1a2e25;margin-bottom:4px}
+.comp-entry a{color:var(--accent2);text-decoration:none}
+.comp-entry a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
-  <div class="sidebar-logo">
-    <div class="course-label">AdTech Learning</div>
-    <h1>Agentic Advertising Protocols</h1>
-    <div class="org">Index Exchange · 2026</div>
+  <div class="sidebar-header">
+    <div class="sidebar-title">Agentic AdTech</div>
+    <div class="sidebar-sub">Personal Learning Portal &middot; 2026</div>
   </div>
 
-  <div class="sidebar-nav">
-    <div class="nav-section-label">Modules</div>
-    <a class="nav-item active" onclick="showModule(1)" href="#">
-      <div class="nav-num" id="nav-num-1">1</div>
-      Why Advertising Needs Agents
-    </a>
-    <a class="nav-item" onclick="showModule(2)" href="#">
-      <div class="nav-num" id="nav-num-2">2</div>
-      AdCP Explained
-    </a>
-    <a class="nav-item" onclick="showModule(3)" href="#">
-      <div class="nav-num" id="nav-num-3">3</div>
-      ARTF Explained
-    </a>
-    <a class="nav-item" onclick="showModule(4)" href="#">
-      <div class="nav-num" id="nav-num-4">4</div>
-      AAMP: The Big Picture
-    </a>
-    <a class="nav-item" onclick="showModule(5)" href="#">
-      <div class="nav-num" id="nav-num-5">5</div>
-      AdCP vs AAMP
-    </a>
-    <a class="nav-item" onclick="showModule(6)" href="#">
-      <div class="nav-num" id="nav-num-6">6</div>
-      Staying Current
-    </a>
+  <div class="nav-section">
+    <div class="nav-section-label">Learn</div>
+    <div class="nav-item course-toggle" id="course-toggle" onclick="toggleCourse()">
+      <span class="ico">📚</span> Agentic Course
+      <span class="chevron">&#9654;</span>
+    </div>
+    <div class="course-children" id="course-children">
+      <div class="nav-sub" data-module="m1" onclick="showModule('m1')"><span class="check" id="chk-m1"></span> 1. The Problem</div>
+      <div class="nav-sub" data-module="m2" onclick="showModule('m2')"><span class="check" id="chk-m2"></span> 2. AdCP</div>
+      <div class="nav-sub" data-module="m3" onclick="showModule('m3')"><span class="check" id="chk-m3"></span> 3. ARTF</div>
+      <div class="nav-sub" data-module="m4" onclick="showModule('m4')"><span class="check" id="chk-m4"></span> 4. AAMP</div>
+      <div class="nav-sub" data-module="m5" onclick="showModule('m5')"><span class="check" id="chk-m5"></span> 5. Standards Battle</div>
+      <div class="nav-sub" data-module="m6" onclick="showModule('m6')"><span class="check" id="chk-m6"></span> 6. Staying Current</div>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Resources</div>
+    <div class="nav-item" data-sec="videos" onclick="showSection('videos')"><span class="ico">▶️</span> Videos <span class="badge">7</span></div>
+    <div class="nav-item" data-sec="articles" onclick="showSection('articles')"><span class="ico">📰</span> Articles <span class="badge">8</span></div>
+    <div class="nav-item" data-sec="tools" onclick="showSection('tools')"><span class="ico">🔧</span> Tools &amp; Repos</div>
+    <div class="nav-item" data-sec="changelog" onclick="showSection('changelog')"><span class="ico">📋</span> Changelog <span class="badge new">May 6</span></div>
   </div>
 
   <div class="sidebar-footer">
-    <div class="update-info">
-      <div class="dot-green"></div>
-      <span>Auto-updates every Monday · Last: 2026-05-05</span>
-    </div>
+    <div class="progress-label" id="progress-label">0 of 6 modules complete</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar" style="width:0%"></div></div>
   </div>
 </nav>
 
 <!-- MAIN -->
 <div id="main">
 
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="breadcrumb">
-      <span>Agentic AdTech</span>
-      <span class="sep">›</span>
-      <span class="current" id="topbar-title">Module 1 — Foundation</span>
-    </div>
-    <div class="topbar-right">
-      <span class="progress-label" id="progress-text">0 of 6 complete</span>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+<!-- MODULE 1 -->
+<div class="section" id="sec-m1">
+  <div class="page-header">
+    <h1>Module 1 — The Problem: Why Advertising Needs Agents</h1>
+    <p>Before understanding AdCP or ARTF, you need the broken world they're trying to fix.</p>
+  </div>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-body">
+      <h2>The Core Problem</h2>
+      <p>Digital advertising runs on hundreds of disconnected platforms. A media buyer at an agency must log into a <span class="gloss" data-key="dsp">DSP</span>, an <span class="gloss" data-key="ssp">SSP</span>, a DMP, a measurement tool, a curation platform — each with its own interface, API format, and opaque pricing. Budgets leak into intermediary layers. No single agent can see the whole picture.</p>
+
+      <h2>What Programmatic Looks Like Today</h2>
+      <p><span class="gloss" data-key="openrtb">OpenRTB</span> is the backbone — a standard for auctioning individual ad impressions in under 100ms. It works, but it was designed for machines following deterministic rules, not AI agents reasoning in natural language about campaign goals.</p>
+
+      <h2>Key Concepts</h2>
+      <table>
+        <tr><th>Term</th><th>Definition</th></tr>
+        <tr><td><span class="gloss" data-key="dsp">DSP</span></td><td>Demand-Side Platform. Where advertisers/agencies buy ad inventory automatically.</td></tr>
+        <tr><td><span class="gloss" data-key="ssp">SSP</span></td><td>Supply-Side Platform. Where publishers sell ad inventory programmatically.</td></tr>
+        <tr><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td>The existing standard for real-time impression auctions. Works in &lt;100ms per bid.</td></tr>
+        <tr><td>AI Agent</td><td>An autonomous AI that can reason, plan multi-step tasks, and take actions without human input per step.</td></tr>
+      </table>
+
+      <h2>Why 'Agentic' Matters Now</h2>
+      <p>AI agents can reason about campaign briefs in natural language ("find women interested in ultramarathons on premium news sites"), discover inventory, negotiate deals, and optimise — all without a human clicking through dashboards. But for agents to work together across platforms, they need shared protocols. That's the gap AdCP, ARTF, and AAMP are designed to fill.</p>
+
+      <h2>Future Role Impact</h2>
+      <p><strong>Media Planner</strong> — Your role shifts from manually building plans to briefing an AI agent in natural language. The agent does the discovery and packaging.</p>
+      <p><strong>Ad Ops</strong> — Instead of managing platform UIs, you will manage agents — setting rules, auditing logs, and handling exceptions that agents escalate.</p>
+      <p><strong>Ad Tech Engineer</strong> — Building <span class="gloss" data-key="mcp">MCP</span>-compatible services and agent APIs becomes core work. <span class="gloss" data-key="openrtb">OpenRTB</span> knowledge remains essential as a foundation.</p>
+
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. What does OpenRTB primarily standardise in advertising?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Real-time impression-level bidding auctions (sub-100ms)</div>
+        <div class="checkpoint-q">2. What key capability do AI agents bring that traditional programmatic systems lack?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Natural language reasoning about campaign goals — interpreting briefs and acting autonomously without per-step human input</div>
       </div>
+      <button class="done-btn" id="done-m1" onclick="markDone('m1')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 1 — FOUNDATION
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page active" id="module-1">
-    <div class="module-header">
-      <div class="module-tag">Module 1</div>
-      <h2>The Problem: Why Advertising Needs Agents</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-05</span>
-        <span class="status-pill status-baseline">Baseline</span>
+<!-- MODULE 2 -->
+<div class="section" id="sec-m2">
+  <div class="page-header">
+    <h1>Module 2 — AdCP: Ad Context Protocol Explained</h1>
+    <p>Launched Oct 15, 2025 by 20+ companies. Built on Anthropic's MCP. Live production buys confirmed April 2026.</p>
+  </div>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-06</span></div>
+    <div class="module-body">
+      <h2>What is AdCP?</h2>
+      <p>Ad Context Protocol (AdCP) is an open standard that gives AI agents a shared language to communicate with ad platforms — and eventually with each other. Think of it as "OpenRTB for agents": just as <span class="gloss" data-key="openrtb">OpenRTB</span> standardised how machines bid on impressions, AdCP standardises how agents brief, discover, negotiate, and buy.</p>
+      <p><strong>Launch date:</strong> October 15, 2025 &nbsp;|&nbsp; <strong>Founding members:</strong> Yahoo, Optable, PubMatic, Scope3, Swivel, Triton Digital &nbsp;|&nbsp; <strong>Governance:</strong> AgenticAdvertising.org (AAO), independent non-profit</p>
+
+      <h2>The Problem AdCP Solves</h2>
+      <p>Without AdCP, every AI agent built by an agency or advertiser has to learn each platform's proprietary API separately. An agent that can buy on Yahoo can't talk to PubMatic without custom integration. AdCP creates a universal interface so any agent can plug into any compatible platform.</p>
+
+      <h2>Built on Anthropic's MCP</h2>
+      <p>AdCP is layered on top of the <span class="gloss" data-key="mcp">Model Context Protocol (MCP)</span> — the same protocol Claude uses to connect to tools. Any AI assistant that supports MCP can, in theory, access advertising platforms directly through AdCP without custom integrations.</p>
+      <p>Unlike <span class="gloss" data-key="openrtb">OpenRTB</span> which handles sub-100ms impression auctions, AdCP operates <span class="gloss" data-key="async">asynchronously</span> — a media buy negotiation might take minutes, hours, or require a human sign-off.</p>
+
+      <h2>AdCP's Four Core Modules</h2>
+      <table>
+        <tr><th>Module</th><th>Status</th><th>Purpose</th></tr>
+        <tr><td>Signals Activation Protocol</td><td>Available (2026 expansion)</td><td>Discover, activate and manage audience data via natural language.</td></tr>
+        <tr><td>Media Buy Protocol</td><td>Available</td><td>End-to-end campaign execution — verify publisher auth, modify budgets, adjust targeting, handle approvals.</td></tr>
+        <tr><td>Creative Protocol</td><td>Available</td><td>Build ad creatives, preview formats, explain rendering.</td></tr>
+        <tr><td>Curation Protocol</td><td>Q2 2026</td><td>Standardise how inventory gets packaged and curated.</td></tr>
+      </table>
+
+      <h2>Adoption Reality (May 2026)</h2>
+      <div class="callout green">
+        <strong>&#9889; Major milestone — April 29, 2026</strong>
+        Omnicom CEO John Wren and Head of AI Paolo Yuvienco confirmed on Q1 2026 earnings call that Omnicom has already executed live media buys for several clients using an agent-to-agent framework built around AdCP. This is the most operationally specific statement any major holding company has made about agentic media buying — AdCP is no longer purely experimental.
       </div>
-    </div>
+      <p>PubMatic has transacted 250+ agentic deals on its platform since December 2025. The Trade Desk launched AI agents with Stagwell as first client, working alongside PubMatic, Scope3, and Magnite. The chicken-and-egg problem is beginning to resolve on the demand side.</p>
+      <p>AdCP governance note: now formally under AgenticAdvertising.org (AAO), an independent non-profit industry body — reinforcing its vendor-neutral positioning.</p>
 
-    <div class="section">
-      <h3><span class="icon">📌</span> Overview</h3>
-      <p>Before understanding AdCP or ARTF, you need to understand the broken world they're trying to fix. This module sets the stage for why agentic advertising protocols matter.</p>
-    </div>
+      <h2>Future Role Impact</h2>
+      <p><strong>Media Buyer</strong> — AdCP means your AI assistant could query "find $50K of premium running content inventory in APAC" and get structured responses from all compatible <span class="gloss" data-key="ssp">SSPs</span> at once.</p>
+      <p><strong>Publisher / SSP</strong> — You build an AdCP-compatible "seller agent" that responds to natural language inventory requests. Your packaging becomes automated and accessible to AI buyers.</p>
 
-    <div class="section">
-      <h3><span class="icon">⚠️</span> The Core Problem</h3>
-      <p>Digital advertising runs on hundreds of disconnected platforms. A media buyer at an agency must log into a DSP, an SSP, a DMP, a measurement tool, a curation platform — each with its own interface, API format, and opaque pricing. Budgets leak into intermediary layers. No single agent can 'see' the whole picture.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔄</span> What Programmatic Looks Like Today</h3>
-      <p>OpenRTB (open real-time bidding) is the backbone — a standard for auctioning individual ad impressions in under 100ms. It works, but it was designed for machines following deterministic rules, not AI agents reasoning in natural language about campaign goals.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📖</span> Key Concepts</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Term</th><th>Definition</th></tr></thead>
-          <tbody>
-            <tr><td><strong>DSP</strong></td><td>Demand-Side Platform. Where advertisers/agencies buy ad inventory automatically.</td></tr>
-            <tr><td><strong>SSP</strong></td><td>Supply-Side Platform. Where publishers sell ad inventory programmatically.</td></tr>
-            <tr><td><strong>OpenRTB</strong></td><td>The existing standard for real-time impression auctions. Works in &lt;100ms per bid.</td></tr>
-            <tr><td><strong>AI Agent</strong></td><td>An autonomous AI that can reason, plan multi-step tasks, and take actions without human input per step.</td></tr>
-          </tbody>
-        </table>
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. AdCP is built on top of which underlying protocol?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Model Context Protocol (MCP) by Anthropic</div>
+        <div class="checkpoint-q">2. What is the main difference between AdCP and OpenRTB in terms of transaction speed?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">AdCP is asynchronous — responses can take seconds or days, accommodating human approval. OpenRTB operates in under 100ms.</div>
       </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">💡</span> Why 'Agentic' Matters Now</h3>
-      <p>AI agents can reason about campaign briefs in natural language ("find women interested in ultramarathons on premium news sites"), discover inventory, negotiate deals, and optimise — all without a human clicking through dashboards. But for agents to work together across platforms, they need shared protocols.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">👤</span> Future Role Impact</h3>
-      <div class="roles-grid">
-        <div class="role-card"><span class="role-name">Media Planner</span><span>Your role shifts from manually building plans to briefing an AI agent in natural language. The agent does the discovery and packaging.</span></div>
-        <div class="role-card"><span class="role-name">Ad Ops</span><span>Instead of managing platform UIs, you will manage agents — setting rules, auditing logs, and handling exceptions that agents escalate.</span></div>
-        <div class="role-card"><span class="role-name">Ad Tech Engineer</span><span>Building MCP-compatible services and agent APIs becomes core work. OpenRTB knowledge remains essential as a foundation.</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Resources</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://iabtechlab.com/standards/openrtb/" target="_blank"><div class="resource-icon">📄</div> IAB Tech Lab — OpenRTB Standard</a>
-        <a class="resource-link" href="https://shellypalmer.com/2025/10/adcp-ad-context-protocol-a-real-attempt-to-make-agents-buy-media/" target="_blank"><div class="resource-icon">📰</div> Shelly Palmer — AdCP: A real attempt to make agents buy media</a>
-        <a class="resource-link" href="https://www.adweek.com/media/ad-industry-agentic-ai/" target="_blank"><div class="resource-icon">📰</div> AdWeek — Ad Industry Agentic Protocols: Adoption still elusive</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What does OpenRTB primarily standardise in advertising?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Real-time impression-level bidding auctions (sub-100ms)</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What key capability do AI agents bring that traditional programmatic systems lack?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Natural language reasoning about campaign goals — interpreting briefs and acting autonomously without per-step human input</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(1, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <span class="nav-btn disabled">← Previous</span>
-      <button class="nav-btn primary" onclick="showModule(2)">Module 2: AdCP →</button>
+      <button class="done-btn" id="done-m2" onclick="markDone('m2')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 2 — AdCP
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page" id="module-2">
-    <div class="module-header">
-      <div class="module-tag">Module 2</div>
-      <h2>AdCP: Ad Context Protocol Explained</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-06</span>
-        <span class="status-pill status-updated">Updated</span>
+<!-- MODULE 3 -->
+<div class="section" id="sec-m3">
+  <div class="page-header">
+    <h1>Module 3 — ARTF: Agentic RTB Framework Explained</h1>
+    <p>Released Nov 13, 2025 by IAB Tech Lab. Built on OpenRTB. Cuts latency up to 90% via containerisation.</p>
+  </div>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-body">
+      <h2>What is ARTF?</h2>
+      <p>The Agentic RTB Framework (ARTF) v1.0 is a standard that lets AI agents participate directly inside real-time bidding pipelines — without the latency of server-to-server round trips. The key innovation is <span class="gloss" data-key="containerisation">containerisation</span>.</p>
+      <p><strong>Release date:</strong> November 13, 2025 &nbsp;|&nbsp; <strong>Governing body:</strong> IAB Tech Lab &nbsp;|&nbsp; <strong>Reference implementation:</strong> Go (credited to Index Exchange Inc.) &nbsp;|&nbsp; <strong>Built on:</strong> <span class="gloss" data-key="openrtb">OpenRTB</span></p>
+
+      <h2>The Problem ARTF Solves</h2>
+      <p>Traditional RTB requires multiple servers to exchange messages across the network (<span class="gloss" data-key="dsp">DSP</span> → <span class="gloss" data-key="ssp">SSP</span> → data provider → back). Each hop adds latency. At scale, this limits how much intelligent decision-making can happen per impression. Agent logic couldn't fit in the bid window.</p>
+
+      <h2>The Containerisation Breakthrough</h2>
+      <div class="callout teal">
+        <strong>How containerisation works in ARTF</strong>
+        Instead of calling an external API (which adds network latency), the agent's logic is packaged in a <span class="gloss" data-key="docker">Docker</span>-compatible container and runs <em>inside</em> the same server as the bid. Think of it like moving the brain into the body — no round-trips needed. <span class="gloss" data-key="kubernetes">Kubernetes</span> can orchestrate these containers at scale across a fleet of bid servers.
       </div>
-    </div>
+      <table>
+        <tr><th>Concept</th><th>Explanation</th></tr>
+        <tr><td><span class="gloss" data-key="containerisation">What is a container?</span></td><td>Like a shipping container for software — packages all code and dependencies together. Runs inside one server.</td></tr>
+        <tr><td>Latency reduction</td><td>ARTF claims up to 80–90% latency reduction by running agent logic inside the same server as the bid.</td></tr>
+        <tr><td>Segment activation</td><td>Agents can activate user segments based on bid request data in real time.</td></tr>
+        <tr><td>Backward compatible</td><td>Extends existing <span class="gloss" data-key="openrtb">OpenRTB</span> standards. Existing plumbing still works.</td></tr>
+      </table>
 
-    <div class="section">
-      <h3><span class="icon">📌</span> Overview</h3>
-      <p>Launched October 15, 2025 by 20+ companies including Yahoo, PubMatic, Scope3. Built on Anthropic's Model Context Protocol (MCP). This module covers what AdCP actually does, its four core modules, and its current adoption reality.</p>
-    </div>
+      <h2>Technical Architecture</h2>
+      <p>ARTF exposes an <span class="gloss" data-key="rtbext">RTBExtensionPoint</span> service via <span class="gloss" data-key="grpc">gRPC</span>. Agents receive an <span class="gloss" data-key="openrtb">OpenRTB</span> bid request and return proposed mutations:</p>
+      <ul>
+        <li>Deal activations</li>
+        <li>Bid price adjustments (<span class="gloss" data-key="bidshading">bid shading</span>)</li>
+        <li>Segment additions</li>
+        <li>Viewability metric additions</li>
+      </ul>
+      <p>Also supports <span class="gloss" data-key="mcp">MCP</span> and Agent-to-Agent (A2A) protocols. Uses <span class="gloss" data-key="protobuf">Protocol Buffers</span> for efficient message serialisation. A Web UI is available for local testing.</p>
 
-    <div class="section">
-      <h3><span class="icon">🔍</span> What is AdCP?</h3>
-      <p>Ad Context Protocol (AdCP) is an open standard that gives AI agents a shared language to communicate with ad platforms — and eventually with each other. Think of it as "OpenRTB for agents": just as OpenRTB standardised how machines bid on impressions, AdCP standardises how agents brief, discover, negotiate, and buy.</p>
-      <div class="table-wrap" style="margin-top:14px">
-        <table>
-          <tbody>
-            <tr><td><strong>Launch date</strong></td><td>October 15, 2025</td></tr>
-            <tr><td><strong>Founding members</strong></td><td>Yahoo, Optable, PubMatic, Scope3, Swivel, Triton Digital</td></tr>
-            <tr><td><strong>Launch members</strong></td><td>Magnite, Kargo, LG Ad Solutions, Raptive, Samba TV, The Weather Company + others (20+ total)</td></tr>
-            <tr><td><strong>Governance</strong></td><td>Neutral working group — not owned by any single vendor</td></tr>
-          </tbody>
-        </table>
+      <h2>Index Exchange Involvement</h2>
+      <p>Joshua Prismon, Chief Architect at Index Exchange, was quoted in the ARTF v1.0 press release. The Go reference implementation on GitHub is credited to Index Exchange Inc. IX has direct involvement in shaping this standard.</p>
+
+      <h2>ARTF vs AdCP — The Key Difference</h2>
+      <table>
+        <tr><th>Dimension</th><th>ARTF</th><th>AdCP</th></tr>
+        <tr><td>Layer</td><td>Impression-level, inside RTB pipeline</td><td>Deal/campaign-level, between agents</td></tr>
+        <tr><td>Speed</td><td>Real-time (&lt;100ms)</td><td><span class="gloss" data-key="async">Asynchronous</span> (seconds to days)</td></tr>
+        <tr><td>Foundation</td><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td><span class="gloss" data-key="mcp">MCP</span></td></tr>
+        <tr><td>Scope</td><td>Execution infrastructure</td><td>Communication language</td></tr>
+        <tr><td>Relationship</td><td colspan="2">Complementary — both now under AAMP umbrella</td></tr>
+      </table>
+
+      <h2>Future Role Impact</h2>
+      <p><strong>SSP / Exchange Engineer</strong> — You can expose ARTF-compatible agent extension points in your bidder. Third-party agents can enhance bids in real time without expensive integrations.</p>
+      <p><strong>Yield Manager / Revenue Ops</strong> — ARTF enables per-impression sell-side decisioning at scale — AI can dynamically adjust floor prices, activate deals, and apply curation logic in real time.</p>
+
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. What is the key performance advantage of ARTF's containerisation approach?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Eliminates server-to-server network hops, reducing latency by up to 90% by running agent logic inside the same server as the bid.</div>
+        <div class="checkpoint-q">2. Which best describes the relationship between ARTF and AdCP?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">ARTF handles real-time impression-level execution; AdCP handles deal-level agent communication — they are complementary, not competing.</div>
       </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">⚙️</span> AdCP's Four Core Modules</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Module</th><th>Status</th><th>Purpose</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Signals Activation Protocol</strong></td><td><span style="color:var(--green)">Available</span></td><td>Discover, activate and manage audience data via natural language. Supports geographic, identity, and temporal signals.</td></tr>
-            <tr><td><strong>Media Buy Protocol</strong></td><td><span style="color:var(--green)">Available</span></td><td>End-to-end campaign execution — verify publisher auth, modify budgets, adjust targeting, handle approvals.</td></tr>
-            <tr><td><strong>Creative Protocol</strong></td><td><span style="color:var(--green)">Available</span></td><td>Build ad creatives, preview formats, explain rendering. Agents can generate and check creative assets.</td></tr>
-            <tr><td><strong>Curation Protocol</strong></td><td><span style="color:var(--yellow)">Q2 2026</span></td><td>Standardise how inventory gets packaged and curated.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Built on Anthropic's MCP</h3>
-      <p>AdCP is layered on top of the Model Context Protocol (MCP) — the same protocol Claude uses to connect to tools. Any AI assistant that supports MCP can, in theory, access advertising platforms directly through AdCP without custom integrations.</p>
-    </div>
-
-    <div class="callout callout-blue">
-      <div class="callout-title">Key Distinction from OpenRTB</div>
-      OpenRTB handles sub-100ms impression auctions. AdCP operates <strong>asynchronously</strong> — a media buy negotiation might take minutes, hours, or require a human sign-off. They are designed for different layers of the stack and are complementary.
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📊</span> Adoption Reality (as of May 2026)</h3>
-      <div class="callout callout-green" style="margin-bottom:14px">
-        <div class="callout-title">⚡ Major Update — April 29, 2026</div>
-        Omnicom CEO John Wren confirmed on Q1 2026 earnings that Omnicom has executed <strong>live media buys for several clients</strong> using an agent-to-agent framework built on AdCP. First major holding company to confirm production use. AdCP is no longer purely experimental.
-      </div>
-      <p>Sell-side momentum: early transactions via Swivel (late 2025); PubMatic reports 250+ agentic deals since December 2025. The Trade Desk launched AI agents with Stagwell, working alongside PubMatic, Scope3, and Magnite. AdCP governance now formally under <strong>AgenticAdvertising.org (AAO)</strong>, an independent non-profit body.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">👤</span> Future Role Impact</h3>
-      <div class="roles-grid">
-        <div class="role-card"><span class="role-name">Media Buyer</span><span>AdCP means your AI assistant could query "find $50K of premium running content inventory in APAC" and get structured responses from all compatible SSPs at once.</span></div>
-        <div class="role-card"><span class="role-name">Publisher / SSP</span><span>You build an AdCP-compatible "seller agent" that responds to natural language inventory requests. Your packaging becomes automated and accessible to AI buyers.</span></div>
-        <div class="role-card"><span class="role-name">Data / Audience Strategist</span><span>The Signals Activation Protocol means audience segments become discoverable via natural language — agents can find and activate them without manual setup.</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Resources</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://github.com/adcontextprotocol/adcp" target="_blank"><div class="resource-icon">⚙️</div> AdCP GitHub Repo — Official specification (v2.0.0)</a>
-        <a class="resource-link" href="https://www.samba.tv/press-releases/industry-coalition-launches-ad-context-protocol-adcp-open-standard-for-agentic-advertising-infrastructure" target="_blank"><div class="resource-icon">📰</div> Official AdCP launch announcement — Oct 15, 2025</a>
-        <a class="resource-link" href="https://www.marketingbrew.com/stories/2025/11/10/ad-tech-companies-are-looking-to-standardize-agentic-ai-media-buying" target="_blank"><div class="resource-icon">📰</div> Marketing Brew — Standardising agentic AI media buying</a>
-        <a class="resource-link" href="https://www.inma.org/blogs/advertising-initiative/post.cfm/understanding-the-agentic-advertising-moment" target="_blank"><div class="resource-icon">📰</div> INMA — Understanding the agentic advertising moment</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">AdCP is built on top of which underlying protocol?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Model Context Protocol (MCP) by Anthropic</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What is the main difference between AdCP and OpenRTB in terms of transaction speed?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>AdCP is asynchronous — responses can take seconds or days, accommodating human approval. OpenRTB operates in under 100ms.</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(2, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="showModule(1)">← Module 1</button>
-      <button class="nav-btn primary" onclick="showModule(3)">Module 3: ARTF →</button>
+      <button class="done-btn" id="done-m3" onclick="markDone('m3')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 3 — ARTF
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page" id="module-3">
-    <div class="module-header">
-      <div class="module-tag">Module 3</div>
-      <h2>ARTF: Agentic RTB Framework Explained</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-05</span>
-        <span class="status-pill status-baseline">Baseline</span>
+<!-- MODULE 4 -->
+<div class="section" id="sec-m4">
+  <div class="page-header">
+    <h1>Module 4 — AAMP: The Big Picture</h1>
+    <p>IAB Tech Lab's umbrella initiative announced Feb 26, 2026. The full operating system for agentic advertising.</p>
+  </div>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-body">
+      <h2>What is AAMP?</h2>
+      <p>Agentic Advertising Management Protocols (AAMP) is the umbrella initiative announced February 26, 2026 at Beet Retreat. It unifies all of IAB Tech Lab's agentic work under one coordinated roadmap — infrastructure + protocols + governance.</p>
+
+      <h2>The Three Pillars of AAMP</h2>
+      <h3>Pillar 1 — High-Performance Delivery (Execution)</h3>
+      <p>ARTF lives here. <span class="gloss" data-key="containerisation">Containerised</span> infrastructure for agents to operate inside real-time bidding at scale. Up to 90% latency reduction. Uses <span class="gloss" data-key="grpc">gRPC</span> and <span class="gloss" data-key="protobuf">Protocol Buffers</span> for high-throughput communication.</p>
+
+      <h3>Pillar 2 — Shared Protocols (Standards)</h3>
+      <table>
+        <tr><th>Protocol</th><th>Based on</th><th>Purpose</th></tr>
+        <tr><td>Agentic Audiences (UCP)</td><td>User Context Protocol (LiveRamp donation)</td><td><span class="gloss" data-key="embeddings">Embedding</span>-based audience signal exchange between agents</td></tr>
+        <tr><td>Agentic Ad Objects</td><td>AdCOM</td><td>Standardised ad object definitions across contexts</td></tr>
+        <tr><td>Agentic Direct</td><td>OpenDirect</td><td>Agents negotiate and transact direct deals</td></tr>
+        <tr><td>Agentic Deals</td><td>Deals API</td><td>Agent-driven deal negotiation and activation</td></tr>
+        <tr><td>Agentic RTB</td><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td>ARTF integration — agents inside the bid stream</td></tr>
+        <tr><td>Agentic Mobile</td><td>CloudX donation</td><td>Agentic workflows in mobile app ecosystem</td></tr>
+        <tr><td>Agentic Measurement</td><td>OM SDK / Conversion API</td><td>Measurement signals for agentic transactions</td></tr>
+      </table>
+
+      <h3>Pillar 3 — Trust and Transparency (Governance)</h3>
+      <p>The <span class="gloss" data-key="agentregistry">Agent Registry</span> — a public database of verified agents. Any agent transacting in the ecosystem must be registered. Launched March 1, 2026 in IAB Tools Portal.</p>
+
+      <h2>Agentic Audiences (formerly UCP)</h2>
+      <p>Donated by LiveRamp November 3, 2025. Standardises how agents exchange identity and contextual signals using dense <span class="gloss" data-key="embeddings">vector embeddings</span> (256–1024 dimensions) in a privacy-preserving, machine-readable format. Aligned with <span class="gloss" data-key="tcf">TCF</span> and <span class="gloss" data-key="gpp">GPP</span> privacy frameworks.</p>
+
+      <h2>The Agent Registry</h2>
+      <p>Every agent operating in the AAMP ecosystem must be registered in the <span class="gloss" data-key="agentregistry">Agent Registry</span>: who built it, what version is running, what protocols it supports, and who is accountable if something goes wrong. Directly addresses fraud and accountability risks of autonomous agents spending real money.</p>
+
+      <h2>2026 Roadmap Commitments</h2>
+      <ul>
+        <li>Open-source reference implementations of buyer and seller agents ✓ (released)</li>
+        <li>Neutral <span class="gloss" data-key="mcp">MCP</span> reference server</li>
+        <li>Standardised agent profiles</li>
+        <li><span class="gloss" data-key="protobuf">Protocol Buffers</span> and <span class="gloss" data-key="grpc">gRPC</span> mappings for existing specifications</li>
+        <li>Trust, provenance, and measurement signals for transaction integrity</li>
+      </ul>
+
+      <h2>Future Role Impact</h2>
+      <p><strong>Ad Tech Platform (DSP/SSP)</strong> — Clear integration roadmap: implement Buyer Agent SDK (demand side) or Seller Agent SDK (supply side) from IAB Tech Lab's GitHub. Register your agents with the registry.</p>
+      <p><strong>Privacy / Legal</strong> — Agentic Audiences uses <span class="gloss" data-key="embeddings">embeddings</span> aligned with <span class="gloss" data-key="tcf">TCF</span> and <span class="gloss" data-key="gpp">GPP</span>. Compliance requirements are encoded into the protocol layer, not bolted on.</p>
+
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. What does AAMP's Agent Registry primarily address?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Accountability and transparency — knowing who built each agent, what version is running, and who is responsible for its actions.</div>
+        <div class="checkpoint-q">2. Agentic Audiences (UCP) uses which technical approach to exchange audience signals in a privacy-preserving way?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Dense vector embeddings (256–1024 dimensions), aligned with TCF and GPP privacy frameworks.</div>
       </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📌</span> Overview</h3>
-      <p>Released November 13, 2025 by IAB Tech Lab. Built on OpenRTB. Uses containerisation to cut latency by up to 90%. A fundamentally different approach to AdCP — operating at the impression level inside real-time bidding pipelines.</p>
-      <div class="table-wrap" style="margin-top:14px">
-        <table>
-          <tbody>
-            <tr><td><strong>Release date</strong></td><td>November 13, 2025 (public comment closed January 15, 2026)</td></tr>
-            <tr><td><strong>Governing body</strong></td><td>IAB Tech Lab</td></tr>
-            <tr><td><strong>Reference implementation</strong></td><td>Go (open-source on GitHub, credited to Index Exchange Inc.)</td></tr>
-            <tr><td><strong>Built on</strong></td><td>OpenRTB — extends existing standards, does not replace them</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📦</span> The Containerisation Breakthrough</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Concept</th><th>Explanation</th></tr></thead>
-          <tbody>
-            <tr><td><strong>What is a container?</strong></td><td>Like a shipping container for software — packages all code and dependencies together. Runs inside one server instead of talking to others over the network.</td></tr>
-            <tr><td><strong>Latency reduction</strong></td><td>ARTF claims up to 80–90% latency reduction by running agent logic inside the same server as the bid.</td></tr>
-            <tr><td><strong>Segment activation</strong></td><td>Agents can activate user segments based on bid request data in real time (e.g. user born 1990 viewing a sports site).</td></tr>
-            <tr><td><strong>Backward compatible</strong></td><td>Extends existing OpenRTB standards. Existing plumbing still works.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🏗️</span> Technical Architecture</h3>
-      <p>ARTF exposes an <code>RTBExtensionPoint</code> service via gRPC. Agents receive an OpenRTB bid request and return proposed mutations:</p>
-      <div style="display:flex; flex-wrap:wrap; gap:8px; margin:12px 0;">
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12.5px;">Deal activations</span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12.5px;">Bid price adjustments (bid shading)</span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12.5px;">Segment additions</span>
-        <span style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12.5px;">Viewability metric additions</span>
-      </div>
-      <p style="margin-top:8px">Also supports MCP and Agent-to-Agent (A2A) protocols. A Web UI is available for local testing.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">⚖️</span> ARTF vs AdCP — Key Differences</h3>
-      <div class="table-wrap">
-        <table class="compare-table">
-          <thead><tr><th>Dimension</th><th>ARTF</th><th>AdCP</th></tr></thead>
-          <tbody>
-            <tr><td>Layer</td><td>Impression-level, inside RTB pipeline</td><td>Deal/campaign-level, between agents</td></tr>
-            <tr><td>Speed</td><td>Real-time (&lt;100ms)</td><td>Asynchronous (seconds to days)</td></tr>
-            <tr><td>Foundation</td><td>OpenRTB (extends existing)</td><td>MCP (native to agents)</td></tr>
-            <tr><td>Scope</td><td>Execution infrastructure</td><td>Communication language</td></tr>
-            <tr><td>Relationship</td><td colspan="2" style="text-align:center;color:var(--green)">Complementary — both now under AAMP umbrella</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="callout callout-green">
-      <div class="callout-title">Index Exchange Involvement</div>
-      Joshua Prismon, Chief Architect at Index Exchange, was quoted in the ARTF v1.0 press release. The Go reference implementation on GitHub is credited to Index Exchange Inc. IX has direct involvement in shaping this standard.
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">👤</span> Future Role Impact</h3>
-      <div class="roles-grid">
-        <div class="role-card"><span class="role-name">SSP / Exchange Engineer</span><span>You can expose ARTF-compatible agent extension points in your bidder. Third-party agents can enhance bids in real time without expensive integrations.</span></div>
-        <div class="role-card"><span class="role-name">Yield Manager / Revenue Ops</span><span>ARTF enables per-impression sell-side decisioning at scale — AI can dynamically adjust floor prices, activate deals, and apply curation logic in real time.</span></div>
-        <div class="role-card"><span class="role-name">Brand Safety / Fraud Analyst</span><span>Agent logic for brand safety checks can run inside the bid pipeline itself — faster responses, no external API calls per impression.</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Resources</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://github.com/IABTechLab/agentic-rtb-framework" target="_blank"><div class="resource-icon">⚙️</div> ARTF GitHub Repo — Go reference implementation + full spec</a>
-        <a class="resource-link" href="https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/" target="_blank"><div class="resource-icon">📄</div> IAB Tech Lab — AAMP page (includes ARTF docs)</a>
-        <a class="resource-link" href="https://www.prnewswire.com/news-releases/iab-tech-lab-announces-agentic-rtb-framework-artf-v1-0-for-public-comment-302613712.html" target="_blank"><div class="resource-icon">📰</div> ARTF v1.0 official announcement — Nov 13, 2025</a>
-        <a class="resource-link" href="https://www.thecurrent.com/marketing-strategy-iab-tech-lab-adcp-agentic-advertising-framework-ai" target="_blank"><div class="resource-icon">📰</div> The Current — AdCP vs ARTF: inside the standards showdown</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What is the key performance advantage of ARTF's containerisation approach?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Eliminates server-to-server network hops, reducing latency by up to 90% by running agent logic inside the same server as the bid.</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">Which best describes the relationship between ARTF and AdCP?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>ARTF handles real-time impression-level execution; AdCP handles deal-level agent communication — they are complementary, not competing.</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(3, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="showModule(2)">← Module 2</button>
-      <button class="nav-btn primary" onclick="showModule(4)">Module 4: AAMP →</button>
+      <button class="done-btn" id="done-m4" onclick="markDone('m4')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 4 — AAMP
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page" id="module-4">
-    <div class="module-header">
-      <div class="module-tag">Module 4</div>
-      <h2>AAMP: The Big Picture</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-05</span>
-        <span class="status-pill status-baseline">Baseline</span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📌</span> What is AAMP?</h3>
-      <p>Agentic Advertising Management Protocols (AAMP) is the umbrella initiative announced February 26, 2026. It unifies all of IAB Tech Lab's agentic work under one coordinated roadmap. Think of it as the full "operating system" for agentic advertising.</p>
-      <div class="table-wrap" style="margin-top:14px">
-        <table>
-          <tbody>
-            <tr><td><strong>Announced</strong></td><td>February 26, 2026 (Beet.TV Beet Retreat event)</td></tr>
-            <tr><td><strong>Governing body</strong></td><td>IAB Tech Lab</td></tr>
-            <tr><td><strong>Framing</strong></td><td>Resolves market confusion by naming the full initiative — ARTF and Agentic Audiences are components, not the sum total</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🏛️</span> The Three Pillars of AAMP</h3>
-      <div class="pillar-grid">
-        <div class="pillar-card">
-          <div class="pillar-number">Pillar 1</div>
-          <div class="pillar-title">High-Performance Delivery</div>
-          <div class="pillar-desc">ARTF lives here. Containerised infrastructure for agents inside real-time bidding at scale. Up to 90% latency reduction. The foundation for agents operating at machine speed.</div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-number">Pillar 2</div>
-          <div class="pillar-title">Shared Protocols</div>
-          <div class="pillar-desc">Seven agentic protocol components, each mapped to an existing IAB Tech Lab standard: Audiences, Ad Objects, Direct, Deals, RTB, Mobile, Measurement.</div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-number">Pillar 3</div>
-          <div class="pillar-title">Trust & Transparency</div>
-          <div class="pillar-desc">The Agent Registry — a public database of verified agents. Any agent transacting in the ecosystem must be registered. Launched March 1, 2026.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📋</span> The Seven Protocol Components</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Protocol</th><th>Based on</th><th>Purpose</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Agentic Audiences (UCP)</strong></td><td>User Context Protocol (LiveRamp donation)</td><td>Embedding-based audience signal exchange between agents</td></tr>
-            <tr><td><strong>Agentic Ad Objects</strong></td><td>AdCOM</td><td>Standardised ad object definitions across contexts</td></tr>
-            <tr><td><strong>Agentic Direct</strong></td><td>OpenDirect</td><td>Agents negotiate and transact direct deals without human intervention per step</td></tr>
-            <tr><td><strong>Agentic Deals</strong></td><td>Deals API</td><td>Agent-driven deal negotiation and activation</td></tr>
-            <tr><td><strong>Agentic RTB</strong></td><td>OpenRTB</td><td>ARTF integration — agents inside the bid stream</td></tr>
-            <tr><td><strong>Agentic Mobile</strong></td><td>CloudX donation</td><td>Agentic workflows in mobile app ecosystem</td></tr>
-            <tr><td><strong>Agentic Measurement</strong></td><td>OM SDK / Conversion API</td><td>Measurement signals for agentic transactions</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🧬</span> Agentic Audiences (formerly UCP)</h3>
-      <p>Donated by LiveRamp November 3, 2025. Standardises how agents exchange identity signals, contextual signals, and performance data using dense vector embeddings (256–1024 dimensions). How a buyer agent tells a seller agent "I need audiences like X" in a privacy-preserving, machine-readable format. Aligned with TCF and GPP privacy frameworks.</p>
-    </div>
-
-    <div class="callout callout-yellow">
-      <div class="callout-title">Agent Registry</div>
-      Every agent operating in the AAMP ecosystem must be registered — who built it, what version, what protocols it supports, who is accountable. Launched March 1, 2026. Directly addresses fraud and accountability risks of autonomous agents spending real money.
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🗓️</span> 2026 Roadmap Commitments</h3>
-      <div class="signals-list">
-        <div class="signal-item"><div class="signal-num" style="background:rgba(52,211,153,0.15);color:var(--green)">✓</div><div>Open-source reference implementations of buyer and seller agents (released)</div></div>
-        <div class="signal-item"><div class="signal-num">→</div><div>Neutral MCP reference server</div></div>
-        <div class="signal-item"><div class="signal-num">→</div><div>Standardised agent profiles</div></div>
-        <div class="signal-item"><div class="signal-num">→</div><div>Protocol Buffers and gRPC mappings for existing specifications</div></div>
-        <div class="signal-item"><div class="signal-num">→</div><div>Trust, provenance, and measurement signals for transaction integrity</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">👤</span> Future Role Impact</h3>
-      <div class="roles-grid">
-        <div class="role-card"><span class="role-name">Ad Tech Platform (DSP/SSP)</span><span>Clear integration roadmap: implement Buyer Agent SDK (demand side) or Seller Agent SDK (supply side) from IAB Tech Lab's GitHub. Register your agents with the registry.</span></div>
-        <div class="role-card"><span class="role-name">Privacy / Legal</span><span>Agentic Audiences uses embeddings aligned with TCF and GPP. Compliance requirements are encoded into the protocol layer, not bolted on.</span></div>
-        <div class="role-card"><span class="role-name">Ad Standards Lead</span><span>AAMP extends AdCOM, OpenDirect, and Deals API — existing standards you know. The agentic layer is additive, not a full replacement.</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Resources</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/" target="_blank"><div class="resource-icon">📄</div> IAB Tech Lab — Official AAMP standards page (with video explainer)</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/AAMP" target="_blank"><div class="resource-icon">⚙️</div> AAMP GitHub Hub — links to all sub-repositories</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/buyer-agent" target="_blank"><div class="resource-icon">⚙️</div> IAB Tech Lab — Buyer Agent SDK</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/seller-agent" target="_blank"><div class="resource-icon">⚙️</div> IAB Tech Lab — Seller Agent SDK</a>
-        <a class="resource-link" href="https://ppc.land/iab-tech-lab-names-its-agentic-ad-initiative-aamp-to-end-market-confusion/" target="_blank"><div class="resource-icon">📰</div> PPC Land — IAB Tech Lab names initiative AAMP</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What does AAMP's Agent Registry primarily address?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Accountability and transparency — knowing who built each agent, what version is running, and who is responsible for its actions.</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">Agentic Audiences (UCP) uses which technical approach to exchange audience signals in a privacy-preserving way?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Dense vector embeddings (256–1024 dimensions), aligned with TCF and GPP privacy frameworks.</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(4, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="showModule(3)">← Module 3</button>
-      <button class="nav-btn primary" onclick="showModule(5)">Module 5: The Standards Battle →</button>
-    </div>
+<!-- MODULE 5 -->
+<div class="section" id="sec-m5">
+  <div class="page-header">
+    <h1>Module 5 — AdCP vs AAMP/ARTF: The Standards Battle</h1>
+    <p>Competing or complementary? An honest breakdown as of May 2026, including the emerging consensus.</p>
   </div>
-
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 5 — COMPARISON
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page" id="module-5">
-    <div class="module-header">
-      <div class="module-tag">Module 5</div>
-      <h2>AdCP vs AAMP/ARTF: The Standards Battle</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-06</span>
-        <span class="status-pill status-updated">Updated</span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📜</span> The Origin Story</h3>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-06</span></div>
+    <div class="module-body">
+      <h2>The Origin Story</h2>
       <p>When AdCP launched in October 2025, IAB Tech Lab CEO Anthony Katsur publicly questioned whether the industry needed "another industry trade group." Six weeks later, IAB Tech Lab released ARTF. Then in February 2026, AAMP was unveiled. IAB Tech Lab's framing: AAMP is not a reaction to AdCP — it's months of pre-existing work. The timing tells a story regardless.</p>
-    </div>
 
-    <div class="section">
-      <h3><span class="icon">⚖️</span> Key Differences at a Glance</h3>
-      <div class="table-wrap">
-        <table class="compare-table">
-          <thead><tr><th>Dimension</th><th>AdCP</th><th>AAMP / IAB Tech Lab</th></tr></thead>
-          <tbody>
-            <tr><td>Governance</td><td>Neutral working group, 20+ companies, not vendor-owned</td><td>IAB Tech Lab — established non-profit since 2014, proven governance</td></tr>
-            <tr><td>Technical approach</td><td>Native-to-agents, built on MCP, asynchronous, natural language first</td><td>Extends proven standards (OpenRTB, AdCOM, OpenDirect), containerised real-time execution</td></tr>
-            <tr><td>Scope</td><td>Deal-level agent communication and transaction</td><td>Full stack: infrastructure + protocols + governance</td></tr>
-            <tr><td>Foundation</td><td>Anthropic's MCP</td><td>OpenRTB, AdCOM, OpenDirect, Deals API</td></tr>
-            <tr><td>Adoption (May 2026)</td><td>Early sell-side transactions via Swivel; no major AI assistant integration</td><td>Buyer/Seller SDKs released; Agent Registry live; ARTF v1.0 finalised</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      <h2>Key Differences at a Glance</h2>
+      <table>
+        <tr><th>Dimension</th><th>AdCP</th><th>AAMP / IAB Tech Lab</th></tr>
+        <tr><td>Governance</td><td>Neutral working group, 20+ companies, not vendor-owned</td><td>IAB Tech Lab — established non-profit since 2014, proven governance</td></tr>
+        <tr><td>Technical approach</td><td>Native-to-agents, built on <span class="gloss" data-key="mcp">MCP</span>, <span class="gloss" data-key="async">asynchronous</span>, natural language first</td><td>Extends proven standards (<span class="gloss" data-key="openrtb">OpenRTB</span>, AdCOM), <span class="gloss" data-key="containerisation">containerised</span> real-time execution</td></tr>
+        <tr><td>Scope</td><td>Deal-level agent communication and transaction</td><td>Full stack: infrastructure + protocols + governance</td></tr>
+        <tr><td>Foundation</td><td>Anthropic's <span class="gloss" data-key="mcp">MCP</span></td><td><span class="gloss" data-key="openrtb">OpenRTB</span>, AdCOM, OpenDirect, Deals API</td></tr>
+        <tr><td>Adoption (May 2026)</td><td>Early sell-side transactions via Swivel; Omnicom confirmed live buys</td><td>Buyer/Seller SDKs released; <span class="gloss" data-key="agentregistry">Agent Registry</span> live; ARTF v1.0 finalised</td></tr>
+      </table>
 
-    <div class="callout callout-yellow">
-      <div class="callout-title">Fragmentation Risk</div>
-      If SSPs implement AdCP and DSPs implement AAMP protocols without interoperability, every agent needs custom integration per platform — recreating exactly the fragmentation both protocols are trying to solve. IAB Australia and others are explicitly calling for convergence.
-    </div>
+      <h2>The Fragmentation Risk</h2>
+      <p>Multiple competing protocols could fragment the ecosystem the way pre-OpenRTB programmatic was fragmented. If <span class="gloss" data-key="ssp">SSPs</span> implement AdCP and <span class="gloss" data-key="dsp">DSPs</span> implement AAMP protocols without interoperability, every agent needs custom integration per platform — recreating exactly the fragmentation both protocols are trying to solve.</p>
+      <p>IAB Australia and other voices are explicitly calling for AdCP agents to register with the AAMP <span class="gloss" data-key="agentregistry">Agent Registry</span> and for both ecosystems to align.</p>
 
-    <div class="section">
-      <h3><span class="icon">🤝</span> The Emerging Consensus (May 2026)</h3>
+      <h2>The Emerging Consensus (May 2026)</h2>
       <p>The industry increasingly views these as complementary layers:</p>
-      <div class="pillar-grid" style="margin-top:12px">
-        <div class="pillar-card">
-          <div class="pillar-number">AAMP / ARTF</div>
-          <div class="pillar-title">Execution Infrastructure</div>
-          <div class="pillar-desc">High-performance impression-level, real-time bidding. The pipes.</div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-number">AdCP</div>
-          <div class="pillar-title">Deal-Level Language</div>
-          <div class="pillar-desc">Asynchronous campaign-level agent negotiation. The conversation.</div>
-        </div>
+      <ul>
+        <li><strong>AAMP/ARTF</strong> handles high-performance execution infrastructure (impression-level, real-time)</li>
+        <li><strong>AdCP</strong> handles deal-level agent negotiation language (<span class="gloss" data-key="async">asynchronous</span>, campaign-level)</li>
+      </ul>
+      <p>An agent built with AdCP could, in principle, use ARTF infrastructure to execute bids. Convergence is likely — the question is timeline and industry politics.</p>
+
+      <h2>Adoption Timeline</h2>
+      <table>
+        <tr><th>Milestone</th><th>Date</th><th>Notes</th></tr>
+        <tr><td>AdCP launched</td><td>Oct 15, 2025</td><td>20+ founding members</td></tr>
+        <tr><td>ARTF v1.0 released for comment</td><td>Nov 13, 2025</td><td>Comment period closed Jan 15, 2026</td></tr>
+        <tr><td>UCP donated to IAB Tech Lab</td><td>Nov 3, 2025</td><td>LiveRamp donation</td></tr>
+        <tr><td>IAB Tech Lab Agentic Roadmap</td><td>Jan 6, 2026</td><td>Full roadmap unveiled</td></tr>
+        <tr><td>AAMP named as umbrella initiative</td><td>Feb 26, 2026</td><td>Resolves market confusion</td></tr>
+        <tr><td>Agent Registry launched</td><td>Mar 1, 2026</td><td>Live in IAB Tools Portal</td></tr>
+        <tr><td>Buyer/Seller Agent SDKs released</td><td>Early 2026</td><td>Open-source on GitHub</td></tr>
+      </table>
+
+      <div class="callout green">
+        <strong>&#9889; Inflection signal — April 29, 2026</strong>
+        Omnicom confirmed live AdCP media buys on Q1 2026 earnings call. First major holding company to confirm production use of agentic media buying infrastructure built on AdCP. PubMatic reported 250+ agentic deals since December 2025. The Trade Desk launched AI agents with Stagwell as first client.
       </div>
-    </div>
 
-    <div class="section">
-      <h3><span class="icon">📅</span> Adoption Timeline</h3>
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-date">Oct 15, 2025</div><div class="tl-text">AdCP launched — 20+ founding members</div></div>
-        <div class="tl-item"><div class="tl-date">Nov 3, 2025</div><div class="tl-text">UCP donated to IAB Tech Lab by LiveRamp</div></div>
-        <div class="tl-item"><div class="tl-date">Nov 13, 2025</div><div class="tl-text">ARTF v1.0 released for public comment</div></div>
-        <div class="tl-item"><div class="tl-date">Jan 6, 2026</div><div class="tl-text">IAB Tech Lab full agentic roadmap unveiled</div></div>
-        <div class="tl-item"><div class="tl-date">Jan 15, 2026</div><div class="tl-text">ARTF v1.0 public comment period closed</div></div>
-        <div class="tl-item"><div class="tl-date">Feb 26, 2026</div><div class="tl-text">AAMP named as umbrella initiative — resolves market confusion</div></div>
-        <div class="tl-item"><div class="tl-date">Mar 1, 2026</div><div class="tl-text">Agent Registry launched in IAB Tools Portal</div></div>
-        <div class="tl-item"><div class="tl-date">Early 2026</div><div class="tl-text">Buyer/Seller Agent SDKs released open-source on GitHub</div></div>
-        <div class="tl-item"><div class="tl-date">Apr 29, 2026</div><div class="tl-text"><strong>⚡ Inflection signal hit:</strong> Omnicom confirms live AdCP media buys on Q1 earnings call. PubMatic reports 250+ agentic deals. TTD launches AI agents with Stagwell.</div></div>
+      <h2>What to Watch — Key Inflection Signals</h2>
+      <ul>
+        <li>Will major <span class="gloss" data-key="dsp">DSPs</span> (The Trade Desk, DV360) announce AAMP integration?</li>
+        <li>Will AdCP reach 50+ publisher implementations?</li>
+        <li>Will AAMP <span class="gloss" data-key="agentregistry">Agent Registry</span> see registrations from AdCP members (indicating convergence)?</li>
+        <li>ARTF v2.0 spec release timeline</li>
+        <li>Any formal AdCP / AAMP interoperability announcement</li>
+      </ul>
+
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. Which statement best describes ARTF vs AdCP's approach?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">ARTF extends proven existing standards with containerised real-time execution; AdCP is a native-to-agents standard built on MCP for asynchronous deal orchestration.</div>
+        <div class="checkpoint-q">2. What is the main fragmentation risk if AdCP and AAMP don't converge?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Agents built for one ecosystem can't interoperate with platforms built for the other — recreating the fragmentation programmatic was meant to solve.</div>
       </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🎯</span> Key Inflection Signals to Watch</h3>
-      <div class="signals-list">
-        <div class="signal-item"><div class="signal-num">1</div>Major DSP (The Trade Desk, DV360) announces AAMP integration</div>
-        <div class="signal-item"><div class="signal-num">2</div>AdCP reaches 50+ publisher implementations</div>
-        <div class="signal-item"><div class="signal-num">3</div>AAMP Agent Registry sees registrations from AdCP members (indicating convergence)</div>
-        <div class="signal-item"><div class="signal-num">4</div>ARTF v2.0 spec release</div>
-        <div class="signal-item"><div class="signal-num">5</div>Any AdCP / AAMP formal interoperability announcement</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">👤</span> Future Role Impact</h3>
-      <div class="roles-grid">
-        <div class="role-card"><span class="role-name">Strategy / Planning</span><span>Don't bet entirely on one protocol. Monitor both. The winning standard will likely incorporate elements of both — as OpenRTB did by absorbing earlier competing specs.</span></div>
-        <div class="role-card"><span class="role-name">Partnerships / BD</span><span>AAMP membership and AdCP working group participation are now strategic. Being in the room when these standards are written gives first-mover advantage.</span></div>
-        <div class="role-card"><span class="role-name">Agency / Trading Desk</span><span>Your DSP will likely implement AAMP. Ask them. Meanwhile, test AdCP's Media Buy Protocol via early-adopter SSP partners. Both could coexist in your stack.</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔗</span> Resources</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://digiday.com/media-buying/adcp-vs-iab-tech-lab-inside-programmatic-advertisings-agentic-ai-standards-showdown/" target="_blank"><div class="resource-icon">📰</div> Digiday — AdCP vs IAB Tech Lab: the agentic standards showdown</a>
-        <a class="resource-link" href="https://www.exchangewire.com/blog/2026/04/17/agentic-advertising-needs-interoperability-standardisation-and-adoption-to-thrive/" target="_blank"><div class="resource-icon">📰</div> ExchangeWire — Agentic advertising needs interoperability (April 2026)</a>
-        <a class="resource-link" href="https://www.iabuk.com/news-article/future-agentic-understanding-new-standards-ai-digital-advertising" target="_blank"><div class="resource-icon">📰</div> IAB UK — Is the future agentic? Deep dive on all standards</a>
-        <a class="resource-link" href="https://iabtechlab.com/press-releases/iab-tech-lab-unveils-agentic-roadmap-for-digital-advertising/" target="_blank"><div class="resource-icon">📄</div> IAB Tech Lab — Agentic Roadmap press release (Jan 2026)</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">Which best describes ARTF vs AdCP's approach?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>ARTF extends proven existing standards with containerised real-time execution; AdCP is a native-to-agents standard built on MCP for asynchronous deal orchestration.</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What is the main fragmentation risk if AdCP and AAMP don't converge?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Agents built for one ecosystem can't interoperate with platforms built for the other — recreating the fragmentation programmatic was meant to solve.</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(5, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="showModule(4)">← Module 4</button>
-      <button class="nav-btn primary" onclick="showModule(6)">Module 6: Staying Current →</button>
+      <button class="done-btn" id="done-m5" onclick="markDone('m5')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════
-       MODULE 6 — STAYING CURRENT
-  ════════════════════════════════════════════════════ -->
-  <div class="module-page" id="module-6">
-    <div class="module-header">
-      <div class="module-tag">Module 6</div>
-      <h2>Staying Current & Your Learning Roadmap</h2>
-      <div class="module-meta">
-        <span class="meta-badge">📅 Last updated: 2026-05-05</span>
-        <span class="status-pill status-baseline">Baseline</span>
+<!-- MODULE 6 -->
+<div class="section" id="sec-m6">
+  <div class="page-header">
+    <h1>Module 6 — Staying Current &amp; Your Learning Roadmap</h1>
+    <p>This space moves fast. How to keep knowledge sharp as these standards evolve, plus a 3-month action plan.</p>
+  </div>
+  <div class="content-body">
+    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-body">
+      <h2>How to Stay Updated Using Claude</h2>
+      <blockquote>"Search the web and find the latest news from the past 7 days on: IAB Tech Lab AAMP agentic advertising, AdCP Ad Context Protocol, ARTF agentic RTB framework. Summarise any new spec releases, GitHub updates, or major company adoptions. What changed?"</blockquote>
+      <p>Paste this into a new Claude conversation each week for a clean, synthesised result.</p>
+
+      <h2>Key Sources to Bookmark</h2>
+      <table>
+        <tr><th>Source</th><th>URL</th><th>Why</th></tr>
+        <tr><td>IAB Tech Lab Blog</td><td><a href="https://iabtechlab.com/blog/" target="_blank">iabtechlab.com/blog</a></td><td>Official announcements, spec releases</td></tr>
+        <tr><td>IABTechLab GitHub</td><td><a href="https://github.com/IABTechLab" target="_blank">github.com/IABTechLab</a></td><td>Commit activity = earliest signal of spec changes</td></tr>
+        <tr><td>AdCP GitHub</td><td><a href="https://github.com/adcontextprotocol/adcp" target="_blank">github.com/adcontextprotocol/adcp</a></td><td>Protocol updates in real time</td></tr>
+        <tr><td>The Current</td><td><a href="https://www.thecurrent.com" target="_blank">thecurrent.com</a></td><td>Best editorial coverage of agentic adtech</td></tr>
+        <tr><td>ExchangeWire</td><td><a href="https://www.exchangewire.com" target="_blank">exchangewire.com</a></td><td>Strong practitioner perspective</td></tr>
+        <tr><td>Digiday Media Buying</td><td><a href="https://digiday.com/media-buying/" target="_blank">digiday.com/media-buying</a></td><td>Good depth on standards debates</td></tr>
+      </table>
+
+      <h2>3-Month Action Plan</h2>
+      <h3>Month 1 — Get Technical</h3>
+      <ul>
+        <li>Star and clone <code>github.com/IABTechLab/agentic-rtb-framework</code></li>
+        <li>Run the Go reference implementation locally using <span class="gloss" data-key="docker">Docker</span> Compose</li>
+        <li>Send it a sample <span class="gloss" data-key="openrtb">OpenRTB</span> bid request and observe the mutations returned</li>
+        <li>Read through the AdCP GitHub spec (start with README and the Media Buy Protocol)</li>
+      </ul>
+      <h3>Month 2 — Get External</h3>
+      <ul>
+        <li>Attend an IAB Agentic Bootcamp (2nd Thursday monthly, 4–6pm ET, NYC)</li>
+        <li>Ask your <span class="gloss" data-key="dsp">DSP</span> and <span class="gloss" data-key="ssp">SSP</span> partners: "What is your current roadmap for AAMP or AdCP compatibility?"</li>
+        <li>Note: IX has direct ARTF involvement — leverage internal context in these conversations</li>
+      </ul>
+      <h3>Month 3 — Run a Pilot</h3>
+      <ul>
+        <li>Use the Buyer Agent SDK to simulate a media brief against a test SSP</li>
+        <li>Use <span class="gloss" data-key="kubernetes">Kubernetes</span> or <span class="gloss" data-key="docker">Docker</span> to run containerised agent logic locally</li>
+        <li>Document findings — very few practitioners have done this yet</li>
+      </ul>
+
+      <h2>Key Inflection Signals to Watch</h2>
+      <ol>
+        <li>Major <span class="gloss" data-key="dsp">DSP</span> (The Trade Desk, DV360) announces AAMP integration</li>
+        <li>AdCP reaches 50+ publisher implementations</li>
+        <li>AAMP <span class="gloss" data-key="agentregistry">Agent Registry</span> sees registrations from AdCP members</li>
+        <li>ARTF v2.0 spec release</li>
+        <li>Any AdCP / AAMP formal interoperability announcement</li>
+      </ol>
+
+      <div class="checkpoint">
+        <h3>Checkpoint Questions</h3>
+        <div class="checkpoint-q">1. Which is the earliest signal that a new ARTF or AAMP spec is about to drop?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Commit activity on the IABTechLab GitHub repositories — changes appear days or weeks before official press releases.</div>
+        <div class="checkpoint-q">2. What is the best way to use Claude to stay updated on agentic adtech?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Use a specific prompt asking Claude to search for recent news on AAMP, AdCP, and agentic advertising standards — naming the specific protocols to get current, synthesised results rather than stale training data.</div>
       </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🔍</span> Key Sources to Bookmark</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Source</th><th>Why</th></tr></thead>
-          <tbody>
-            <tr><td><a href="https://iabtechlab.com/blog/" target="_blank" style="color:#0A8F89">IAB Tech Lab Blog</a></td><td>Official announcements, spec releases</td></tr>
-            <tr><td><a href="https://github.com/IABTechLab" target="_blank" style="color:#0A8F89">IABTechLab GitHub</a></td><td>Commit activity = earliest signal of spec changes</td></tr>
-            <tr><td><a href="https://github.com/adcontextprotocol/adcp" target="_blank" style="color:#0A8F89">AdCP GitHub</a></td><td>Protocol updates in real time</td></tr>
-            <tr><td><a href="https://www.thecurrent.com" target="_blank" style="color:#0A8F89">The Current</a></td><td>Best editorial coverage of agentic adtech</td></tr>
-            <tr><td><a href="https://www.exchangewire.com" target="_blank" style="color:#0A8F89">ExchangeWire</a></td><td>Strong practitioner perspective</td></tr>
-            <tr><td><a href="https://digiday.com/media-buying/" target="_blank" style="color:#0A8F89">Digiday Media Buying</a></td><td>Good depth on standards debates</td></tr>
-            <tr><td><a href="https://www.adexchanger.com" target="_blank" style="color:#0A8F89">AdExchanger</a></td><td>Industry benchmark publication</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">⭐</span> GitHub Repos to Star & Watch</h3>
-      <div class="resources-grid">
-        <a class="resource-link" href="https://github.com/IABTechLab/AAMP" target="_blank"><div class="resource-icon">⚙️</div>github.com/IABTechLab/AAMP</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/agentic-rtb-framework" target="_blank"><div class="resource-icon">⚙️</div>github.com/IABTechLab/agentic-rtb-framework</a>
-        <a class="resource-link" href="https://github.com/adcontextprotocol/adcp" target="_blank"><div class="resource-icon">⚙️</div>github.com/adcontextprotocol/adcp</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/buyer-agent" target="_blank"><div class="resource-icon">⚙️</div>github.com/IABTechLab/buyer-agent</a>
-        <a class="resource-link" href="https://github.com/IABTechLab/seller-agent" target="_blank"><div class="resource-icon">⚙️</div>github.com/IABTechLab/seller-agent</a>
-      </div>
-      <p style="margin-top:10px;font-size:13px;color:var(--muted)">Enable "Watch → All Activity" to get email alerts when specs change. GitHub commit activity appears days or weeks before official press releases.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">📅</span> IAB Tech Lab Event Calendar</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Event</th><th>Cadence</th><th>Details</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Agentic Bootcamps</strong></td><td>Monthly (2nd Thursday, 4–6pm ET)</td><td>IAB Ad Lab, New York. Free, hands-on. Register at iabtechlab.com</td></tr>
-            <tr><td><strong>Public comment periods</strong></td><td>As specs release</td><td>60-day windows. Participating shapes the standard. Watch for ARTF v2 and AAMP updates.</td></tr>
-            <tr><td><strong>IAB Annual Leadership Meeting</strong></td><td>February annually</td><td>Largest gathering of adtech leaders. Agentic standards a major theme in Feb 2026.</td></tr>
-            <tr><td><strong>IAB Tech Lab webinars</strong></td><td>As announced</td><td>"Reviewing the Agentic AI Standards Roadmap" (Jan 28, 2026) available as recording.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🗓️</span> 3-Month Action Plan</h3>
-      <div class="month-grid">
-        <div class="month-card">
-          <div class="month-label">Month 1</div>
-          <div class="month-title">Get Technical</div>
-          <ul class="month-items">
-            <li>Star and clone the ARTF GitHub repo</li>
-            <li>Run the Go reference implementation with Docker Compose</li>
-            <li>Send it a sample OpenRTB bid request and observe mutations returned</li>
-            <li>Read through the AdCP spec (start with README and Media Buy Protocol)</li>
-          </ul>
-        </div>
-        <div class="month-card">
-          <div class="month-label">Month 2</div>
-          <div class="month-title">Get External</div>
-          <ul class="month-items">
-            <li>Attend an IAB Agentic Bootcamp or watch recording</li>
-            <li>Ask DSP and SSP partners about their AAMP/AdCP roadmap</li>
-            <li>Leverage IX's direct ARTF involvement in these conversations</li>
-          </ul>
-        </div>
-        <div class="month-card">
-          <div class="month-label">Month 3</div>
-          <div class="month-title">Run a Pilot</div>
-          <ul class="month-items">
-            <li>Use the Buyer Agent SDK to simulate a media brief against a test SSP</li>
-            <li>Document what works and what breaks</li>
-            <li>Write up findings — strong thought leadership value here</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">🎯</span> Key Inflection Signals to Watch</h3>
-      <div class="signals-list">
-        <div class="signal-item"><div class="signal-num">1</div>Major DSP (The Trade Desk, DV360) announces AAMP integration</div>
-        <div class="signal-item"><div class="signal-num">2</div>AdCP reaches 50+ publisher implementations</div>
-        <div class="signal-item"><div class="signal-num">3</div>AAMP Agent Registry sees registrations from AdCP members</div>
-        <div class="signal-item"><div class="signal-num">4</div>ARTF v2.0 spec release</div>
-        <div class="signal-item"><div class="signal-num">5</div>Any AdCP / AAMP formal interoperability announcement</div>
-      </div>
-    </div>
-
-    <div class="callout callout-green">
-      <div class="callout-title">Weekly 5-Minute Maintenance Routine</div>
-      1. Run the Claude search prompt for latest AAMP/AdCP/agentic news. 2. Check GitHub commit activity on the 5 starred repos. 3. Scan IAB Tech Lab blog for new posts. 4. Save significant links to /changelogs/.
-    </div>
-
-    <div class="section">
-      <h3><span class="icon">✅</span> Checkpoint Questions</h3>
-      <div class="checkpoint-list">
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">Which is the earliest signal that a new ARTF or AAMP spec is about to drop?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Commit activity on the IABTechLab GitHub repositories — changes appear days or weeks before official press releases.</div>
-        </div>
-        <div class="checkpoint-item" onclick="toggleCheckpoint(this)">
-          <div class="checkpoint-q"><span class="q-text">What is the best way to use Claude to stay updated on agentic adtech?</span><span class="chevron">▼</span></div>
-          <div class="checkpoint-a"><div class="answer-label">Answer</div>Use a specific prompt asking Claude to search for recent news on AAMP, AdCP, and agentic advertising standards — naming the specific protocols to get current, synthesised results rather than stale training data.</div>
-        </div>
-      </div>
-    </div>
-
-    <button class="mark-done-btn" onclick="markDone(6, this)">✓ Mark as Complete</button>
-
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="showModule(5)">← Module 5</button>
-      <button class="nav-btn primary" onclick="showModule(1)">↩ Back to Start</button>
+      <button class="done-btn" id="done-m6" onclick="markDone('m6')">&#10003; Mark as Complete</button>
     </div>
   </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="section" id="sec-videos">
+  <div class="page-header">
+    <h1>Videos</h1>
+    <p>Talks, explainers, and bootcamp recordings on agentic advertising standards.</p>
+  </div>
+  <div class="filter-bar">
+    <div class="filter-pill active" onclick="filterVideos('all',this)">All</div>
+    <div class="filter-pill" onclick="filterVideos('aamp',this)">AAMP</div>
+    <div class="filter-pill" onclick="filterVideos('adcp',this)">AdCP</div>
+    <div class="filter-pill" onclick="filterVideos('artf',this)">ARTF</div>
+    <div class="filter-pill" onclick="filterVideos('general',this)">General</div>
+  </div>
+  <div class="card-grid" id="video-grid">
+    <a class="video-card" href="https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/" target="_blank" data-tag="aamp">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>AAMP Overview — IAB Tech Lab Official Explainer</h3>
+        <p>Official video explainer covering all three pillars: execution, shared protocols, and governance. Best starting point for AAMP.</p>
+        <div class="video-meta"><span class="video-source">IAB Tech Lab</span><span class="tag aamp">AAMP</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/@IABTechLab" target="_blank" data-tag="artf">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>ARTF Technical Bootcamp — IAB Tech Lab YouTube</h3>
+        <p>Monthly agentic bootcamp series. Covers containerisation approach, RTBExtensionPoint, and the Go reference implementation in detail.</p>
+        <div class="video-meta"><span class="video-source">IAB Tech Lab YouTube</span><span class="tag artf">ARTF</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://www.beet.tv/tag/agentic-advertising/" target="_blank" data-tag="aamp">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>AAMP Announcement at Beet Retreat — Anthony Katsur, IAB Tech Lab CEO</h3>
+        <p>The moment AAMP was named as the unifying initiative. Katsur explains why naming matters for market clarity and adoption speed.</p>
+        <div class="video-meta"><span class="video-source">Beet.TV</span><span class="tag aamp">AAMP</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://www.beet.tv/tag/adcp/" target="_blank" data-tag="adcp">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>AdCP Launch Explainer — Scope3 &amp; Founding Members</h3>
+        <p>Walkthrough of the four AdCP modules at launch: Signals Activation, Media Buy, Creative, and Curation Protocol.</p>
+        <div class="video-meta"><span class="video-source">Beet.TV</span><span class="tag adcp">AdCP</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://iabtechlab.com/blog/" target="_blank" data-tag="aamp">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>Reviewing the Agentic AI Standards Roadmap — IAB Tech Lab Webinar</h3>
+        <p>Jan 28, 2026 webinar. Full roadmap walkthrough including ARTF v1.0 final spec, Agent Registry launch, and 2026 commitments.</p>
+        <div class="video-meta"><span class="video-source">IAB Tech Lab Webinar</span><span class="tag aamp">AAMP</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://www.indexexchange.com/2026/01/22/innovators-unscripted-agentic-advertising-moving-theory-action/" target="_blank" data-tag="general">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>Agentic Advertising: Theory to Action — Andrew Casale, CES 2026</h3>
+        <p>Index Exchange CEO on where agentic advertising is beginning to deliver real impact and the challenge of "agentic confusion" across simultaneous standards.</p>
+        <div class="video-meta"><span class="video-source">Index Exchange</span><span class="tag general">General</span></div>
+      </div>
+    </a>
+    <a class="video-card" href="https://www.beet.tv/tag/pubmatic/" target="_blank" data-tag="adcp">
+      <div class="video-thumb"><div class="play-btn">&#9654;</div></div>
+      <div class="video-info">
+        <h3>Agentic Audiences &amp; Vector Embeddings — PubMatic Deep Dive</h3>
+        <p>How PubMatic's AgenticOS implements Agentic Audiences using dense vector embeddings for privacy-preserving signal exchange. 250+ deals live.</p>
+        <div class="video-meta"><span class="video-source">Beet.TV</span><span class="tag adcp">AdCP</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div class="section" id="sec-articles">
+  <div class="page-header">
+    <h1>Articles</h1>
+    <p>Curated reading — major pieces on agentic advertising standards with short summaries.</p>
+  </div>
+  <div class="article-list">
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>AdCP vs IAB Tech Lab: Inside Programmatic Advertising's Agentic AI Standards Showdown</h3>
+        <div class="article-tags"><span class="tag adcp">AdCP</span><span class="tag aamp">AAMP</span></div>
+      </div>
+      <p>The best single piece on the standards battle. Covers the origin story, competing governance models, technical architecture differences, and why fragmentation is the real risk. Balanced treatment of both sides — worth reading before any partner conversation about agentic roadmaps.</p>
+      <div class="article-meta"><span>Digiday &middot; Feb 2026</span><a href="https://digiday.com/media-buying/adcp-vs-iab-tech-lab-inside-programmatic-advertisings-agentic-ai-standards-showdown/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>Agentic Advertising Needs Interoperability, Standardisation, and Adoption to Thrive</h3>
+        <div class="article-tags"><span class="tag aamp">AAMP</span><span class="tag adcp">AdCP</span></div>
+      </div>
+      <p>ExchangeWire's April 2026 practitioner perspective on why neither AdCP nor AAMP alone solves the fragmentation problem. Argues that AdCP agents should register with the AAMP Agent Registry as the pragmatic path to convergence. Strong editorial with industry quotes from both camps.</p>
+      <div class="article-meta"><span>ExchangeWire &middot; Apr 2026</span><a href="https://www.exchangewire.com/blog/2026/04/17/agentic-advertising-needs-interoperability-standardisation-and-adoption-to-thrive/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>IAB Tech Lab Names Its Agentic Ad Initiative AAMP to End Market Confusion</h3>
+        <div class="article-tags"><span class="tag aamp">AAMP</span></div>
+      </div>
+      <p>The announcement article for AAMP as an umbrella initiative (Feb 26, 2026). Explains why IAB Tech Lab needed a single name — the market was confused by ARTF, UCP, Agentic Audiences, and Agent Registry existing as separate named projects. Good historical record of the naming decision.</p>
+      <div class="article-meta"><span>PPC Land &middot; Feb 2026</span><a href="https://ppc.land/iab-tech-lab-names-its-agentic-ad-initiative-aamp-to-end-market-confusion/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>Inside AgenticOS: PubMatic's Full Buy-Side Stack for Agentic Advertising</h3>
+        <div class="article-tags"><span class="tag adcp">AdCP</span><span class="tag aamp">AAMP</span></div>
+      </div>
+      <p>PubMatic deep-dives on its AgenticOS — the most operationally detailed description of what a production-ready agentic advertising stack looks like in 2026. Reports 250+ agentic deals transacted since December 2025. Essential reading for anyone evaluating SSP-side implementation paths.</p>
+      <div class="article-meta"><span>PubMatic &middot; Mar 2026</span><a href="https://pubmatic.com/blog/inside-agenticos-a-look-at-pubmatics-full-buy-side-agent-stack/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>What Is Agent-to-Agent Media Buying?</h3>
+        <div class="article-tags"><span class="tag adcp">AdCP</span></div>
+      </div>
+      <p>Scope3's explainer on the AdCP-based agent-to-agent framework that Omnicom used for its live buys. Explains the technical flow of how a buyer agent and seller agent negotiate a deal without human intervention per step — the most accessible description of what production AdCP actually looks like.</p>
+      <div class="article-meta"><span>Scope3 &middot; Apr 2026</span><a href="https://scope3.com/blog/what-is-agent-to-agent-media-buying/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>The Trade Desk Launches AI Agents with Stagwell as First Client</h3>
+        <div class="article-tags"><span class="tag adcp">AdCP</span><span class="tag general">General</span></div>
+      </div>
+      <p>TTD's Koa-powered AI agents are now embedded in Stagwell's ad tech stack, enabling campaign configuration via natural language prompts. Working alongside PubMatic, Scope3, and Magnite. First major DSP to go public with a named agentic client — significant adoption signal for the demand side.</p>
+      <div class="article-meta"><span>Ad Age &middot; Apr 2026</span><a href="https://adage.com/technology/ai/aa-the-trade-desk-expands-agent-advertising-stagwell-integration/" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>Is the Future Agentic? Understanding New Standards for AI in Digital Advertising</h3>
+        <div class="article-tags"><span class="tag aamp">AAMP</span><span class="tag adcp">AdCP</span><span class="tag artf">ARTF</span></div>
+      </div>
+      <p>IAB UK's comprehensive deep-dive covering all active agentic standards — ARTF, AdCP, AAMP, and the Agent Registry. Particularly strong on the technical differences between impression-level ARTF execution and deal-level AdCP negotiation. Best piece for explaining these standards to a non-technical stakeholder.</p>
+      <div class="article-meta"><span>IAB UK &middot; Mar 2026</span><a href="https://www.iabuk.com/news-article/future-agentic-understanding-new-standards-ai-digital-advertising" target="_blank">Read more &#8594;</a></div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-top">
+        <h3>Ad Platforms Rebuild, Earnings Diverge, and AI Rewrites the Supply Chain</h3>
+        <div class="article-tags"><span class="tag adcp">AdCP</span><span class="tag general">General</span></div>
+      </div>
+      <p>PPC Land's analysis of Q1 2026 earnings season through an agentic advertising lens. Covers Omnicom's live AdCP buys confirmation, how different holding companies are diverging in their AI investment strategies, and what supply chain rewrites look like in practice.</p>
+      <div class="article-meta"><span>PPC Land &middot; Apr 2026</span><a href="https://ppc.land/ad-platforms-rebuild-earnings-diverge-and-ai-rewrites-the-supply-chain/" target="_blank">Read more &#8594;</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS & REPOS -->
+<div class="section" id="sec-tools">
+  <div class="page-header">
+    <h1>Tools &amp; Repos</h1>
+    <p>Star and watch these GitHub repos for earliest signal on spec changes — commit activity precedes press releases.</p>
+  </div>
+  <div class="tools-grid">
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">🏗️</span><div><div class="repo-name">IABTechLab / AAMP</div><div class="repo-owner">IAB Tech Lab</div></div></div>
+      <p>The umbrella hub linking all AAMP sub-repositories. Start here to navigate the full AAMP ecosystem — ARTF, Agentic Audiences, Agent Registry, Buyer/Seller SDKs.</p>
+      <a class="repo-link" href="https://github.com/IABTechLab/AAMP" target="_blank">&#8599; github.com/IABTechLab/AAMP</a>
+      <div class="repo-tags"><span class="tag aamp">AAMP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">&#9889;</span><div><div class="repo-name">IABTechLab / agentic-rtb-framework</div><div class="repo-owner">IAB Tech Lab</div></div></div>
+      <p>Full ARTF v1.0 spec plus the Go reference implementation credited to Index Exchange. Includes Docker Compose setup for local testing, RTBExtensionPoint gRPC service, and sample OpenRTB bid requests.</p>
+      <a class="repo-link" href="https://github.com/IABTechLab/agentic-rtb-framework" target="_blank">&#8599; github.com/IABTechLab/agentic-rtb-framework</a>
+      <div class="repo-tags"><span class="tag artf">ARTF</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">🤝</span><div><div class="repo-name">adcontextprotocol / adcp</div><div class="repo-owner">AgenticAdvertising.org</div></div></div>
+      <p>The official AdCP specification (v2.0.0). Covers all four modules: Signals Activation, Media Buy, Creative, and Curation Protocol. Built on MCP — any MCP-compatible AI assistant can integrate via AdCP.</p>
+      <a class="repo-link" href="https://github.com/adcontextprotocol/adcp" target="_blank">&#8599; github.com/adcontextprotocol/adcp</a>
+      <div class="repo-tags"><span class="tag adcp">AdCP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">🛒</span><div><div class="repo-name">IABTechLab / buyer-agent</div><div class="repo-owner">IAB Tech Lab</div></div></div>
+      <p>Open-source Buyer Agent SDK. Reference implementation for a DSP-side agent implementing AAMP protocols. Use this for Month 3 of the action plan — simulate a media brief against a test SSP.</p>
+      <a class="repo-link" href="https://github.com/IABTechLab/buyer-agent" target="_blank">&#8599; github.com/IABTechLab/buyer-agent</a>
+      <div class="repo-tags"><span class="tag aamp">AAMP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">📦</span><div><div class="repo-name">IABTechLab / seller-agent</div><div class="repo-owner">IAB Tech Lab</div></div></div>
+      <p>Open-source Seller Agent SDK. Reference implementation for an SSP-side agent. Pair with buyer-agent to run a complete simulated agentic transaction end-to-end.</p>
+      <a class="repo-link" href="https://github.com/IABTechLab/seller-agent" target="_blank">&#8599; github.com/IABTechLab/seller-agent</a>
+      <div class="repo-tags"><span class="tag aamp">AAMP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">🔍</span><div><div class="repo-name">AAMP Agent Registry</div><div class="repo-owner">IAB Tech Lab Tools Portal</div></div></div>
+      <p>Live registry of verified agents. Launched March 1, 2026. Track registration counts from AdCP ecosystem members as a key signal of convergence vs fragmentation between the two standards camps.</p>
+      <a class="repo-link" href="https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/" target="_blank">&#8599; iabtechlab.com/standards/aamp</a>
+      <div class="repo-tags"><span class="tag aamp">AAMP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">📋</span><div><div class="repo-name">OpenRTB Specification</div><div class="repo-owner">IAB Tech Lab</div></div></div>
+      <p>The foundation that ARTF and AAMP extend. Understanding OpenRTB bid request/response structure is essential before working with RTBExtensionPoint mutations or Agentic RTB protocol components.</p>
+      <a class="repo-link" href="https://iabtechlab.com/standards/openrtb/" target="_blank">&#8599; iabtechlab.com/standards/openrtb</a>
+      <div class="repo-tags"><span class="tag artf">ARTF</span><span class="tag aamp">AAMP</span></div>
+    </div>
+    <div class="repo-card">
+      <div class="repo-card-header"><span class="repo-icon">🌐</span><div><div class="repo-name">AgenticAdvertising.org</div><div class="repo-owner">AdCP Governance Body</div></div></div>
+      <p>The independent non-profit governing AdCP. Vendor-neutral working group with 20+ members. The formal home of the AdCP specification, working groups, and adoption milestones.</p>
+      <a class="repo-link" href="https://agenticadvertising.org" target="_blank">&#8599; agenticadvertising.org</a>
+      <div class="repo-tags"><span class="tag adcp">AdCP</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGELOG -->
+<div class="section" id="sec-changelog">
+  <div class="page-header">
+    <h1>Changelog</h1>
+    <p>Weekly update log — what changed, what was found, and which modules were updated.</p>
+  </div>
+  <div class="changelog-body">
+    <div class="changelog-entry">
+      <div class="changelog-date">May 6, 2026</div>
+      <div class="changelog-headline">Omnicom confirms live AdCP media buys on Q1 earnings call — first major holding company to confirm production agentic media buying. PubMatic reports 250+ agentic deals since December 2025. The Trade Desk launches AI agents with Stagwell. No new AAMP/ARTF spec releases this week.</div>
+      <div class="changelog-section">
+        <h4>Module Changes</h4>
+        <ul>
+          <li><strong>Module 2 (AdCP)</strong> — Updated adoption reality section. Omnicom Q1 2026 earnings call (April 29) confirms live AdCP media buys — status changed to Updated. Added AdCP governance update (now under AgenticAdvertising.org). Sources: <a href="https://ppc.land/ad-platforms-rebuild-earnings-diverge-and-ai-rewrites-the-supply-chain/" target="_blank">PPC Land</a>, <a href="https://scope3.com/blog/what-is-agent-to-agent-media-buying/" target="_blank">Scope3 Agent-to-Agent</a></li>
+          <li><strong>Module 5 (Comparison)</strong> — Added inflection signal note to adoption timeline: Omnicom live buys, PubMatic 250+ deals, TTD/Stagwell agent launch — status changed to Updated. Sources: <a href="https://videoweek.com/2026/03/03/week-in-charts-magnite-on-the-impact-of-the-trade-desks-openpath-pubmatic-leans-into-agentic-campaigns-and-amazon-overtakes-dazn-in-sports-spend/" target="_blank">VideoWeek</a>, <a href="https://adage.com/technology/ai/aa-the-trade-desk-expands-agent-advertising-stagwell-integration/" target="_blank">Ad Age</a></li>
+          <li>Modules 1, 3, 4, 6 — No change</li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <h4>Competitor Content This Week</h4>
+        <div class="comp-item">
+          <div class="comp-company">Index Exchange</div>
+          <div class="comp-entry"><strong>"How Agentic Advertising Is Moving From Theory to Action"</strong> &middot; Article &middot; <a href="https://www.indexexchange.com/2026/01/22/innovators-unscripted-agentic-advertising-moving-theory-action/" target="_blank">indexexchange.com</a> — Andrew Casale at CES 2026 on where agentic advertising is beginning to deliver real impact and the challenge of "agentic confusion."</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">PubMatic</div>
+          <div class="comp-entry"><strong>"Inside AgenticOS: PubMatic's Full Buy-Side Stack for Agentic Advertising"</strong> &middot; Article &middot; <a href="https://pubmatic.com/blog/inside-agenticos-a-look-at-pubmatics-full-buy-side-agent-stack/" target="_blank">pubmatic.com</a> — Deep-dive on PubMatic's full agentic stack; company reports 250+ agentic deals transacted since December 2025.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">The Trade Desk</div>
+          <div class="comp-entry"><strong>"The Trade Desk Launches AI Agents with Stagwell as Client"</strong> &middot; Article &middot; <a href="https://adage.com/technology/ai/aa-the-trade-desk-expands-agent-advertising-stagwell-integration/" target="_blank">adage.com</a> — TTD embedding Koa-powered AI agents into Stagwell's ad tech stack for campaign configuration via natural language.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">Scope3</div>
+          <div class="comp-entry"><strong>"What Is Agent-to-Agent Media Buying?"</strong> &middot; Article &middot; <a href="https://scope3.com/blog/what-is-agent-to-agent-media-buying/" target="_blank">scope3.com</a> — Explains the AdCP-based agent-to-agent framework Omnicom used for live buys.</div>
+          <div class="comp-entry" style="margin-top:6px"><strong>"Why AdCP Matters"</strong> &middot; Article &middot; <a href="https://scope3.com/blog/why-adcp-matters-creating-interoperability-as-ai-agents-transform-advertising/" target="_blank">scope3.com</a> — Scope3's case for AdCP as the interoperability standard for agentic advertising.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div><!-- end #main -->
 
+<!-- GLOSSARY DRAWER -->
+<div id="gloss-overlay" onclick="closeGloss()"></div>
+<div id="gloss-drawer">
+  <div class="gloss-header">
+    <div><h2 id="gloss-title">Term</h2><div class="gloss-cat" id="gloss-cat">Category</div></div>
+    <button class="gloss-close" onclick="closeGloss()">&#10005;</button>
+  </div>
+  <div class="gloss-body">
+    <div id="gloss-content"></div>
+    <div class="gloss-related" id="gloss-related-wrap" style="display:none">
+      <div class="gloss-related-label">Related Terms</div>
+      <div class="gloss-related-tags" id="gloss-related-tags"></div>
+    </div>
+    <a class="gloss-link" id="gloss-spec-link" href="#" target="_blank" style="display:none">&#8599; View spec / documentation</a>
+  </div>
+</div>
+
 <script>
-  const TOTAL = 6;
-  const completed = new Set(JSON.parse(localStorage.getItem('adtech_completed') || '[]'));
+// ── GLOSSARY DATA ─────────────────────────────────────────────────────────
+const GLOSSARY = {
+  containerisation:{title:"Containerisation",cat:"Infrastructure",body:`<p>Containerisation packages an application and all its dependencies into a single portable unit called a <strong>container</strong>. Unlike installing software directly onto a server, a container is self-contained — it carries everything it needs to run.</p><p>In ARTF, this is the core innovation. Instead of an AI agent making a network call to an external server (adding 10–50ms of latency), the agent logic is packaged in a container that runs <em>inside</em> the same server as the bid. Result: up to 90% latency reduction, because there's no network hop.</p><p>Think of it like the difference between calling a colleague on the phone (network hop) vs. tapping them on the shoulder (in-process). ARTF agents tap on the shoulder.</p>`,related:["docker","kubernetes","grpc","rtbext"],link:"https://github.com/IABTechLab/agentic-rtb-framework"},
+  docker:{title:"Docker",cat:"Infrastructure",body:`<p><strong>Docker</strong> is the most widely-used containerisation platform. It lets you define a container's contents in a <code>Dockerfile</code>, build it into an image, and run it anywhere — local Mac, cloud server, or inside a bid server.</p><p>For ARTF, Docker Compose is the recommended way to run the Go reference implementation locally. You can spin up a full simulated RTB environment with a single command: <code>docker compose up</code>.</p><p>When IAB Tech Lab says ARTF uses "containerised agent logic," Docker is typically what's running under the hood.</p>`,related:["containerisation","kubernetes"],link:"https://github.com/IABTechLab/agentic-rtb-framework"},
+  kubernetes:{title:"Kubernetes",cat:"Infrastructure",body:`<p><strong>Kubernetes</strong> (K8s) is the industry-standard platform for orchestrating containers at scale. While Docker runs a single container, Kubernetes manages thousands of containers across many servers — starting, stopping, and scaling them automatically based on load.</p><p>In ARTF at production scale, Kubernetes is how you deploy containerised agent logic across a fleet of bid servers. As bid volume increases, Kubernetes automatically spawns more agent containers; as volume drops, it scales back down.</p><p>For the action plan in Module 6, starting with Docker locally before considering Kubernetes is the right progression.</p>`,related:["docker","containerisation"],link:"https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/"},
+  grpc:{title:"gRPC",cat:"Protocol",body:`<p><strong>gRPC</strong> (Google Remote Procedure Call) is a high-performance framework for services to call each other over a network. It uses Protocol Buffers for serialisation and HTTP/2 for transport — roughly 5–10x faster than REST/JSON for machine-to-machine communication.</p><p>ARTF uses gRPC to expose the RTBExtensionPoint service. When a bid request arrives, the bid server makes a gRPC call to the ARTF agent container, which returns proposed mutations (deal activations, bid price adjustments, segment additions) in microseconds.</p><p>gRPC is common in high-throughput ad tech infrastructure. If your team builds bidders, you've likely encountered it in internal service calls.</p>`,related:["protobuf","rtbext","containerisation"],link:"https://github.com/IABTechLab/agentic-rtb-framework"},
+  rtbext:{title:"RTBExtensionPoint",cat:"ARTF Spec",body:`<p>The <strong>RTBExtensionPoint</strong> is the central interface defined by ARTF — a gRPC service that sits inside the bid pipeline, accepts an OpenRTB bid request, and returns a set of proposed mutations.</p><p>Think of it as a plug-in point in your bidder: instead of hardcoding bid logic, you call the RTBExtensionPoint and let the agent decide what to do with the impression. Mutations it can propose:</p><ul><li>Activate a deal</li><li>Adjust the bid price (bid shading)</li><li>Add audience segments</li><li>Attach viewability or measurement signals</li></ul><p>The backward-compatible design means existing OpenRTB infrastructure doesn't need to change — you just add the extension point call before finalising the bid.</p>`,related:["grpc","openrtb","bidshading","containerisation"],link:"https://github.com/IABTechLab/agentic-rtb-framework"},
+  protobuf:{title:"Protocol Buffers",cat:"Protocol",body:`<p><strong>Protocol Buffers</strong> (protobuf) is Google's language-neutral data serialisation format. You define a schema in a <code>.proto</code> file, and protobuf generates code to encode/decode messages much more efficiently than JSON or XML — roughly 3–5x smaller and 5–10x faster to encode/decode.</p><p>In a system processing millions of bid requests per second, this matters enormously. AAMP's 2026 roadmap explicitly includes protobuf and gRPC mappings for all existing IAB specifications — meaning OpenRTB, AdCOM, and the rest will get protobuf schemas for agent communication at RTB scale.</p>`,related:["grpc","openrtb","rtbext"],link:"https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/"},
+  mcp:{title:"Model Context Protocol (MCP)",cat:"Protocol",body:`<p><strong>Model Context Protocol (MCP)</strong> is an open standard created by Anthropic that lets AI models connect to external tools and data sources in a standardised way. Instead of building a custom integration for every tool, any tool that implements MCP can be used by any MCP-compatible AI assistant.</p><p>AdCP is built as a layer on top of MCP. This means any AI assistant that supports MCP — including Claude, and future assistants from other providers — can access advertising platforms through AdCP without custom integrations per platform.</p><p>It's the same protocol that allows Claude to use tools like web search, file access, and external APIs.</p>`,related:["async","openrtb"],link:"https://github.com/adcontextprotocol/adcp"},
+  async:{title:"Asynchronous Communication",cat:"Architecture",body:`<p><strong>Asynchronous</strong> communication means one party sends a message and doesn't need to wait for an immediate response. The reply comes back whenever it's ready — seconds, minutes, hours, or days later.</p><p>This is the fundamental architectural difference between AdCP and OpenRTB/ARTF:</p><ul><li><strong>OpenRTB</strong> — synchronous, must respond in under 100ms or the bid is dropped</li><li><strong>AdCP</strong> — asynchronous, a media buy negotiation might involve a human sign-off that takes 24 hours</li></ul><p>This isn't a weakness — it's a design choice reflecting how campaign-level deal negotiation actually works. AdCP handles the deal layer; ARTF/OpenRTB handles the impression layer.</p>`,related:["mcp","openrtb"],link:"https://github.com/adcontextprotocol/adcp"},
+  openrtb:{title:"OpenRTB",cat:"Industry Standard",body:`<p><strong>OpenRTB</strong> (Open Real-Time Bidding) is the IAB Tech Lab standard that powers most programmatic advertising today. It defines the format for bid requests (SSP → DSP) and bid responses (DSP → SSP) that enable impression-level auctions in under 100 milliseconds.</p><p>Launched in 2010, OpenRTB solved the same problem for traditional programmatic that AAMP/AdCP are now solving for agentic advertising: it created a common language so any DSP could bid on any SSP's inventory without bespoke integrations.</p><p>Both ARTF and AAMP are explicitly designed to extend OpenRTB — not replace it. Existing OpenRTB infrastructure continues to work; the agentic layer is additive.</p>`,related:["dsp","ssp","rtbext","async"],link:"https://iabtechlab.com/standards/openrtb/"},
+  dsp:{title:"DSP — Demand-Side Platform",cat:"Advertising",body:`<p>A <strong>Demand-Side Platform (DSP)</strong> is software used by advertisers and agencies to buy digital advertising inventory automatically. The DSP connects to multiple ad exchanges and SSPs, evaluates each impression opportunity, and submits bids in real time.</p><p>Major DSPs include The Trade Desk, Google DV360, Amazon DSP, and MediaMath. In the agentic context, DSPs are expected to implement Buyer Agent SDKs (AAMP) or support AdCP Media Buy Protocol — allowing an AI agent to configure campaigns and bids via natural language rather than through a UI.</p>`,related:["ssp","openrtb"],link:"https://iabtechlab.com/standards/openrtb/"},
+  ssp:{title:"SSP — Supply-Side Platform",cat:"Advertising",body:`<p>A <strong>Supply-Side Platform (SSP)</strong> is software used by publishers to sell their advertising inventory programmatically. The SSP connects to multiple demand sources, runs auctions, and maximises revenue per impression.</p><p>Major SSPs include Index Exchange, PubMatic, Magnite, and Google Ad Manager. In the agentic context, SSPs implement Seller Agent SDKs (AAMP) or AdCP-compatible seller agents — allowing a buyer's AI agent to query inventory, negotiate deals, and execute buys via a standardised protocol.</p>`,related:["dsp","openrtb"],link:"https://iabtechlab.com/standards/openrtb/"},
+  bidshading:{title:"Bid Shading",cat:"Advertising",body:`<p><strong>Bid shading</strong> is an algorithmic technique used in first-price auctions to reduce the bid price below the buyer's true maximum willingness to pay — "shading" it down to something closer to what the impression is likely to clear at.</p><p>In a second-price auction, you always bid your true value (you only pay $0.01 above the second-highest bid). In a first-price auction (which most programmatic now uses), overbidding costs you money directly. Bid shading uses historical win/loss data and ML to find the optimal shade factor.</p><p>In ARTF, bid shading is one of the mutations that an agent running via RTBExtensionPoint can return — the agent analyses the bid request and suggests a shaded price rather than the raw maximum.</p>`,related:["rtbext","openrtb","dsp"],link:"https://github.com/IABTechLab/agentic-rtb-framework"},
+  embeddings:{title:"Vector Embeddings",cat:"Machine Learning",body:`<p><strong>Vector embeddings</strong> are dense numerical representations of concepts — audiences, content, signals — stored as arrays of floating-point numbers. Similar concepts end up close together in this mathematical space; dissimilar concepts end up far apart.</p><p>In AAMP's Agentic Audiences protocol, embeddings are used to exchange audience signals between agents in a privacy-preserving way. Instead of sharing raw user IDs, a buyer agent can express "I need audiences that look like this" as a 256–1024 dimensional vector, and a seller agent can find matching inventory without either side revealing individual user data.</p><p>The 256–1024 dimension range balances expressiveness (higher = more nuance) with efficiency (lower = faster at bid speed).</p>`,related:["agentregistry","tcf","gpp"],link:"https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/"},
+  agentregistry:{title:"Agent Registry",cat:"AAMP Governance",body:`<p>The <strong>Agent Registry</strong> is AAMP's solution to the accountability problem that comes with autonomous AI agents spending real money. It's a public database maintained by IAB Tech Lab where every agent operating in the AAMP ecosystem must be registered.</p><p>Each registry entry includes: who built the agent, what version is running, what protocols it supports, and who is legally accountable for its actions. Launched March 1, 2026 in the IAB Tools Portal.</p><p>Industry voices are pushing for AdCP-ecosystem agents to also register here — which would be a strong signal of convergence between the two standards. Monitoring registration counts from AdCP members is one of the key inflection signals to watch.</p>`,related:["embeddings","tcf","gpp"],link:"https://iabtechlab.com/standards/aamp-agentic-advertising-management-protocols/"},
+  tcf:{title:"TCF — Transparency & Consent Framework",cat:"Privacy",body:`<p>The <strong>Transparency & Consent Framework (TCF)</strong> is the IAB Europe standard for managing user consent in digital advertising under GDPR. It defines how consent is signalled from a user's browser through the ad tech stack — DSPs, SSPs, DMPs — so each party knows what processing is permitted.</p><p>In AAMP's Agentic Audiences protocol, audience signals expressed as vector embeddings must be aligned with TCF — meaning the consent status of the underlying signals is preserved and respected as the embeddings travel between agents. Compliance is encoded into the protocol layer, not bolted on separately.</p>`,related:["gpp","embeddings","agentregistry"],link:"https://iabeurope.eu/tcf-2-0/"},
+  gpp:{title:"GPP — Global Privacy Platform",cat:"Privacy",body:`<p>The <strong>Global Privacy Platform (GPP)</strong> is IAB Tech Lab's successor to TCF — designed to handle privacy regulations across multiple jurisdictions (GDPR, CCPA/CPRA, and others) in a single standardised signal.</p><p>Where TCF is GDPR-specific, GPP provides a unified string format that can express consent and opt-out signals for any regional privacy law. As agentic advertising goes cross-border, GPP alignment ensures that a single agent stack doesn't need custom privacy logic per jurisdiction.</p><p>AAMP's Agentic Audiences protocol is aligned with both TCF and GPP, making it the compliance-forward choice for any platform with international reach.</p>`,related:["tcf","embeddings","agentregistry"],link:"https://iabtechlab.com/standards/global-privacy-platform/"}
+};
 
-  const titles = {
-    1: 'Module 1 — Foundation',
-    2: 'Module 2 — AdCP Explained',
-    3: 'Module 3 — ARTF Explained',
-    4: 'Module 4 — AAMP: The Big Picture',
-    5: 'Module 5 — AdCP vs AAMP',
-    6: 'Module 6 — Staying Current'
-  };
+// ── NAVIGATION ─────────────────────────────────────────────────────────────
+function showSection(sec) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(n=>n.classList.remove('active'));
+  const t=document.getElementById('sec-'+sec);
+  if(t) t.classList.add('active');
+  const ni=document.querySelector('.nav-item[data-sec="'+sec+'"]');
+  if(ni) ni.classList.add('active');
+}
 
-  function showModule(n) {
-    document.querySelectorAll('.module-page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+function showModule(mod) {
+  showSection(mod);
+  document.querySelectorAll('.nav-sub').forEach(n=>n.classList.remove('active'));
+  const sub=document.querySelector('.nav-sub[data-module="'+mod+'"]');
+  if(sub) sub.classList.add('active');
+  openCourse();
+}
 
-    document.getElementById('module-' + n).classList.add('active');
-    document.querySelectorAll('.nav-item')[n - 1].classList.add('active');
-    document.getElementById('topbar-title').textContent = titles[n];
+function toggleCourse() {
+  document.getElementById('course-toggle').classList.toggle('open');
+  document.getElementById('course-children').classList.toggle('open');
+}
 
-    window.scrollTo(0, 0);
-    document.getElementById('main').scrollTop = 0;
+function openCourse() {
+  document.getElementById('course-toggle').classList.add('open');
+  document.getElementById('course-children').classList.add('open');
+}
 
-    // Restore button state
-    const btn = document.querySelector('#module-' + n + ' .mark-done-btn');
-    if (btn && completed.has(n)) {
-      btn.textContent = '✓ Completed';
-      btn.classList.add('done');
-    }
-    return false;
-  }
-
-  function markDone(n, btn) {
-    completed.add(n);
-    localStorage.setItem('adtech_completed', JSON.stringify([...completed]));
-    btn.textContent = '✓ Completed';
-    btn.classList.add('done');
-
-    // Update nav num
-    const num = document.getElementById('nav-num-' + n);
-    if (num) {
-      num.textContent = '✓';
-      num.parentElement.classList.add('completed');
-    }
-
-    updateProgress();
-  }
-
-  function updateProgress() {
-    const count = completed.size;
-    document.getElementById('progress-text').textContent = count + ' of ' + TOTAL + ' complete';
-    document.getElementById('progress-fill').style.width = ((count / TOTAL) * 100) + '%';
-  }
-
-  function toggleCheckpoint(el) {
-    el.classList.toggle('open');
-  }
-
-  // Init
-  (function init() {
-    completed.forEach(n => {
-      const num = document.getElementById('nav-num-' + n);
-      if (num) {
-        num.textContent = '✓';
-        num.parentElement.classList.add('completed');
-      }
+// ── GLOSSARY ───────────────────────────────────────────────────────────────
+function openGloss(key) {
+  const g=GLOSSARY[key];
+  if(!g) return;
+  document.getElementById('gloss-title').textContent=g.title;
+  document.getElementById('gloss-cat').textContent=g.cat;
+  document.getElementById('gloss-content').innerHTML=g.body;
+  const rw=document.getElementById('gloss-related-wrap');
+  const rt=document.getElementById('gloss-related-tags');
+  if(g.related&&g.related.length){
+    rt.innerHTML='';
+    g.related.forEach(r=>{
+      const t=GLOSSARY[r];
+      if(t){const sp=document.createElement('span');sp.className='gloss-tag';sp.textContent=t.title;sp.onclick=()=>openGloss(r);rt.appendChild(sp);}
     });
-    updateProgress();
-  })();
+    rw.style.display='block';
+  } else {rw.style.display='none';}
+  const sl=document.getElementById('gloss-spec-link');
+  if(g.link){sl.href=g.link;sl.style.display='inline-flex';}else{sl.style.display='none';}
+  document.getElementById('gloss-drawer').classList.add('open');
+  document.getElementById('gloss-overlay').classList.add('on');
+}
+
+function closeGloss() {
+  document.getElementById('gloss-drawer').classList.remove('open');
+  document.getElementById('gloss-overlay').classList.remove('on');
+}
+
+document.querySelectorAll('.gloss').forEach(el=>{
+  el.addEventListener('click',()=>openGloss(el.dataset.key));
+});
+
+// ── CHECKPOINT ─────────────────────────────────────────────────────────────
+function revealAnswer(btn) {
+  const a=btn.nextElementSibling;
+  a.classList.toggle('show');
+  btn.textContent=a.classList.contains('show')?'Hide answer':'Show answer';
+}
+
+// ── PROGRESS ───────────────────────────────────────────────────────────────
+const MODULES=['m1','m2','m3','m4','m5','m6'];
+
+function loadProgress() {
+  MODULES.forEach(m=>{if(localStorage.getItem('done_'+m)==='1') applyDone(m);});
+  updateProgressBar();
+}
+
+function markDone(m) {
+  localStorage.setItem('done_'+m,'1');
+  applyDone(m);
+  updateProgressBar();
+}
+
+function applyDone(m) {
+  const c=document.getElementById('chk-'+m);
+  if(c){c.textContent='✓';c.parentElement.classList.add('done');}
+  const b=document.getElementById('done-'+m);
+  if(b){b.textContent='✓ Completed';b.classList.add('completed');b.disabled=true;}
+}
+
+function updateProgressBar() {
+  const done=MODULES.filter(m=>localStorage.getItem('done_'+m)==='1').length;
+  document.getElementById('progress-bar').style.width=(done/6*100)+'%';
+  document.getElementById('progress-label').textContent=done+' of 6 modules complete';
+}
+
+// ── VIDEO FILTER ───────────────────────────────────────────────────────────
+function filterVideos(tag,el) {
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.video-card').forEach(c=>{
+    c.style.display=(tag==='all'||c.dataset.tag===tag)?'block':'none';
+  });
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+loadProgress();
+showModule('m1');
+openCourse();
 </script>
 </body>
 </html>
