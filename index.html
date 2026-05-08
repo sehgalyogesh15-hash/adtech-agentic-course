@@ -190,6 +190,112 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .comp-entry{font-size:13px;color:#1a2e25;margin-bottom:4px}
 .comp-entry a{color:var(--accent2);text-decoration:none}
 .comp-entry a:hover{text-decoration:underline}
+
+/* ── MODULE 2 ENHANCEMENTS ── */
+/* Larger base font for m2 */
+#sec-m2 .module-body p{font-size:15px;line-height:1.75}
+#sec-m2 .module-body li{font-size:15px;line-height:1.75}
+#sec-m2 .module-body table{font-size:14px}
+#sec-m2 .module-body td{padding:10px 13px}
+#sec-m2 .module-body th{padding:10px 13px;font-size:13px}
+#sec-m2 .module-body h2{font-size:19px;margin-top:36px}
+
+/* Section intro label */
+.sec-intro{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:18px;padding:10px 14px;background:rgba(76,211,204,.06);border-radius:6px;border-left:3px solid var(--accent)}
+
+/* PARADIGM DIAGRAM */
+.paradigm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 8px}
+.paradigm-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff}
+.paradigm-card.broken .pcard-head{background:#fee2e2}
+.paradigm-card.broken .pcard-head-label{color:#991b1b}
+.paradigm-card.adcp-card .pcard-head{background:#d1fae5}
+.paradigm-card.adcp-card .pcard-head-label{color:#065f46}
+.paradigm-card.adcp-card{border-color:var(--accent2);border-width:2px}
+.pcard-head{padding:12px 14px 10px;border-bottom:1px solid var(--border)}
+.pcard-head-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px}
+.pcard-title{font-size:14px;font-weight:700;color:var(--text);margin-top:4px}
+.pcard-body{padding:14px}
+.pflow{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.pflow-step{font-size:13px;padding:7px 10px;background:var(--bg);border-radius:5px;color:var(--text);position:relative;text-align:center}
+.pflow-arrow{text-align:center;color:var(--muted);font-size:11px;line-height:1}
+.pcard-problem{font-size:12.5px;color:#7f1d1d;background:#fff1f2;border-radius:5px;padding:8px 10px;margin-top:4px}
+.pcard-problem.good{color:#065f46;background:#f0fdf4}
+.pcard-stat{font-size:13px;font-weight:700;color:var(--yellow);margin:8px 0 2px}
+
+/* AGENT FLOW DIAGRAM */
+.agent-flow{display:flex;align-items:center;gap:0;margin:20px 0;overflow-x:auto;padding:4px 0}
+.af-node{background:#fff;border:2px solid var(--border);border-radius:10px;padding:14px 16px;min-width:120px;text-align:center;flex-shrink:0}
+.af-node.buyer{border-color:var(--accent);background:rgba(76,211,204,.08)}
+.af-node.seller{border-color:var(--accent2);background:rgba(26,140,110,.08)}
+.af-node.human{border-color:var(--yellow);background:#fffbeb}
+.af-node.exec{border-color:#6366f1;background:#eef2ff}
+.af-node-icon{font-size:22px;margin-bottom:5px}
+.af-node-label{font-size:13px;font-weight:700;color:var(--text)}
+.af-node-sub{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+.af-arrow{display:flex;flex-direction:column;align-items:center;padding:0 8px;flex-shrink:0}
+.af-arrow-line{width:40px;height:2px;background:var(--border)}
+.af-arrow-tip{color:var(--muted);font-size:10px;margin-top:-1px}
+.af-arrow-label{font-size:10px;color:var(--muted);text-align:center;margin-top:4px;max-width:60px;line-height:1.3}
+
+/* DEAL LIFECYCLE */
+.lifecycle{display:flex;gap:0;margin:20px 0;overflow-x:auto}
+.lc-step{flex:1;min-width:100px;text-align:center;position:relative}
+.lc-step:not(:last-child)::after{content:"›";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--border)}
+.lc-bubble{width:48px;height:48px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--bg);border:2px solid var(--border)}
+.lc-step.active .lc-bubble{background:rgba(76,211,204,.15);border-color:var(--accent)}
+.lc-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px}
+.lc-sub{font-size:11px;color:var(--muted);line-height:1.35}
+.lc-protocol{font-size:10px;color:var(--accent2);font-weight:600;margin-top:4px}
+
+/* PUBLISHER TIERS */
+.pub-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.pub-tier{border:1px solid var(--border);border-radius:8px;padding:14px;background:#fff}
+.pub-tier-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.pub-tier-label.large{color:#1d4ed8}
+.pub-tier-label.mid{color:#7c3aed}
+.pub-tier-label.small{color:var(--muted)}
+.pub-tier p{font-size:13px;color:#1a2e25;line-height:1.6;margin:0}
+
+/* FLASHCARDS */
+.flashcard-section{margin:28px 0}
+.flashcard-section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.flashcard-section-label::after{content:"";flex:1;height:1px;background:var(--border)}
+.flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.flashcard{background:#fff;border:1px solid var(--border);border-radius:10px;cursor:pointer;perspective:600px;height:130px}
+.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:10px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+.flashcard-front{background:#fff}
+.flashcard-back{background:var(--surface);color:#fff;transform:rotateY(180deg)}
+.fc-q{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.5}
+.fc-hint{font-size:11px;color:var(--muted)}
+.fc-a{font-size:13px;line-height:1.55;color:#e2faf9}
+.fc-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-top:auto}
+
+/* CHALLENGES SECTION */
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.swot-card{border-radius:8px;padding:16px}
+.swot-card.strengths{background:#d1fae5;border:1px solid #6ee7b7}
+.swot-card.weaknesses{background:#fee2e2;border:1px solid #fca5a5}
+.swot-card.opportunities{background:#dbeafe;border:1px solid #93c5fd}
+.swot-card.threats{background:#fef3c7;border:1px solid #fcd34d}
+.swot-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
+.swot-card.strengths .swot-label{color:#065f46}
+.swot-card.weaknesses .swot-label{color:#991b1b}
+.swot-card.opportunities .swot-label{color:#1e40af}
+.swot-card.threats .swot-label{color:#92400e}
+.swot-card ul{padding-left:16px;margin:0}
+.swot-card li{font-size:13px;line-height:1.6;margin-bottom:4px}
+.swot-card.strengths li{color:#064e3b}
+.swot-card.weaknesses li{color:#7f1d1d}
+.swot-card.opportunities li{color:#1e3a8a}
+.swot-card.threats li{color:#78350f}
+
+/* CHALLENGE ITEMS */
+.challenge-list{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.challenge-item{background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:13px 16px}
+.challenge-item h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px}
+.challenge-item p{font-size:13.5px;color:#1a2e25;line-height:1.65;margin:0}
 </style>
 </head>
 <body>
@@ -283,52 +389,447 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 2 -->
 <div class="section" id="sec-m2">
   <div class="page-header">
-    <h1>Module 2 — AdCP: Ad Context Protocol Explained</h1>
-    <p>Launched Oct 15, 2025 by 20+ companies. Built on Anthropic's MCP. Live production buys confirmed April 2026.</p>
+    <h1>Module 2 — AdCP: Ad Context Protocol</h1>
+    <p>What it is, how it works, the honest tradeoffs, and what it means for buyers and publishers.</p>
   </div>
   <div class="content-body">
     <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-06</span></div>
     <div class="module-body">
-      <h2>What is AdCP?</h2>
-      <p>Ad Context Protocol (AdCP) is an open standard that gives AI agents a shared language to communicate with ad platforms — and eventually with each other. Think of it as "OpenRTB for agents": just as <span class="gloss" data-key="openrtb">OpenRTB</span> standardised how machines bid on impressions, AdCP standardises how agents brief, discover, negotiate, and buy.</p>
-      <p><strong>Launch date:</strong> October 15, 2025 &nbsp;|&nbsp; <strong>Founding members:</strong> Yahoo, Optable, PubMatic, Scope3, Swivel, Triton Digital &nbsp;|&nbsp; <strong>Governance:</strong> AgenticAdvertising.org (AAO), independent non-profit</p>
 
-      <h2>The Problem AdCP Solves</h2>
-      <p>Without AdCP, every AI agent built by an agency or advertiser has to learn each platform's proprietary API separately. An agent that can buy on Yahoo can't talk to PubMatic without custom integration. AdCP creates a universal interface so any agent can plug into any compatible platform.</p>
+      <!-- PART 1: WHAT IS ADCP -->
+      <h2>Part 1 — What is AdCP?</h2>
+      <p class="sec-intro">Start here. This section covers the definition, what problem it actually solves, and why it was built now.</p>
 
-      <h2>Built on Anthropic's MCP</h2>
-      <p>AdCP is layered on top of the <span class="gloss" data-key="mcp">Model Context Protocol (MCP)</span> — the same protocol Claude uses to connect to tools. Any AI assistant that supports MCP can, in theory, access advertising platforms directly through AdCP without custom integrations.</p>
-      <p>Unlike <span class="gloss" data-key="openrtb">OpenRTB</span> which handles sub-100ms impression auctions, AdCP operates <span class="gloss" data-key="async">asynchronously</span> — a media buy negotiation might take minutes, hours, or require a human sign-off.</p>
+      <p>Ad Context Protocol (AdCP) is an open standard that gives AI agents a <strong>shared language to negotiate and transact advertising deals</strong> — agent to agent, without custom integrations per platform. Think of it as the "<span class="gloss" data-key="openrtb">OpenRTB</span> for agents": just as OpenRTB standardised how machines bid on impressions, AdCP standardises how agents brief, discover, negotiate, and buy.</p>
 
-      <h2>AdCP's Four Core Modules</h2>
+      <p><strong>Launch:</strong> October 15, 2025 &nbsp;|&nbsp; <strong>Founding members:</strong> Scope3, Swivel, Triton Digital, Optable, and 15+ others &nbsp;|&nbsp; <strong>Governance:</strong> AgenticAdvertising.org (AAO), independent non-profit — no single company controls the spec</p>
+
+      <p>AdCP is built on top of Anthropic's <span class="gloss" data-key="mcp">Model Context Protocol (MCP)</span> — the same infrastructure that lets AI assistants connect to external tools. This means any MCP-compatible AI assistant can, in theory, access any AdCP-compatible ad platform without custom integrations per platform.</p>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — Core Concept</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the primary objective of AdCP as an open standard?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">To provide a shared, interoperable framework for agent-to-platform and agent-to-agent communication — so any buyer agent can transact with any compatible seller without custom integrations.</div><div class="fc-tag">Core Definition</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Which infrastructure launch in late 2024 provided the technical 'rails' for AdCP to exist?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Anthropic's Model Context Protocol (MCP) — it gave agents a standardised way to connect to external tools and platforms. AdCP is built as an advertising layer on top of MCP.</div><div class="fc-tag">Technical Foundation</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the primary problem with current AI integrations in advertising — the gap AdCP is designed to close?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">They are bespoke, custom-built, and operate in silos. Every AI agent has to learn each platform's proprietary API separately — the same agent can't talk to two different publishers without building two different integrations.</div><div class="fc-tag">The Problem</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">How do buyer and seller agents interact in the AdCP model — what makes it different from API calls?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">They communicate in natural language, collaborating as colleagues rather than just making structured API calls. A buyer agent can say "find me premium sports inventory in APAC Q3" and a seller agent responds with actual options.</div><div class="fc-tag">Agent-to-Agent</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 2: THE THREE PARADIGMS -->
+      <h2>Part 2 — Why Now? The Three Broken Paradigms</h2>
+      <p class="sec-intro">To understand why AdCP was built, you need to understand what's broken. There are three existing ways to buy advertising — and each has a fundamental ceiling it can't break through.</p>
+
+      <div class="paradigm-grid">
+        <div class="paradigm-card broken">
+          <div class="pcard-head">
+            <div class="pcard-head-label">Paradigm 1 — Broken</div>
+            <div class="pcard-title">Direct IO (Insertion Orders)</div>
+          </div>
+          <div class="pcard-body">
+            <div class="pflow">
+              <div class="pflow-step">Advertiser / Agency</div>
+              <div class="pflow-arrow">↓ manual negotiation</div>
+              <div class="pflow-step">Publisher / SSP</div>
+              <div class="pflow-arrow">↓ IO signed, line items built</div>
+              <div class="pflow-step">Ad Server</div>
+            </div>
+            <div class="pcard-problem">&#9888; Limited by human bandwidth. Scale is impossible — a trader can manage ~50 direct deals, not 500. Rich first-party publisher data is never surfaced.</div>
+          </div>
+        </div>
+        <div class="paradigm-card broken">
+          <div class="pcard-head">
+            <div class="pcard-head-label">Paradigm 2 — Broken</div>
+            <div class="pcard-title">Walled Garden Ads APIs</div>
+          </div>
+          <div class="pcard-body">
+            <div class="pflow">
+              <div class="pflow-step">Advertiser / Agency</div>
+              <div class="pflow-arrow">↓ custom API per platform</div>
+              <div class="pflow-step">Meta / Google only</div>
+              <div class="pflow-arrow">↓ proprietary formats</div>
+              <div class="pflow-step">Delivery</div>
+            </div>
+            <div class="pcard-problem">&#9888; Engineering ROI doesn't justify building custom integrations for anyone except Meta and Google. The open internet gets left behind. Buyers stay inside walled gardens.</div>
+          </div>
+        </div>
+        <div class="paradigm-card broken">
+          <div class="pcard-head">
+            <div class="pcard-head-label">Paradigm 3 — Incomplete</div>
+            <div class="pcard-title">Programmatic (OpenRTB)</div>
+          </div>
+          <div class="pcard-body">
+            <div class="pflow">
+              <div class="pflow-step">DSP</div>
+              <div class="pflow-arrow">↓ bid request &lt;100ms</div>
+              <div class="pflow-step">Ad Exchange</div>
+              <div class="pflow-arrow">↓ auction</div>
+              <div class="pflow-step">SSP → Publisher</div>
+            </div>
+            <div class="pcard-stat">Only ~41% of spend reaches working media</div>
+            <div class="pcard-problem">&#9888; Standardisation forces rich strategic briefs into compressed, simplified data fields. Publisher first-party data richness is lost. Intermediary fees compound.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="paradigm-grid" style="grid-template-columns:1fr;margin-top:0">
+        <div class="paradigm-card adcp-card">
+          <div class="pcard-head">
+            <div class="pcard-head-label">AdCP — The New Paradigm</div>
+            <div class="pcard-title">Agent-to-Agent Negotiation over a Shared Protocol</div>
+          </div>
+          <div class="pcard-body" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div>
+              <div class="pflow">
+                <div class="pflow-step" style="background:rgba(76,211,204,.12)">AI Buyer Agent (Agency / Brand)</div>
+                <div class="pflow-arrow">↕ natural language negotiation</div>
+                <div class="pflow-step" style="background:rgba(26,140,110,.1)">AdCP Protocol Layer</div>
+                <div class="pflow-arrow">↕ structured deal terms</div>
+                <div class="pflow-step" style="background:rgba(26,140,110,.1)">AI Seller Agent (Publisher / SSP)</div>
+                <div class="pflow-arrow">↓ human approval</div>
+                <div class="pflow-step" style="background:#fffbeb">&#128100; Human Approves</div>
+                <div class="pflow-arrow">↓ executes via existing infrastructure</div>
+                <div class="pflow-step">OpenRTB / Ad Server Delivery</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;justify-content:center">
+              <div class="pcard-problem good">&#10003; One integration, any compatible platform</div>
+              <div class="pcard-problem good">&#10003; Full publisher first-party data surfaced to buyer agent</div>
+              <div class="pcard-problem good">&#10003; Rich strategic brief preserved end-to-end</div>
+              <div class="pcard-problem good">&#10003; Human stays in loop on decisions that move money</div>
+              <div class="pcard-problem good">&#10003; Operates above the auction — negotiation model, not auction model</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout teal" style="margin-top:16px">
+        <strong>Important distinction</strong>
+        AdCP does not replace programmatic. It operates <em>above</em> the auction — handling deal negotiation that happens before impressions are auctioned. The delivery layer still runs on existing OpenRTB infrastructure. They are sequential layers, not competing systems.
+      </div>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — The Three Paradigms</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What are the three existing paradigms of digital advertising — and what is each one's fundamental ceiling?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Direct IO (limited by human bandwidth), Walled Garden Ads APIs (only viable for Meta/Google), and Programmatic OpenRTB (41% working media, loses first-party data richness).</div><div class="fc-tag">Paradigms</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why do buyers prioritise only Meta and Google when using Ads APIs — and what does AdCP change about this?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Engineering ROI doesn't justify custom integrations for smaller publishers. AdCP creates one universal interface — so the open internet becomes as accessible as a walled garden API.</div><div class="fc-tag">Walled Gardens</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What critical information is lost in the standard programmatic stack that AdCP is designed to preserve?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Publisher first-party data richness and unique inventory capabilities. OpenRTB forces complex briefs into simplified data fields. AdCP lets a seller agent communicate its full inventory value in natural language.</div><div class="fc-tag">Programmatic Gap</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why does programmatic result in 'compressed and simplified' campaign briefs?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Standardisation protocols force rich, strategic intent into limited data fields (targeting parameters, bid floors) that cannot carry full context. A brief like "align to our sustainability positioning" has no field in an OpenRTB bid request.</div><div class="fc-tag">Programmatic Limits</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 3: HOW IT WORKS -->
+      <h2>Part 3 — How AdCP Works</h2>
+      <p class="sec-intro">The agent-to-agent flow, the four protocols, and what a live deal actually looks like end to end.</p>
+
+      <p>AdCP defines two roles: a <strong>Buyer Agent</strong> (representing an advertiser or agency) and a <strong>Seller Agent</strong> (representing a publisher or SSP). The protocol provides the shared language they use to communicate — so neither side needs to know the other's internal systems.</p>
+
+      <p>The communication is <span class="gloss" data-key="async">asynchronous</span> by design. Unlike <span class="gloss" data-key="openrtb">OpenRTB</span>'s sub-100ms auction, an AdCP deal negotiation might involve a human sign-off that takes 24 hours. This isn't a weakness — it reflects how premium deals actually work.</p>
+
+      <h3>The Agent-to-Agent Flow</h3>
+      <div class="agent-flow">
+        <div class="af-node buyer"><div class="af-node-icon">🤖</div><div class="af-node-label">Buyer Agent</div><div class="af-node-sub">Agency / Brand AI</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">brief + signals</div></div>
+        <div class="af-node" style="border-color:var(--accent);background:rgba(76,211,204,.08)"><div class="af-node-icon">📡</div><div class="af-node-label">AdCP Protocol</div><div class="af-node-sub">Shared language layer</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">inventory + pricing</div></div>
+        <div class="af-node seller"><div class="af-node-icon">🏪</div><div class="af-node-label">Seller Agent</div><div class="af-node-sub">Publisher / SSP AI</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">deal proposal</div></div>
+        <div class="af-node human"><div class="af-node-icon">👤</div><div class="af-node-label">Human Approval</div><div class="af-node-sub">Embedded judgment</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">confirmed deal</div></div>
+        <div class="af-node exec"><div class="af-node-icon">⚡</div><div class="af-node-label">Execution</div><div class="af-node-sub">OpenRTB delivery</div></div>
+      </div>
+
+      <h3>Deal Lifecycle — Brief to Report</h3>
+      <div class="lifecycle">
+        <div class="lc-step active"><div class="lc-bubble">📋</div><div class="lc-title">Brief</div><div class="lc-sub">Natural language campaign goal</div><div class="lc-protocol">Buyer Agent</div></div>
+        <div class="lc-step active"><div class="lc-bubble">🔍</div><div class="lc-title">Discover</div><div class="lc-sub">Ad Product Discovery across publishers</div><div class="lc-protocol">Signals Protocol</div></div>
+        <div class="lc-step active"><div class="lc-bubble">🤝</div><div class="lc-title">Negotiate</div><div class="lc-sub">Agents exchange deal terms</div><div class="lc-protocol">Media Buy Protocol</div></div>
+        <div class="lc-step active"><div class="lc-bubble">👤</div><div class="lc-title">Approve</div><div class="lc-sub">Human reviews &amp; confirms</div><div class="lc-protocol">Human in the Loop</div></div>
+        <div class="lc-step active"><div class="lc-bubble">🎨</div><div class="lc-title">Creative</div><div class="lc-sub">Format confirmed, assets built</div><div class="lc-protocol">Creative Protocol</div></div>
+        <div class="lc-step active"><div class="lc-bubble">▶️</div><div class="lc-title">Execute</div><div class="lc-sub">Line items auto-created in ad server</div><div class="lc-protocol">Ad Server</div></div>
+        <div class="lc-step"><div class="lc-bubble">📊</div><div class="lc-title">Report</div><div class="lc-sub">Performance feeds back to agents</div><div class="lc-protocol">Measurement</div></div>
+      </div>
+
+      <div class="callout green" style="margin-top:12px">
+        <strong>What happened in the Scope3 / Swivel live demo</strong>
+        In the first confirmed agentic media buy, Scope3's buyer agent queried Swivel's seller agent for US premium CTV inventory. The seller agent presented available packages. A human approved the proposal in the seller agent UI. Agents then automatically created the campaign, line items, and targeting objects in SpringServe (the downstream ad server) — no manual trafficking required.
+      </div>
+
+      <h3>The Four AdCP Protocols</h3>
       <table>
-        <tr><th>Module</th><th>Status</th><th>Purpose</th></tr>
-        <tr><td>Signals Activation Protocol</td><td>Available (2026 expansion)</td><td>Discover, activate and manage audience data via natural language.</td></tr>
-        <tr><td>Media Buy Protocol</td><td>Available</td><td>End-to-end campaign execution — verify publisher auth, modify budgets, adjust targeting, handle approvals.</td></tr>
-        <tr><td>Creative Protocol</td><td>Available</td><td>Build ad creatives, preview formats, explain rendering.</td></tr>
-        <tr><td>Curation Protocol</td><td>Q2 2026</td><td>Standardise how inventory gets packaged and curated.</td></tr>
+        <tr><th>Protocol</th><th>Status</th><th>What it does</th><th>Maps to in IO world</th></tr>
+        <tr><td><strong>Signals Activation</strong></td><td>Available</td><td>Discover, activate and manage audience data and inventory signals via natural language</td><td>Data onboarding / DMP setup</td></tr>
+        <tr><td><strong>Media Buy</strong></td><td>Available</td><td>Full campaign lifecycle — discovery, planning, execution, creative management, optimisation</td><td>IO negotiation + trafficking</td></tr>
+        <tr><td><strong>Creative</strong></td><td>Available</td><td>Build ad creatives, preview formats, explain rendering requirements</td><td>Creative spec sheets + approval</td></tr>
+        <tr><td><strong>Curation</strong></td><td>Q2 2026</td><td>Standardise how inventory gets packaged and curated for agent discovery</td><td>Custom deal packaging</td></tr>
       </table>
 
-      <h2>Adoption Reality (May 2026)</h2>
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — How It Works</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is 'Ad Product Discovery' in an agentic media buy — and which protocol handles it?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">A process where a buyer agent queries seller agents to find available inventory matching a specific brief. Handled by the Signals Activation Protocol — agents search across publishers simultaneously in natural language.</div><div class="fc-tag">Protocols</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why is AdCP designed to be asynchronous — and what does this enable that synchronous systems can't?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">To allow for operations that require human intervention — such as manual creative or pricing approval. Unlike OpenRTB's 100ms window, an AdCP deal can include a human review step that takes hours or days.</div><div class="fc-tag">Architecture</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">In the first live AdCP demo, what automatically happened after the human approved the media buy?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Agents automatically created the campaign, line items, and targeting objects in the downstream ad server (SpringServe) — eliminating manual trafficking entirely. The buy was by Scope3's buyer agent and Swivel's seller agent.</div><div class="fc-tag">Live Demo</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is 'Embedded Human Judgment' and why is it a core design principle of AdCP?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">The principle that humans stay in the loop on decisions with real financial consequences. Agents can negotiate and configure autonomously — but a human approves before money moves. Critical for brand safety, legal accountability, and trust-building in the early agentic era.</div><div class="fc-tag">Governance</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 4: PUBLISHER IMPLEMENTATION -->
+      <h2>Part 4 — Publishers: AdCP or Build Your Own?</h2>
+      <p class="sec-intro">How publishers and SSPs actually implement AdCP — and the honest answer to whether a publisher needs to build their own agent protocol.</p>
+
+      <p><strong>Direct answer: use AdCP, not a proprietary protocol.</strong> A publisher building a bespoke agent protocol means every buyer still needs a custom integration to talk to it — which is exactly the problem AdCP solves. The value of implementing AdCP as a seller is that any AdCP-compatible buyer agent (from any agency or advertiser) can immediately discover and transact with your inventory.</p>
+
+      <p>A publisher's implementation is called a <strong>Sales Agent</strong> — an agent that represents their inventory, pricing, and packaging to buyer agents. It receives natural language queries and responds with structured deal options.</p>
+
+      <div class="pub-tiers">
+        <div class="pub-tier">
+          <div class="pub-tier-label large">Large Publishers</div>
+          <p>Build their own AdCP seller agent using the open spec. One-time engineering investment. Any buyer agent in the ecosystem can then query them directly. Full control over how inventory is presented and priced.</p>
+        </div>
+        <div class="pub-tier">
+          <div class="pub-tier-label mid">Mid-Tier Publishers</div>
+          <p>Rely on their SSP to build and operate a seller agent on their behalf. The SSP becomes the agent layer — publisher gets AdCP compatibility without engineering a custom implementation. PubMatic's AgenticOS is this model.</p>
+        </div>
+        <div class="pub-tier">
+          <div class="pub-tier-label small">Small Publishers</div>
+          <p>Entirely dependent on SSP implementation. No direct AdCP involvement. The SSP aggregates small publisher inventory and presents it through a single seller agent — same as how they participate in programmatic today.</p>
+        </div>
+      </div>
+
+      <h3>What a Seller Agent Actually Does</h3>
+      <table>
+        <tr><th>Seller Agent Function</th><th>AdCP Protocol Used</th><th>Traditional Equivalent</th></tr>
+        <tr><td>Responds to inventory queries in natural language</td><td>Signals Activation</td><td>Sales team taking a brief call</td></tr>
+        <tr><td>Presents packages, pricing, deal terms</td><td>Media Buy Protocol</td><td>Proposal / rate card</td></tr>
+        <tr><td>Accepts / rejects deal proposals, triggers approval</td><td>Media Buy Protocol</td><td>IO negotiation and sign-off</td></tr>
+        <tr><td>Confirms creative specs and format requirements</td><td>Creative Protocol</td><td>Creative spec sheet</td></tr>
+        <tr><td>Packages and curates inventory for discovery</td><td>Curation Protocol</td><td>Custom deal packaging</td></tr>
+      </table>
+
+      <div class="callout teal">
+        <strong>The SSP-as-agent-layer opportunity</strong>
+        For SSPs, implementing the seller agent layer for their publisher base is both a defensive and offensive move. Defensive: if you don't do it, buyers route around you to publishers who have built direct seller agents. Offensive: being the agent layer means your platform becomes the discovery entry point for every AI buyer agent in the ecosystem.
+      </div>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — Publisher Perspective</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the primary benefit for a publisher in building an AI Sales Agent vs. just having a sales team?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">The ability to take orders at scale and make real-time decisions on every ad impression. A human sales team manages ~50 relationships. A seller agent can handle thousands of simultaneous buyer queries without additional headcount.</div><div class="fc-tag">Publisher Value</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the benefit of Agent-to-Agent (A2A) communication specifically for publishers' inventory representation?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">It allows their full array of unique products and signals to be represented directly to buyer agents — including first-party data, contextual signals, and custom packages that were previously invisible or inaccessible in the programmatic stack.</div><div class="fc-tag">A2A Value</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">How does AdCP level the playing field between the open internet and walled gardens?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">By enabling automated, scaled buying across the open internet without requiring bespoke engineering for every publisher. A buyer agent can query any AdCP-compatible SSP or publisher with the same effort it takes to query Meta's API.</div><div class="fc-tag">Open Internet</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 5: CHALLENGES -->
+      <h2>Part 5 — Honest Challenges &amp; Tradeoffs</h2>
+      <p class="sec-intro">AdCP is genuinely promising — but the industry commentary overstates readiness and understates the unsolved problems. Here's what to watch.</p>
+
+      <p>A sharp question worth sitting with: <strong>Is this really progress, or are we just automating the IO model with better software?</strong> The structural comparison between AdCP and Direct IO is closer than AdCP advocates admit:</p>
+
+      <table>
+        <tr><th>Step</th><th>Direct IO (2015)</th><th>AdCP (2026)</th></tr>
+        <tr><td>Brief</td><td>Agency emails publisher</td><td>Buyer agent messages seller agent</td></tr>
+        <tr><td>Negotiation</td><td>Account manager back-and-forth</td><td>Agent-to-agent protocol exchange</td></tr>
+        <tr><td>Approval</td><td>IO signed by both parties</td><td>Human approval checkpoint</td></tr>
+        <tr><td>Setup</td><td>Trafficking team creates line items</td><td>Agents auto-create line items in ad server</td></tr>
+        <tr><td>Accountability</td><td>IO = legal document</td><td>⚠️ Legal framework for agent deals: TBD</td></tr>
+      </table>
+
+      <p>The honest answer: <strong>AdCP is forward progress for the premium tier</strong> — deals that never worked in open auction programmatic. But it's not a revolution for the bottom 80% of the market. And it brings new problems that the IO model didn't have.</p>
+
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <h4>&#9888; Line Item Proliferation at Machine Speed</h4>
+          <p>If agents can negotiate thousands of direct deals autonomously, ad servers will be overwhelmed. Google Ad Manager and most ad servers weren't built for agent-generated deal volumes. A human trafficking team was a natural rate limiter. Agents aren't.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>&#9888; Legal and Contractual Accountability</h4>
+          <p>When an AI agent agrees to a $500K deal, who signed it? Insertion orders have legal standing. Agent-executed transactions don't yet have clear contractual frameworks. "Embedded Human Judgment" addresses this philosophically but doesn't resolve the legal mechanics.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>&#9888; Price Discovery Without Auction Signals</h4>
+          <p>Open auction gives you market price through competition. Direct AdCP deals require both sides to agree on a price without real-time competitive signals. Buyer agents negotiating in isolation could consistently overpay or underpay — and neither side would know.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>&#9888; Fraud Exposure is Front-Loaded</h4>
+          <p>In programmatic, fraud detection happens at impression level — you catch it as budget is spent. In AdCP direct deals, you've committed budget before impressions run. If a seller misrepresents inventory, the exposure is realised before your detection layer sees it.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>&#9888; Agency Business Model Disruption</h4>
+          <p>Agencies earn commission on spend and fees for campaign management. If AI agents negotiate and traffic directly, the human layer thins — and so does the justification for existing fee structures. This creates institutional resistance to adoption that has nothing to do with technology.</p>
+        </div>
+      </div>
+
+      <h3>SWOT — AdCP</h3>
+      <div class="swot-grid">
+        <div class="swot-card strengths">
+          <div class="swot-label">&#9650; Strengths</div>
+          <ul>
+            <li>Built on MCP — any AI assistant can integrate</li>
+            <li>Asynchronous model fits real deal timelines</li>
+            <li>Confirmed live production use (Omnicom, Q1 2026)</li>
+            <li>Natural language brief-to-buy — no data field compression</li>
+            <li>Vendor-neutral governance (AAO non-profit)</li>
+            <li>Unlocks publisher first-party data richness</li>
+          </ul>
+        </div>
+        <div class="swot-card weaknesses">
+          <div class="swot-label">&#9660; Weaknesses</div>
+          <ul>
+            <li>No impression-level execution or real-time optimisation</li>
+            <li>Legal / contractual framework for agent deals unsolved</li>
+            <li>Line item proliferation risk at scale</li>
+            <li>Price discovery without competitive auction signals</li>
+            <li>Creative approval complexity not addressed in spec</li>
+            <li>Negotiation model — not auction model</li>
+          </ul>
+        </div>
+        <div class="swot-card opportunities">
+          <div class="swot-label">&#9650; Opportunities</div>
+          <ul>
+            <li>Automates premium direct buying programmatic never captured</li>
+            <li>Unlocks long-tail direct deals not viable manually</li>
+            <li>SSPs that build seller agents become discovery entry points</li>
+            <li>Levels open internet vs. walled garden playing field</li>
+            <li>Small advertisers access premium buying previously reserved for holding companies</li>
+          </ul>
+        </div>
+        <div class="swot-card threats">
+          <div class="swot-label">&#9660; Threats</div>
+          <ul>
+            <li>AAMP offers a complete alternative stack without disrupting auction dynamics</li>
+            <li>Ad server infrastructure not ready for agent-generated deal volumes</li>
+            <li>Agency resistance — business model disruption slows adoption</li>
+            <li>Buyer agents without market price signals may systematically over/underpay</li>
+            <li>Hallucination risk — agent misrepresents deal terms at scale</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — Challenges &amp; Tradeoffs</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the primary risk of failing to establish an open standard like AdCP across the industry?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Proliferation of fragmented proprietary agent systems — higher costs, loss of transparency, and every buyer needing custom integrations per platform. The same fragmentation programmatic was supposed to solve, recreated at the agent layer.</div><div class="fc-tag">Risk</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Is AdCP moving advertising forward or backward compared to programmatic?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Both simultaneously. Forward for the premium/guaranteed tier — automating deal types that programmatic never solved. Backward in the sense that it reintroduces negotiation mechanics that programmatic was designed to replace. The key is that the premium tier was never really programmatic anyway.</div><div class="fc-tag">Critical Thinking</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">How does agentic advertising aim to unlock human focus rather than replace humans?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">By automating optimisation and orchestration — the repetitive execution layer — freeing humans to spend time on insight, creativity, and strategy. The vision: agents handle the how, humans handle the why.</div><div class="fc-tag">Human + AI</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 6: ADOPTION -->
+      <h2>Part 6 — Adoption Reality (May 2026)</h2>
       <div class="callout green">
         <strong>&#9889; Major milestone — April 29, 2026</strong>
-        Omnicom CEO John Wren and Head of AI Paolo Yuvienco confirmed on Q1 2026 earnings call that Omnicom has already executed live media buys for several clients using an agent-to-agent framework built around AdCP. This is the most operationally specific statement any major holding company has made about agentic media buying — AdCP is no longer purely experimental.
+        Omnicom CEO John Wren confirmed on Q1 2026 earnings call that Omnicom has executed live media buys for several clients using an agent-to-agent framework built around AdCP. First major holding company to confirm production use — AdCP is no longer experimental.
       </div>
-      <p>PubMatic has transacted 250+ agentic deals on its platform since December 2025. The Trade Desk launched AI agents with Stagwell as first client, working alongside PubMatic, Scope3, and Magnite. The chicken-and-egg problem is beginning to resolve on the demand side.</p>
-      <p>AdCP governance note: now formally under AgenticAdvertising.org (AAO), an independent non-profit industry body — reinforcing its vendor-neutral positioning.</p>
+      <p>PubMatic has transacted 250+ agentic deals since December 2025. The Trade Desk launched Koa-powered AI agents with Stagwell as first client, working alongside PubMatic, Scope3, and Magnite. The demand-side is moving faster than most anticipated.</p>
 
       <h2>Future Role Impact</h2>
-      <p><strong>Media Buyer</strong> — AdCP means your AI assistant could query "find $50K of premium running content inventory in APAC" and get structured responses from all compatible <span class="gloss" data-key="ssp">SSPs</span> at once.</p>
-      <p><strong>Publisher / SSP</strong> — You build an AdCP-compatible "seller agent" that responds to natural language inventory requests. Your packaging becomes automated and accessible to AI buyers.</p>
+      <p><strong>Media Buyer / Agency Trading Desk</strong> — Brief an agent in natural language across every compatible publisher simultaneously. Your role shifts from manual plan-building to brief quality and agent oversight.</p>
+      <p><strong>Publisher / SSP</strong> — Build or adopt a seller agent to make your full inventory discoverable to AI buyers. The SSP that builds this layer first becomes the default discovery point for agentic demand.</p>
+      <p><strong>Ad Ops / Trafficking</strong> — Agents auto-create line items and campaign structures post-approval. Your role shifts from trafficking execution to exception handling, QA, and agent rule-setting.</p>
 
       <div class="checkpoint">
         <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. AdCP is built on top of which underlying protocol?</div>
+        <div class="checkpoint-q">1. AdCP is built on which underlying protocol — and why does that matter for adoption?</div>
         <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Model Context Protocol (MCP) by Anthropic</div>
-        <div class="checkpoint-q">2. What is the main difference between AdCP and OpenRTB in terms of transaction speed?</div>
+        <div class="checkpoint-a">Model Context Protocol (MCP) by Anthropic. It matters because any MCP-compatible AI assistant can access AdCP platforms without custom integrations — making the adoption path much shorter for any AI agent already using MCP.</div>
+        <div class="checkpoint-q">2. Why is AdCP described as operating "above" programmatic rather than replacing it?</div>
         <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">AdCP is asynchronous — responses can take seconds or days, accommodating human approval. OpenRTB operates in under 100ms.</div>
+        <div class="checkpoint-a">AdCP handles deal negotiation — the agreement between buyer and seller. Delivery of impressions still runs on existing OpenRTB/ad server infrastructure. They are sequential: AdCP sets up the deal, programmatic delivers it.</div>
+        <div class="checkpoint-q">3. What is the biggest unresolved challenge in AdCP's current design?</div>
+        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
+        <div class="checkpoint-a">Legal and contractual accountability for agent-executed deals. When an AI agent agrees to a significant buy, there is currently no settled framework for who is legally responsible. Insertion orders had legal standing. Agent transactions don't yet.</div>
       </div>
       <button class="done-btn" id="done-m2" onclick="markDone('m2')">&#10003; Mark as Complete</button>
     </div>
