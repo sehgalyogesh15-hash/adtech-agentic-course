@@ -296,6 +296,91 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .challenge-item{background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:13px 16px}
 .challenge-item h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px}
 .challenge-item p{font-size:13.5px;color:#1a2e25;line-height:1.65;margin:0}
+
+/* ── MODULE 1 ENHANCEMENTS ── */
+#sec-m1 .module-body p{font-size:15px;line-height:1.75}
+#sec-m1 .module-body li{font-size:15px;line-height:1.75}
+#sec-m1 .module-body table{font-size:14px}
+#sec-m1 .module-body td{padding:10px 13px}
+#sec-m1 .module-body th{padding:10px 13px;font-size:13px}
+
+/* ── MODULE 3 ENHANCEMENTS ── */
+#sec-m3 .module-body p{font-size:15px;line-height:1.75}
+#sec-m3 .module-body li{font-size:15px;line-height:1.75}
+#sec-m3 .module-body table{font-size:14px}
+#sec-m3 .module-body td{padding:10px 13px}
+#sec-m3 .module-body th{padding:10px 13px;font-size:13px}
+#sec-m3 .module-body h2{font-size:19px;margin-top:36px}
+
+/* RTB STACK DIAGRAM */
+.rtb-stack{margin:20px 0}
+.rtb-row{display:flex;align-items:center;overflow-x:auto;padding:4px 0}
+.rtb-node{background:#fff;border:2px solid var(--border);border-radius:10px;padding:12px 14px;min-width:100px;text-align:center;flex-shrink:0}
+.rtb-node.demand{border-color:#6366f1;background:#eef2ff}
+.rtb-node.dsp-node{border-color:var(--accent);background:rgba(76,211,204,.08)}
+.rtb-node.exchange{border-color:var(--yellow);background:#fffbeb}
+.rtb-node.ssp-node{border-color:var(--accent2);background:rgba(26,140,110,.08)}
+.rtb-node.supply{border-color:#8b5cf6;background:#f5f3ff}
+.rtb-icon{font-size:20px;margin-bottom:4px}
+.rtb-label{font-size:12px;font-weight:700;color:var(--text)}
+.rtb-sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.3}
+.rtb-sep{display:flex;align-items:center;padding:0 5px;flex-shrink:0;font-size:20px;color:var(--muted);line-height:1}
+.rtb-timing{display:flex;align-items:center;gap:10px;margin-top:10px}
+.rtb-timing-bar{flex:1;height:3px;background:linear-gradient(90deg,#6366f1,var(--accent),var(--accent2),#8b5cf6);border-radius:2px}
+.rtb-timing-label{font-size:11px;color:var(--muted);font-weight:600;white-space:nowrap}
+
+/* CEILING CARDS */
+.ceiling-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.ceiling-card{border-radius:10px;padding:16px;border:1px solid var(--border);background:#fff}
+.ceiling-num{font-size:24px;font-weight:900;color:var(--accent);margin-bottom:6px}
+.ceiling-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px}
+.ceiling-limit{font-size:12.5px;color:#7f1d1d;background:#fff1f2;border-radius:5px;padding:7px 10px;margin-top:8px}
+
+/* ARTF COMPARE DIAGRAM */
+.artf-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.artf-col{border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.artf-col-head{padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;line-height:1.4}
+.artf-col-head.before{background:#fee2e2;color:#991b1b}
+.artf-col-head.after{background:#d1fae5;color:#065f46}
+.artf-col-body{padding:14px;background:#fff;display:flex;flex-direction:column;gap:4px}
+.artf-hop{display:flex;flex-direction:column;align-items:center;gap:2px}
+.artf-hop-node{width:100%;padding:8px 12px;border-radius:6px;text-align:center;font-size:12.5px;font-weight:600}
+.artf-hop-node.slow{background:#fff1f2;border:1px solid #fca5a5;color:#991b1b}
+.artf-hop-node.fast{background:#d1fae5;border:1px solid #6ee7b7;color:#065f46}
+.artf-hop-node.neutral{background:var(--bg);border:1px solid var(--border);color:var(--text)}
+.artf-hop-arrow{font-size:10px;color:var(--muted);line-height:1.4}
+.artf-hop-latency{font-size:10px;color:#991b1b;font-weight:700}
+.artf-hop-latency.saved{color:#065f46}
+.artf-container-box{border:2px dashed var(--accent2);border-radius:8px;padding:10px;margin:4px 0;background:rgba(26,140,110,.04);width:100%}
+.artf-container-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent2);margin-bottom:8px}
+
+/* MUTATION GRID */
+.mutation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+.mutation-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px}
+.mutation-icon{font-size:20px;margin-bottom:6px}
+.mutation-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px}
+.mutation-desc{font-size:12.5px;color:#1a2e25;line-height:1.55}
+
+/* MCQ CHECKPOINTS */
+.mcq-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:22px;margin-top:28px}
+.mcq-wrap h3{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px}
+.mcq-question{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.mcq-question:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.mcq-q{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:12px;line-height:1.55}
+.mcq-options{display:flex;flex-direction:column;gap:7px}
+.mcq-opt{padding:10px 14px;border:1.5px solid var(--border);border-radius:7px;cursor:pointer;font-size:13.5px;color:var(--text);background:#fff;transition:all .15s;display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;font-family:inherit;line-height:1.45}
+.mcq-opt:hover:not(.disabled){border-color:var(--accent);background:rgba(76,211,204,.05)}
+.opt-ltr{font-weight:700;color:var(--muted);min-width:18px;flex-shrink:0;font-family:monospace;font-size:12px;margin-top:1px}
+.mcq-opt.correct{border-color:var(--green) !important;background:#d1fae5 !important;color:#064e3b !important}
+.mcq-opt.correct .opt-ltr{color:#065f46}
+.mcq-opt.wrong{border-color:var(--red) !important;background:#fee2e2 !important;color:#7f1d1d !important}
+.mcq-opt.wrong .opt-ltr{color:#991b1b}
+.mcq-opt.show-correct{border-color:var(--green) !important;background:#d1fae5 !important;color:#064e3b !important}
+.mcq-opt.disabled{cursor:default;pointer-events:none;opacity:.85}
+.mcq-feedback{font-size:13px;margin-top:10px;padding:10px 14px;border-radius:6px;display:none;line-height:1.6}
+.mcq-feedback.show{display:block}
+.mcq-feedback.correct-fb{background:#d1fae5;color:#064e3b}
+.mcq-feedback.wrong-fb{background:#fee2e2;color:#7f1d1d}
 </style>
 </head>
 <body>
@@ -344,42 +429,142 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <div class="section" id="sec-m1">
   <div class="page-header">
     <h1>Module 1 — The Problem: Why Advertising Needs Agents</h1>
-    <p>Before understanding AdCP or ARTF, you need the broken world they're trying to fix.</p>
+    <p>Before AdCP or ARTF, you need the broken world they're trying to fix.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-08</span></div>
     <div class="module-body">
-      <h2>The Core Problem</h2>
-      <p>Digital advertising runs on hundreds of disconnected platforms. A media buyer at an agency must log into a <span class="gloss" data-key="dsp">DSP</span>, an <span class="gloss" data-key="ssp">SSP</span>, a DMP, a measurement tool, a curation platform — each with its own interface, API format, and opaque pricing. Budgets leak into intermediary layers. No single agent can see the whole picture.</p>
 
-      <h2>What Programmatic Looks Like Today</h2>
-      <p><span class="gloss" data-key="openrtb">OpenRTB</span> is the backbone — a standard for auctioning individual ad impressions in under 100ms. It works, but it was designed for machines following deterministic rules, not AI agents reasoning in natural language about campaign goals.</p>
+      <h2>Part 1 — How Advertising Works Today</h2>
+      <p class="sec-intro">A quick map of the current stack before we explain what's broken in it.</p>
+      <p>Digital advertising today runs on a chain of platforms exchanging messages at machine speed. A <span class="gloss" data-key="dsp">DSP</span> bids on impressions sourced through an <span class="gloss" data-key="ssp">SSP</span> using the <span class="gloss" data-key="openrtb">OpenRTB</span> standard. In under 100ms the impression is auctioned, a winner is selected, and an ad serves. Billions of times per day. It works — but it was designed for machines following deterministic rules, not AI agents reasoning in natural language about campaign goals.</p>
 
-      <h2>Key Concepts</h2>
+      <h3>The Standard Programmatic Flow</h3>
+      <div class="rtb-stack">
+        <div class="rtb-row">
+          <div class="rtb-node demand"><div class="rtb-icon">🏢</div><div class="rtb-label">Advertiser</div><div class="rtb-sub">Brief + budget</div></div>
+          <div class="rtb-sep">›</div>
+          <div class="rtb-node dsp-node"><div class="rtb-icon">💻</div><div class="rtb-label">DSP</div><div class="rtb-sub">Bids on inventory</div></div>
+          <div class="rtb-sep">›</div>
+          <div class="rtb-node exchange"><div class="rtb-icon">⚖️</div><div class="rtb-label">Ad Exchange</div><div class="rtb-sub">Runs the auction</div></div>
+          <div class="rtb-sep">›</div>
+          <div class="rtb-node ssp-node"><div class="rtb-icon">📦</div><div class="rtb-label">SSP</div><div class="rtb-sub">Sells inventory</div></div>
+          <div class="rtb-sep">›</div>
+          <div class="rtb-node supply"><div class="rtb-icon">📰</div><div class="rtb-label">Publisher</div><div class="rtb-sub">Ad serves to user</div></div>
+        </div>
+        <div class="rtb-timing"><div class="rtb-timing-bar"></div><div class="rtb-timing-label">⚡ &lt;100ms — OpenRTB auction</div></div>
+      </div>
+
+      <p>This works at massive scale. But it forces <strong>rich, strategic campaign intent</strong> into a compressed bid request structure. The nuance is lost, intermediaries compound fees, and only ~41% of spend reaches working media.</p>
+
+      <h2>Part 2 — The Three Ceilings</h2>
+      <p class="sec-intro">Every existing buying model has a structural ceiling. These aren't execution failures — they're fundamental architectural limits.</p>
+
+      <div class="ceiling-grid">
+        <div class="ceiling-card">
+          <div class="ceiling-num">①</div>
+          <div class="ceiling-title">Direct IO — Human Bandwidth</div>
+          <p style="font-size:13px;color:#1a2e25;line-height:1.6;margin:6px 0 0">Agency negotiates directly with publisher. Rich data shared. Real deals closed. But a human trader can manage ~50 direct relationships. Not 500.</p>
+          <div class="ceiling-limit">⚠ Scale is impossible. Manual throughput is the bottleneck.</div>
+        </div>
+        <div class="ceiling-card">
+          <div class="ceiling-num">②</div>
+          <div class="ceiling-title">Walled Garden APIs — Engineering ROI</div>
+          <p style="font-size:13px;color:#1a2e25;line-height:1.6;margin:6px 0 0">Meta and Google have APIs with full data visibility. But a custom integration costs months of engineering — and that ROI only clears for two platforms.</p>
+          <div class="ceiling-limit">⚠ Only viable for Meta &amp; Google. The open internet is left out.</div>
+        </div>
+        <div class="ceiling-card">
+          <div class="ceiling-num">③</div>
+          <div class="ceiling-title">OpenRTB — Data Compression</div>
+          <p style="font-size:13px;color:#1a2e25;line-height:1.6;margin:6px 0 0">Programmatic scales. But it compresses rich briefs ("align with sustainability, premium sports context") into a handful of fixed data fields. Publisher first-party richness is invisible.</p>
+          <div class="ceiling-limit">⚠ ~41% working media. Strategic context is sacrificed for speed.</div>
+        </div>
+      </div>
+
+      <h2>Part 3 — What AI Agents Change</h2>
+      <p class="sec-intro">AI agents can reason, plan multi-step tasks, and act autonomously. That breaks all three ceilings — but only if agents share a common protocol to communicate across platforms.</p>
+
       <table>
-        <tr><th>Term</th><th>Definition</th></tr>
-        <tr><td><span class="gloss" data-key="dsp">DSP</span></td><td>Demand-Side Platform. Where advertisers/agencies buy ad inventory automatically.</td></tr>
-        <tr><td><span class="gloss" data-key="ssp">SSP</span></td><td>Supply-Side Platform. Where publishers sell ad inventory programmatically.</td></tr>
-        <tr><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td>The existing standard for real-time impression auctions. Works in &lt;100ms per bid.</td></tr>
-        <tr><td>AI Agent</td><td>An autonomous AI that can reason, plan multi-step tasks, and take actions without human input per step.</td></tr>
+        <tr><th>Capability</th><th>Programmatic Today</th><th>With AI Agents + Protocols</th></tr>
+        <tr><td>Campaign brief</td><td>Manually translated into targeting params and bid floors</td><td>Agent reads natural language brief, reasons about best inventory match</td></tr>
+        <tr><td>Publisher data access</td><td>Lost in standardised OpenRTB fields</td><td>Seller agent surfaces full first-party context to buyer agent in natural language</td></tr>
+        <tr><td>Deal negotiation</td><td>Human-to-human (IO) or no negotiation (auction)</td><td>Agent-to-agent: automated negotiation at scale, humans approve before money moves</td></tr>
+        <tr><td>Campaign setup</td><td>Manual trafficking — line items, targeting, pacing</td><td>Agents auto-create campaign structures in the ad server post-approval</td></tr>
+        <tr><td>Scale</td><td>~50 direct deals per trader, or undifferentiated open auction</td><td>Thousands of contextually negotiated direct deals simultaneously</td></tr>
       </table>
 
-      <h2>Why 'Agentic' Matters Now</h2>
-      <p>AI agents can reason about campaign briefs in natural language ("find women interested in ultramarathons on premium news sites"), discover inventory, negotiate deals, and optimise — all without a human clicking through dashboards. But for agents to work together across platforms, they need shared protocols. That's the gap AdCP, ARTF, and AAMP are designed to fill.</p>
+      <div class="callout teal">
+        <strong>The shared protocols gap</strong>
+        For agents to do this at scale, they need a shared language. Without it, every agent needs a custom integration per platform — the same fragmentation all over again, just at the agent layer. This is the gap AdCP (Module 2) and ARTF (Module 3) are designed to fill.
+      </div>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — The Problem</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What does OpenRTB standardise — and what is the 100ms constraint about?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Real-time impression-level bidding auctions. The 100ms window is how long an SSP gives DSPs to respond — miss it and your bid is ignored. This forces all logic to be deterministic and pre-computed, not reasoned in real time by an AI.</div><div class="fc-tag">OpenRTB</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the fundamental ceiling of Direct IO — and why can't it be solved by hiring more traders?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Human bandwidth. A trader manages ~50 direct publisher relationships. Adding headcount scales linearly while deal complexity grows exponentially. IO is a relationship model; relationships don't scale like software.</div><div class="fc-tag">Direct IO</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why do buyers only build Ads API integrations for Meta and Google — and what does this mean for open internet publishers?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Engineering ROI. Custom integrations cost months of dev time — only Meta and Google have the volume to justify it. Open internet publishers, even premium ones, can't clear that bar. They're locked out of the direct API tier entirely.</div><div class="fc-tag">Walled Gardens</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What key capability do AI agents bring that traditional programmatic systems fundamentally lack?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Natural language reasoning about campaign goals — the ability to interpret a brief, plan across multiple options, and act autonomously without per-step human input. Programmatic rules are deterministic; agent logic is reasoning-based. Context that no bid request field can carry.</div><div class="fc-tag">Agent Capability</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2>Future Role Impact</h2>
-      <p><strong>Media Planner</strong> — Your role shifts from manually building plans to briefing an AI agent in natural language. The agent does the discovery and packaging.</p>
-      <p><strong>Ad Ops</strong> — Instead of managing platform UIs, you will manage agents — setting rules, auditing logs, and handling exceptions that agents escalate.</p>
-      <p><strong>Ad Tech Engineer</strong> — Building <span class="gloss" data-key="mcp">MCP</span>-compatible services and agent APIs becomes core work. <span class="gloss" data-key="openrtb">OpenRTB</span> knowledge remains essential as a foundation.</p>
+      <p><strong>Media Planner</strong> — Your role shifts from manually building plans to briefing an AI agent in natural language. The agent handles discovery and plan construction. Your value is brief quality and judgment on what the agent surfaces.</p>
+      <p><strong>Ad Ops / Trafficking</strong> — Instead of creating line items in platform UIs, you manage agents — setting rules, auditing logs, and handling exceptions agents escalate. Your value is QA and exception management at scale.</p>
+      <p><strong>AdTech Engineer</strong> — Building <span class="gloss" data-key="mcp">MCP</span>-compatible services and agent APIs becomes core work. <span class="gloss" data-key="openrtb">OpenRTB</span> knowledge remains essential as the delivery foundation. ARTF extension points and AdCP seller agent implementation are the new differentiators.</p>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. What does OpenRTB primarily standardise in advertising?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Real-time impression-level bidding auctions (sub-100ms)</div>
-        <div class="checkpoint-q">2. What key capability do AI agents bring that traditional programmatic systems lack?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Natural language reasoning about campaign goals — interpreting briefs and acting autonomously without per-step human input</div>
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. What does OpenRTB primarily standardise in advertising?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'OpenRTB standardises real-time bidding auctions at impression level — not deal-level agent negotiation.')"><span class="opt-ltr">A</span>How AI agents negotiate direct deals with publishers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. OpenRTB standardises impression-level bidding auctions that must complete in under 100ms. It is the machine-to-machine language for buying individual ad impressions at scale.')" data-correct><span class="opt-ltr">B</span>Real-time impression-level bidding auctions (sub-100ms)</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'OpenRTB does not standardise publisher data sharing — in fact, the protocol compresses and loses much of that richness.')"><span class="opt-ltr">C</span>Publisher first-party data sharing between platforms</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Measurement and attribution standards are handled by separate specs like OM SDK — not OpenRTB.')"><span class="opt-ltr">D</span>Campaign measurement and cross-channel attribution</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. Why do buyers typically only build Ads API integrations for Meta and Google?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Bid speed is not the reason — the barrier is the engineering investment required, not API response time.')"><span class="opt-ltr">A</span>They have faster bid response times than other publishers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'All major platforms have documented APIs — the barrier is not documentation quality.')"><span class="opt-ltr">B</span>Other publishers do not have documented public APIs</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. Building a custom integration costs months of engineering. Only Meta and Google have enough inventory volume and data richness to justify that ROI. AdCP solves this by creating one universal integration path instead of a custom one per platform.')" data-correct><span class="opt-ltr">C</span>Engineering ROI doesn\'t justify custom integrations for smaller publishers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Privacy restrictions are a factor, but they are not the primary reason buyers skip smaller publisher API integrations.')"><span class="opt-ltr">D</span>Privacy restrictions block access to smaller publisher data</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">3. What is the main gap that makes AI agents dependent on shared protocols like AdCP and ARTF?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Speed is an ARTF concern, but it is not the reason agents specifically need shared protocols.')"><span class="opt-ltr">A</span>AI agents are too slow to operate within the 100ms bid window</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Agents can reason about budgets in natural language — this is not the constraint.')"><span class="opt-ltr">B</span>Agents cannot understand financial budgets without special configuration</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. Without shared protocols, every agent needs a custom integration per platform — recreating the same fragmentation problem at the agent layer. Shared protocols mean one integration works across all compatible platforms.')" data-correct><span class="opt-ltr">C</span>Without shared protocols, every agent needs a custom integration per platform</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Ad servers work fine already — the issue is agent-to-agent communication, not ad serving infrastructure.')"><span class="opt-ltr">D</span>Existing ad servers cannot handle agent-generated campaign structures</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m1" onclick="markDone('m1')">&#10003; Mark as Complete</button>
     </div>
@@ -819,17 +1004,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <p><strong>Publisher / SSP</strong> — Build or adopt a seller agent to make your full inventory discoverable to AI buyers. The SSP that builds this layer first becomes the default discovery point for agentic demand.</p>
       <p><strong>Ad Ops / Trafficking</strong> — Agents auto-create line items and campaign structures post-approval. Your role shifts from trafficking execution to exception handling, QA, and agent rule-setting.</p>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. AdCP is built on which underlying protocol — and why does that matter for adoption?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Model Context Protocol (MCP) by Anthropic. It matters because any MCP-compatible AI assistant can access AdCP platforms without custom integrations — making the adoption path much shorter for any AI agent already using MCP.</div>
-        <div class="checkpoint-q">2. Why is AdCP described as operating "above" programmatic rather than replacing it?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">AdCP handles deal negotiation — the agreement between buyer and seller. Delivery of impressions still runs on existing OpenRTB/ad server infrastructure. They are sequential: AdCP sets up the deal, programmatic delivers it.</div>
-        <div class="checkpoint-q">3. What is the biggest unresolved challenge in AdCP's current design?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Legal and contractual accountability for agent-executed deals. When an AI agent agrees to a significant buy, there is currently no settled framework for who is legally responsible. Insertion orders had legal standing. Agent transactions don't yet.</div>
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. AdCP is built on which underlying protocol — and why does that accelerate adoption?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'OpenRTB is the foundation for ARTF, not AdCP.')"><span class="opt-ltr">A</span>OpenRTB — so it works natively with existing DSP and SSP infrastructure</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. AdCP is built on Anthropic\'s Model Context Protocol (MCP). Any MCP-compatible AI assistant can access AdCP platforms without custom per-platform integrations — making the adoption path much shorter for any AI agent already using MCP.')" data-correct><span class="opt-ltr">B</span>MCP (Model Context Protocol) — any MCP-compatible AI can integrate without custom work</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'gRPC is used in ARTF and AAMP for high-throughput RTB communication, not AdCP.')"><span class="opt-ltr">C</span>gRPC — for high-performance agent communication at RTB scale</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'HTTP/2 is an underlying transport protocol, not the AdCP foundation.')"><span class="opt-ltr">D</span>HTTP/2 — to enable asynchronous request-response messaging</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. Why is AdCP described as operating "above" programmatic rather than replacing it?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AdCP does not replace the OpenRTB auction. Impression delivery still uses the existing programmatic stack.')"><span class="opt-ltr">A</span>It replaces the OpenRTB auction with a negotiated deal model entirely</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AdCP is asynchronous and operates at campaign timescales — not sub-100ms.')"><span class="opt-ltr">B</span>It is faster than OpenRTB and processes bids above the 100ms threshold</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. AdCP handles deal negotiation — the agreement between buyer and seller agents before impressions are bought. Impression delivery still runs on existing OpenRTB and ad server infrastructure. They are sequential: AdCP sets up the deal, programmatic delivers it.')" data-correct><span class="opt-ltr">C</span>AdCP handles deal negotiation; impression delivery still runs on OpenRTB — sequential layers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AdCP operates at campaign and deal level, not at individual impression level.')"><span class="opt-ltr">D</span>It adds an AI contextual layer to every programmatic impression</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">3. What is the biggest unresolved challenge in AdCP's current design?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Google Ad Manager compatibility is a real concern but not the primary unresolved challenge in the spec design.')"><span class="opt-ltr">A</span>Integration compatibility with Google Ad Manager</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Creative format compatibility is partly addressed by the Creative Protocol module — not the biggest gap.')"><span class="opt-ltr">B</span>Creative format compatibility across different ad servers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. When an AI agent agrees to a $500K deal, who signed it? Insertion orders have legal standing. Agent-executed transactions do not yet have a settled contractual framework. "Embedded Human Judgment" addresses this philosophically but does not resolve the legal mechanics.')" data-correct><span class="opt-ltr">C</span>Legal and contractual accountability for agent-executed deals</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Latency in deal negotiations is not a challenge — AdCP is designed to be asynchronous. This is a feature, not a bug.')"><span class="opt-ltr">D</span>Excessive latency in the agent negotiation process</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m2" onclick="markDone('m2')">&#10003; Mark as Complete</button>
     </div>
@@ -839,67 +1045,290 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 3 -->
 <div class="section" id="sec-m3">
   <div class="page-header">
-    <h1>Module 3 — ARTF: Agentic RTB Framework Explained</h1>
-    <p>Released Nov 13, 2025 by IAB Tech Lab. Built on OpenRTB. Cuts latency up to 90% via containerisation.</p>
+    <h1>Module 3 — ARTF: Agentic RTB Framework</h1>
+    <p>IAB Tech Lab's standard for running AI agent logic inside the bid stream — not alongside it.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill baseline">Baseline</span><span class="module-date">Last updated: 2026-05-05</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-08</span></div>
     <div class="module-body">
-      <h2>What is ARTF?</h2>
-      <p>The Agentic RTB Framework (ARTF) v1.0 is a standard that lets AI agents participate directly inside real-time bidding pipelines — without the latency of server-to-server round trips. The key innovation is <span class="gloss" data-key="containerisation">containerisation</span>.</p>
-      <p><strong>Release date:</strong> November 13, 2025 &nbsp;|&nbsp; <strong>Governing body:</strong> IAB Tech Lab &nbsp;|&nbsp; <strong>Reference implementation:</strong> Go (credited to Index Exchange Inc.) &nbsp;|&nbsp; <strong>Built on:</strong> <span class="gloss" data-key="openrtb">OpenRTB</span></p>
 
-      <h2>The Problem ARTF Solves</h2>
-      <p>Traditional RTB requires multiple servers to exchange messages across the network (<span class="gloss" data-key="dsp">DSP</span> → <span class="gloss" data-key="ssp">SSP</span> → data provider → back). Each hop adds latency. At scale, this limits how much intelligent decision-making can happen per impression. Agent logic couldn't fit in the bid window.</p>
+      <!-- PART 1: WHAT IS ARTF -->
+      <h2>Part 1 — What is ARTF?</h2>
+      <p class="sec-intro">ARTF is not a new auction format. It is infrastructure that lets agent decision logic run inside the real-time bid pipeline — without the latency cost of an external server call.</p>
 
-      <h2>The Containerisation Breakthrough</h2>
+      <p>The <strong>Agentic RTB Framework (ARTF) v1.0</strong> is an IAB Tech Lab standard released November 13, 2025. It solves a specific problem: AI agents need to make intelligent decisions on individual ad impressions in real time — but external AI calls are too slow for a sub-100ms bid window.</p>
+
+      <p><strong>Release:</strong> November 13, 2025 &nbsp;|&nbsp; <strong>Governing body:</strong> IAB Tech Lab &nbsp;|&nbsp; <strong>Reference implementation:</strong> Go (credited to Index Exchange Inc.) &nbsp;|&nbsp; <strong>Foundation:</strong> <span class="gloss" data-key="openrtb">OpenRTB</span> &nbsp;|&nbsp; <strong>AAMP role:</strong> Pillar 1 — Execution Infrastructure</p>
+
       <div class="callout teal">
-        <strong>How containerisation works in ARTF</strong>
-        Instead of calling an external API (which adds network latency), the agent's logic is packaged in a <span class="gloss" data-key="docker">Docker</span>-compatible container and runs <em>inside</em> the same server as the bid. Think of it like moving the brain into the body — no round-trips needed. <span class="gloss" data-key="kubernetes">Kubernetes</span> can orchestrate these containers at scale across a fleet of bid servers.
+        <strong>The core innovation in one sentence</strong>
+        Instead of calling an external AI service during a bid (adds 10–50ms network latency), ARTF packages the agent's logic in a <span class="gloss" data-key="containerisation">container</span> that runs <em>inside the same server as the bid</em>. No network hop. No latency penalty. Up to 90% latency reduction.
       </div>
-      <table>
-        <tr><th>Concept</th><th>Explanation</th></tr>
-        <tr><td><span class="gloss" data-key="containerisation">What is a container?</span></td><td>Like a shipping container for software — packages all code and dependencies together. Runs inside one server.</td></tr>
-        <tr><td>Latency reduction</td><td>ARTF claims up to 80–90% latency reduction by running agent logic inside the same server as the bid.</td></tr>
-        <tr><td>Segment activation</td><td>Agents can activate user segments based on bid request data in real time.</td></tr>
-        <tr><td>Backward compatible</td><td>Extends existing <span class="gloss" data-key="openrtb">OpenRTB</span> standards. Existing plumbing still works.</td></tr>
-      </table>
 
-      <h2>Technical Architecture</h2>
-      <p>ARTF exposes an <span class="gloss" data-key="rtbext">RTBExtensionPoint</span> service via <span class="gloss" data-key="grpc">gRPC</span>. Agents receive an <span class="gloss" data-key="openrtb">OpenRTB</span> bid request and return proposed mutations:</p>
-      <ul>
-        <li>Deal activations</li>
-        <li>Bid price adjustments (<span class="gloss" data-key="bidshading">bid shading</span>)</li>
-        <li>Segment additions</li>
-        <li>Viewability metric additions</li>
-      </ul>
-      <p>Also supports <span class="gloss" data-key="mcp">MCP</span> and Agent-to-Agent (A2A) protocols. Uses <span class="gloss" data-key="protobuf">Protocol Buffers</span> for efficient message serialisation. A Web UI is available for local testing.</p>
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — What is ARTF</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the single core innovation of ARTF — and why does it matter for latency?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Containerisation — running agent decision logic inside the same server as the bid rather than calling an external service. Eliminates the 10–50ms network round-trip that would otherwise blow the 100ms bid window. Latency reduction: up to 80–90%.</div><div class="fc-tag">Core Innovation</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What role does ARTF play within the broader AAMP umbrella initiative?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">ARTF is Pillar 1 of AAMP — the high-performance execution infrastructure layer. AAMP's Pillars 2 (shared protocols) and 3 (governance/Agent Registry) sit on top of this foundation. Without ARTF, agents can negotiate deals but can't optimise impressions at RTB speed.</div><div class="fc-tag">AAMP Context</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why is ARTF described as backward-compatible — what specifically doesn't need to change?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">ARTF extends existing OpenRTB — it does not replace it. Existing bid request/response formats, ad servers, and auction mechanics continue unchanged. You add an RTBExtensionPoint call to your existing bidder; everything else keeps working exactly as before.</div><div class="fc-tag">Architecture</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h2>Index Exchange Involvement</h2>
-      <p>Joshua Prismon, Chief Architect at Index Exchange, was quoted in the ARTF v1.0 press release. The Go reference implementation on GitHub is credited to Index Exchange Inc. IX has direct involvement in shaping this standard.</p>
+      <!-- PART 2: BEFORE AND AFTER -->
+      <h2>Part 2 — Before and After ARTF</h2>
+      <p class="sec-intro">The latency problem that blocked agents from the bid stream — and how ARTF solves it structurally.</p>
 
-      <h2>ARTF vs AdCP — The Key Difference</h2>
+      <p>Traditional RTB requires the DSP to complete all decision logic before responding within 100ms. Any external API call — to a data provider, an ML model, a segment service — adds network latency. At scale, bid decisions must be pre-computed and deterministic, not dynamically reasoned per impression. Agents couldn't fit.</p>
+
+      <div class="artf-compare">
+        <div class="artf-col">
+          <div class="artf-col-head before">❌ Traditional RTB — External Agent Call Too Slow</div>
+          <div class="artf-col-body">
+            <div class="artf-hop"><div class="artf-hop-node neutral">Bid Request Arrives</div></div>
+            <div class="artf-hop"><div class="artf-hop-arrow">↓</div></div>
+            <div class="artf-hop"><div class="artf-hop-node neutral">Bid Server Logic</div></div>
+            <div class="artf-hop"><div class="artf-hop-arrow">↓ network hop out</div><div class="artf-hop-latency">+10–20ms</div></div>
+            <div class="artf-hop"><div class="artf-hop-node slow">External Agent / AI Service</div></div>
+            <div class="artf-hop"><div class="artf-hop-arrow">↓ network hop back</div><div class="artf-hop-latency">+10–20ms</div></div>
+            <div class="artf-hop"><div class="artf-hop-node slow">Bid Server processes result</div></div>
+            <div class="artf-hop"><div class="artf-hop-arrow">↓</div></div>
+            <div class="artf-hop"><div class="artf-hop-node neutral">Submit Bid Response</div></div>
+            <div style="margin-top:10px;padding:8px 10px;background:#fee2e2;border-radius:6px;font-size:12px;color:#991b1b;font-weight:600">Total overhead: +20–50ms. Regularly misses 100ms window → bid dropped.</div>
+          </div>
+        </div>
+        <div class="artf-col">
+          <div class="artf-col-head after">✓ ARTF — Agent Runs Inside the Bid Server</div>
+          <div class="artf-col-body">
+            <div class="artf-hop"><div class="artf-hop-node neutral">Bid Request Arrives</div></div>
+            <div class="artf-hop"><div class="artf-hop-arrow">↓</div></div>
+            <div class="artf-hop"><div class="artf-hop-node neutral">Bid Server Logic</div></div>
+            <div class="artf-container-box">
+              <div class="artf-container-label">📦 ARTF Container (runs in-process)</div>
+              <div class="artf-hop"><div class="artf-hop-node fast">RTBExtensionPoint</div></div>
+              <div class="artf-hop"><div class="artf-hop-arrow">↓ in-process call</div><div class="artf-hop-latency saved">~1–3ms</div></div>
+              <div class="artf-hop"><div class="artf-hop-node fast">Agent Logic Executes</div></div>
+              <div class="artf-hop"><div class="artf-hop-arrow">↓ returns mutations</div><div class="artf-hop-latency saved">~1–3ms</div></div>
+            </div>
+            <div class="artf-hop"><div class="artf-hop-node neutral">Submit Enhanced Bid</div></div>
+            <div style="margin-top:10px;padding:8px 10px;background:#d1fae5;border-radius:6px;font-size:12px;color:#065f46;font-weight:600">Total overhead: ~2–10ms. Comfortably within bid window. Up to 90% latency reduction.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout teal">
+        <strong>Real-world analogy</strong>
+        The difference between calling a colleague on the phone for advice (network hop — 20ms minimum) versus tapping them on the shoulder because they're sitting next to you (in-process — 1ms). ARTF moves the AI agent from a remote call to a desk next to the bid server.
+      </div>
+
+      <!-- PART 3: TECHNICAL ARCHITECTURE -->
+      <h2>Part 3 — Technical Architecture</h2>
+      <p class="sec-intro">The RTBExtensionPoint, what agents can actually do with it, and Index Exchange's role.</p>
+
+      <p>ARTF exposes a service called <strong><span class="gloss" data-key="rtbext">RTBExtensionPoint</span></strong> via <span class="gloss" data-key="grpc">gRPC</span>. When a bid request arrives, the bid server calls RTBExtensionPoint with the full <span class="gloss" data-key="openrtb">OpenRTB</span> bid request. The agent analyses it and returns a set of <strong>mutations</strong> — proposed changes to how this impression should be handled.</p>
+
+      <h3>What an ARTF Agent Can Propose</h3>
+      <div class="mutation-grid">
+        <div class="mutation-card"><div class="mutation-icon">🤝</div><div class="mutation-title">Deal Activation</div><div class="mutation-desc">Activate a specific private marketplace deal for this impression if it matches targeting criteria — determined in real time per impression</div></div>
+        <div class="mutation-card"><div class="mutation-icon">💰</div><div class="mutation-title">Bid Price Adjustment</div><div class="mutation-desc"><span class="gloss" data-key="bidshading">Bid shading</span> — reduce or increase the bid based on predicted clearing price and this impression's specific value signals</div></div>
+        <div class="mutation-card"><div class="mutation-icon">🎯</div><div class="mutation-title">Segment Addition</div><div class="mutation-desc">Add audience segments to the bid request in real time based on contextual analysis of the current bid context</div></div>
+        <div class="mutation-card"><div class="mutation-icon">📊</div><div class="mutation-title">Viewability Signals</div><div class="mutation-desc">Attach predicted viewability metrics derived from page context and historical performance data for this placement</div></div>
+      </div>
+
+      <p>Uses <span class="gloss" data-key="protobuf">Protocol Buffers</span> for message serialisation — ~3–5x smaller and 5–10x faster than JSON/REST. Critical at millions of bid requests per second. A Web UI is included in the reference implementation for local testing without production infrastructure.</p>
+
+      <div class="callout green">
+        <strong>Index Exchange's direct architectural contribution</strong>
+        Joshua Prismon, Chief Architect at Index Exchange, was quoted in the ARTF v1.0 press release. The Go reference implementation on GitHub is explicitly credited to Index Exchange Inc. IX is not just an adopter — it had direct architectural input into the spec. The reference code is the fastest path for any engineer at IX to understand and extend ARTF.
+      </div>
+
+      <h3>RTBExtensionPoint in the Bid Flow</h3>
+      <div class="agent-flow" style="margin:16px 0">
+        <div class="af-node" style="border-color:#8b5cf6;background:#f5f3ff"><div class="af-node-icon">📨</div><div class="af-node-label">Bid Request</div><div class="af-node-sub">OpenRTB from SSP</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">gRPC call</div></div>
+        <div class="af-node" style="border-color:var(--accent2);background:rgba(26,140,110,.08)"><div class="af-node-icon">📦</div><div class="af-node-label">RTBExtension<br>Point</div><div class="af-node-sub">In-process container</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">mutations</div></div>
+        <div class="af-node" style="border-color:var(--accent);background:rgba(76,211,204,.08)"><div class="af-node-icon">⚙️</div><div class="af-node-label">Bid Server</div><div class="af-node-sub">Applies mutations</div></div>
+        <div class="af-arrow"><div class="af-arrow-line"></div><div class="af-arrow-tip">›</div><div class="af-arrow-label">enhanced bid</div></div>
+        <div class="af-node" style="border-color:var(--yellow);background:#fffbeb"><div class="af-node-icon">📤</div><div class="af-node-label">Bid Response</div><div class="af-node-sub">Enriched by agent</div></div>
+      </div>
+
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — Architecture</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is the RTBExtensionPoint — what does it receive and what does it return?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">A gRPC service defined by ARTF that sits inside the bid pipeline. Receives a full OpenRTB bid request, runs agent logic in-process, and returns proposed mutations: deal activations, bid price adjustments, segment additions, or viewability signals. The bid server applies these before responding.</div><div class="fc-tag">RTBExtensionPoint</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">Why does ARTF use Protocol Buffers instead of JSON — and why does this matter at RTB scale?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Protocol Buffers are ~3–5x smaller and 5–10x faster to encode/decode than JSON. At RTB scale — millions of bid requests per second — this is not marginal. It is the difference between fitting within the bid window and missing it. JSON would add too much serialisation overhead per impression.</div><div class="fc-tag">Protocol Buffers</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is Index Exchange's specific contribution to ARTF — and what does it mean in practice?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">IX contributed the Go reference implementation and Joshua Prismon (Chief Architect) was quoted in the v1.0 press release. In practice: IX had architectural input into the spec — not just implementation. For engineers at IX, this means the reference code is the fastest learning path and ARTF adoption is closer to home than anywhere else in the industry.</div><div class="fc-tag">Index Exchange</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 4: CHALLENGES -->
+      <h2>Part 4 — Honest Challenges</h2>
+      <p class="sec-intro">ARTF solves a real latency problem. But containerised agents inside bid servers introduce new operational and strategic risks worth understanding.</p>
+
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <h4>⚠ Deployment Complexity at Bid Scale</h4>
+          <p>Running containers at bid server scale requires <span class="gloss" data-key="kubernetes">Kubernetes</span> orchestration expertise. Most mid-tier SSPs and publishers don't have this in-house. The Go reference implementation lowers the bar, but production deployment at billions of impressions per day is still a serious engineering undertaking.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>⚠ Agent Logic Auditability</h4>
+          <p>When an AI container makes real-time bid decisions, who audits the logic? A deterministic bidding rule is easy to inspect. An ML model making sub-millisecond decisions is not. Advertisers and regulators will eventually ask what the agent did and why — and the answer needs to be legible at scale.</p>
+        </div>
+        <div class="challenge-item">
+          <h4>⚠ Errors Compound at Impression Scale</h4>
+          <p>A bad bidding rule affects a campaign. A miscalibrated agent container affects millions of individual bids before anyone notices. The scale at which ARTF operates is also the scale at which mistakes propagate. Monitoring, rollback, and version control of agent containers become critical ops requirements.</p>
+        </div>
+      </div>
+
+      <h3>SWOT — ARTF</h3>
+      <div class="swot-grid">
+        <div class="swot-card strengths">
+          <div class="swot-label">▲ Strengths</div>
+          <ul>
+            <li>Up to 90% latency reduction vs external agent calls</li>
+            <li>Backward-compatible with existing OpenRTB infrastructure</li>
+            <li>Go reference implementation (IX) — production-ready starting point</li>
+            <li>Per-impression AI decision-making at RTB speed</li>
+            <li>gRPC + Protocol Buffers — proven high-throughput stack</li>
+            <li>IAB Tech Lab governance — industry credibility</li>
+          </ul>
+        </div>
+        <div class="swot-card weaknesses">
+          <div class="swot-label">▼ Weaknesses</div>
+          <ul>
+            <li>Significant deployment complexity (Kubernetes at bid scale)</li>
+            <li>Agent logic auditability is an unsolved UX problem</li>
+            <li>Limited to impression-level mutations — no campaign-level reasoning</li>
+            <li>Requires bid server operators to expose extension points</li>
+            <li>Container overhead is non-zero at very high QPS</li>
+          </ul>
+        </div>
+        <div class="swot-card opportunities">
+          <div class="swot-label">▲ Opportunities</div>
+          <ul>
+            <li>SSPs exposing RTBExtensionPoint become agent-ready infrastructure</li>
+            <li>Dynamic bid shading and deal activation at impression granularity</li>
+            <li>Supply-side decisioning — SSP-side agents, not just DSP-side</li>
+            <li>Real-time segment activation unlocks first-party data at scale</li>
+            <li>IX Go implementation: internal familiarity accelerates adoption</li>
+          </ul>
+        </div>
+        <div class="swot-card threats">
+          <div class="swot-label">▼ Threats</div>
+          <ul>
+            <li>Adoption requires SSPs/exchanges to modify core bidder infrastructure</li>
+            <li>A miscalibrated agent propagates errors at impression scale</li>
+            <li>AdCP direct deals could reduce the impression pool reaching ARTF</li>
+            <li>Walled gardens won't expose RTBExtensionPoint — open internet only</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PART 5: ARTF VS ADCP -->
+      <h2>Part 5 — ARTF vs AdCP: Same Stack, Different Layers</h2>
+      <p class="sec-intro">The most common confusion in agentic adtech. ARTF and AdCP are not competing — they operate at fundamentally different levels.</p>
+
       <table>
         <tr><th>Dimension</th><th>ARTF</th><th>AdCP</th></tr>
-        <tr><td>Layer</td><td>Impression-level, inside RTB pipeline</td><td>Deal/campaign-level, between agents</td></tr>
-        <tr><td>Speed</td><td>Real-time (&lt;100ms)</td><td><span class="gloss" data-key="async">Asynchronous</span> (seconds to days)</td></tr>
-        <tr><td>Foundation</td><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td><span class="gloss" data-key="mcp">MCP</span></td></tr>
-        <tr><td>Scope</td><td>Execution infrastructure</td><td>Communication language</td></tr>
-        <tr><td>Relationship</td><td colspan="2">Complementary — both now under AAMP umbrella</td></tr>
+        <tr><td><strong>What layer</strong></td><td>Impression-level, inside RTB pipeline</td><td>Deal/campaign-level, between agents</td></tr>
+        <tr><td><strong>Speed</strong></td><td>Real-time (&lt;100ms)</td><td><span class="gloss" data-key="async">Asynchronous</span> (seconds to days)</td></tr>
+        <tr><td><strong>Foundation</strong></td><td><span class="gloss" data-key="openrtb">OpenRTB</span> extensions</td><td>Anthropic <span class="gloss" data-key="mcp">MCP</span></td></tr>
+        <tr><td><strong>Governing body</strong></td><td>IAB Tech Lab (AAMP)</td><td>AgenticAdvertising.org (AAO)</td></tr>
+        <tr><td><strong>Human in the loop</strong></td><td>No — fully automated</td><td>Yes — human approves before money moves</td></tr>
+        <tr><td><strong>Example action</strong></td><td>Agent shades a bid 12% on this specific impression</td><td>Agent negotiates a $200K CTV deal over 3 hours</td></tr>
+        <tr><td><strong>Think of it as</strong></td><td>The execution muscle</td><td>The negotiation brain</td></tr>
       </table>
 
-      <h2>Future Role Impact</h2>
-      <p><strong>SSP / Exchange Engineer</strong> — You can expose ARTF-compatible agent extension points in your bidder. Third-party agents can enhance bids in real time without expensive integrations.</p>
-      <p><strong>Yield Manager / Revenue Ops</strong> — ARTF enables per-impression sell-side decisioning at scale — AI can dynamically adjust floor prices, activate deals, and apply curation logic in real time.</p>
+      <div class="callout green" style="margin-top:16px">
+        <strong>How they work together</strong>
+        An AdCP deal sets up a guaranteed buy — e.g. "100M impressions, US premium CTV, Q3." Once that deal is activated, ARTF manages impression-level execution: which specific impressions to use, bid price adjustments, real-time segment activation at delivery. AdCP negotiates the contract; ARTF optimises the delivery.
+      </div>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. What is the key performance advantage of ARTF's containerisation approach?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Eliminates server-to-server network hops, reducing latency by up to 90% by running agent logic inside the same server as the bid.</div>
-        <div class="checkpoint-q">2. Which best describes the relationship between ARTF and AdCP?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">ARTF handles real-time impression-level execution; AdCP handles deal-level agent communication — they are complementary, not competing.</div>
+      <div class="flashcard-section">
+        <div class="flashcard-section-label">Flashcards — ARTF vs AdCP</div>
+        <div class="flashcard-grid">
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">How are ARTF and AdCP complementary rather than competing standards?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">Different layers. AdCP handles deal-level negotiation between agents (asynchronous, campaign-level). ARTF handles impression-level execution inside the bid stream (real-time, sub-100ms). AdCP sets up the deal; ARTF optimises the delivery of that deal impression by impression.</div><div class="fc-tag">Complementary</div></div>
+            </div>
+          </div>
+          <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner">
+              <div class="flashcard-front"><div class="fc-q">What is 'supply-side decisioning' in the ARTF context — and why is it significant for SSPs?</div><div class="fc-hint">Click to reveal</div></div>
+              <div class="flashcard-back"><div class="fc-a">SSP-side agents (not just DSP-side) making intelligent per-impression decisions — activating deals, adjusting floor prices, applying curation logic in real time. This mirrors how walled gardens use integrated first-party data for performance, but opens it to the programmatic open market. SSPs that build this become indispensable.</div><div class="fc-tag">Supply Side</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Future Role Impact</h2>
+      <p><strong>SSP / Exchange Engineer</strong> — Expose RTBExtensionPoint in your bidder. IX's Go implementation is the reference — if you're at IX, this is closer to home than anywhere else in the industry. Third-party agents can enhance bids in real time without expensive bespoke integrations.</p>
+      <p><strong>Yield Manager / Revenue Ops</strong> — ARTF enables per-impression sell-side decisioning at a granularity far beyond rule-based yield management. AI can dynamically adjust floor prices, activate deals, and apply curation logic in real time based on full context of each bid request.</p>
+      <p><strong>DSP / Buy-Side Engineer</strong> — Containerised agent logic inside your bidder means ML models act on real-time impression context rather than pre-computed segment scores. Bid quality improves at impression granularity, not just campaign level.</p>
+
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. What is the key performance advantage of ARTF's containerisation approach over external agent calls?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'gRPC is used for the internal call, but the latency benefit comes from running in-process, not from the protocol choice alone.')"><span class="opt-ltr">A</span>It uses gRPC instead of REST, which is 10x faster per call</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. By running agent logic inside the same server as the bid (in-process), ARTF eliminates the 10–50ms network round-trip cost of calling an external AI service. Keeps total overhead within the 100ms bid window. Up to 90% latency reduction.')" data-correct><span class="opt-ltr">B</span>It eliminates network hops by running agent logic inside the bid server (in-process)</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'ARTF does not replace the OpenRTB auction — it extends it. The auction mechanism is unchanged.')"><span class="opt-ltr">C</span>It replaces the OpenRTB auction with a faster proprietary format</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'ARTF does not change how many external calls are made — it changes where the agent logic runs.')"><span class="opt-ltr">D</span>It reduces the number of external data provider calls per bid</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. Which best describes the relationship between ARTF and AdCP?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'They operate at different layers of the stack and are designed to complement each other.')"><span class="opt-ltr">A</span>They are competing standards — platforms must choose one</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AdCP is not a newer version of ARTF — they solve different problems at different layers.')"><span class="opt-ltr">B</span>AdCP is a newer, more complete replacement for ARTF</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. ARTF handles real-time impression-level execution inside the bid pipeline. AdCP handles deal-level agent negotiation (asynchronous, campaign-level). Complementary — AdCP sets up deals that ARTF then optimises at delivery.')" data-correct><span class="opt-ltr">C</span>ARTF handles impression execution; AdCP handles deal negotiation — complementary layers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AAMP is the umbrella that includes ARTF as Pillar 1 — AdCP is governed separately by AgenticAdvertising.org.')"><span class="opt-ltr">D</span>Both ARTF and AdCP are governed by IAB Tech Lab under AAMP</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">3. What mutations can an ARTF agent propose via RTBExtensionPoint?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'ARTF agents cannot generate creatives — they propose bid-level mutations on existing bid requests.')"><span class="opt-ltr">A</span>Generate new ad creatives based on impression context</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'ARTF agents propose specific mutations — they do not replace the entire bid request.')"><span class="opt-ltr">B</span>Replace the entire bid request with an agent-generated version</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. The four mutation types: deal activations, bid price adjustments (bid shading), segment additions, and viewability signal attachments. These are bounded, specific changes to how the bid server handles an individual impression.')" data-correct><span class="opt-ltr">C</span>Deal activations, bid price adjustments, segment additions, viewability signals</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Campaign budget changes are not impression-level operations — ARTF operates at individual bid granularity, not campaign level.')"><span class="opt-ltr">D</span>Campaign budget adjustments and pacing changes</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m3" onclick="markDone('m3')">&#10003; Mark as Complete</button>
     </div>
@@ -956,14 +1385,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <p><strong>Ad Tech Platform (DSP/SSP)</strong> — Clear integration roadmap: implement Buyer Agent SDK (demand side) or Seller Agent SDK (supply side) from IAB Tech Lab's GitHub. Register your agents with the registry.</p>
       <p><strong>Privacy / Legal</strong> — Agentic Audiences uses <span class="gloss" data-key="embeddings">embeddings</span> aligned with <span class="gloss" data-key="tcf">TCF</span> and <span class="gloss" data-key="gpp">GPP</span>. Compliance requirements are encoded into the protocol layer, not bolted on.</p>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. What does AAMP's Agent Registry primarily address?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Accountability and transparency — knowing who built each agent, what version is running, and who is responsible for its actions.</div>
-        <div class="checkpoint-q">2. Agentic Audiences (UCP) uses which technical approach to exchange audience signals in a privacy-preserving way?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Dense vector embeddings (256–1024 dimensions), aligned with TCF and GPP privacy frameworks.</div>
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. What does AAMP's Agent Registry primarily address in the agentic advertising ecosystem?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'The Agent Registry is about accountability and verified identity, not bid request formats.')"><span class="opt-ltr">A</span>Standardising bid request formats for agentic transactions</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. The Agent Registry is AAMP\'s accountability solution. Every agent must register with: who built it, what version is running, what protocols it supports, and who is legally accountable. Without this, autonomous agents spending real money have no identity or responsibility chain.')" data-correct><span class="opt-ltr">B</span>Accountability and transparency — verified identity and responsibility for every agent</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Latency reduction is handled by ARTF (Pillar 1), not the Agent Registry (Pillar 3).')"><span class="opt-ltr">C</span>Reducing latency in real-time bidding operations</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Creative approvals are part of the AdCP Creative Protocol — not the AAMP Agent Registry.')"><span class="opt-ltr">D</span>Managing creative approvals across agentic media buys</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. Agentic Audiences (UCP) uses which technical approach to exchange audience signals in a privacy-preserving way?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Cookies are third-party identifiers being deprecated — not the approach for privacy-preserving agentic audience exchange.')"><span class="opt-ltr">A</span>Cookie-based audience IDs transmitted in OpenRTB bid requests</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Deterministic identity graphs require known user identifiers — Agentic Audiences is designed to work without exposing individual user IDs.')"><span class="opt-ltr">B</span>Deterministic identity graphs matched across publisher and advertiser first-party data</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. Agentic Audiences uses dense vector embeddings (256–1024 dimensions). Instead of sharing raw user IDs, buyer agents express audience needs as a mathematical vector and seller agents find matching inventory — without either side seeing individual user data. Aligned with TCF and GPP.')" data-correct><span class="opt-ltr">C</span>Dense vector embeddings (256–1024 dimensions) for mathematical audience matching</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Contextual keyword matching is a separate targeting approach — not the Agentic Audiences technical method.')"><span class="opt-ltr">D</span>Contextual keyword matching without any user data signals</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m4" onclick="markDone('m4')">&#10003; Mark as Complete</button>
     </div>
@@ -1030,14 +1473,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <li>Any formal AdCP / AAMP interoperability announcement</li>
       </ul>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. Which statement best describes ARTF vs AdCP's approach?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">ARTF extends proven existing standards with containerised real-time execution; AdCP is a native-to-agents standard built on MCP for asynchronous deal orchestration.</div>
-        <div class="checkpoint-q">2. What is the main fragmentation risk if AdCP and AAMP don't converge?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Agents built for one ecosystem can't interoperate with platforms built for the other — recreating the fragmentation programmatic was meant to solve.</div>
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. Which statement best describes the technical difference between ARTF and AdCP?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Neither is role-specific. ARTF and AdCP are architectural layers, not audience-based splits.')"><span class="opt-ltr">A</span>ARTF is designed for agencies; AdCP is designed for publishers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'They have different governance bodies and technical foundations — they are not the same standard from competing groups.')"><span class="opt-ltr">B</span>They are technically identical but governed by competing organisations</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. ARTF extends proven standards (OpenRTB) with containerised real-time execution inside the bid stream. AdCP is native to agents, built on MCP, and handles asynchronous deal-level orchestration. Different layers of the same overall stack.')" data-correct><span class="opt-ltr">C</span>ARTF extends existing standards for real-time execution; AdCP is agent-native for async deal orchestration</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'AdCP is asynchronous and campaign-level — it does not handle impression-level operations or replace ARTF\'s real-time role.')"><span class="opt-ltr">D</span>AdCP is faster and handles both impression-level and deal-level operations</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. What is the main fragmentation risk if AdCP and AAMP don't converge?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Latency increases are an implementation concern, not the primary risk of standards fragmentation.')"><span class="opt-ltr">A</span>Latency increases across the entire RTB stack for all buyers</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Publisher first-party data control is not the primary risk of standards fragmentation.')"><span class="opt-ltr">B</span>Publishers lose control over their first-party data signals</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. If SSPs build AdCP and DSPs build AAMP without interoperability, every agent needs custom integrations per ecosystem. This recreates the exact fragmentation both protocols are trying to solve — but now at the agent layer instead of the API layer.')" data-correct><span class="opt-ltr">C</span>Agents built for one ecosystem can\'t interoperate with the other — fragmentation recreated at the agent layer</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Creative format compatibility has its own mechanisms independent of standards convergence.')"><span class="opt-ltr">D</span>Creative formats become incompatible across platforms using different standards</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m5" onclick="markDone('m5')">&#10003; Mark as Complete</button>
     </div>
@@ -1098,14 +1555,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <li>Any AdCP / AAMP formal interoperability announcement</li>
       </ol>
 
-      <div class="checkpoint">
-        <h3>Checkpoint Questions</h3>
-        <div class="checkpoint-q">1. Which is the earliest signal that a new ARTF or AAMP spec is about to drop?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Commit activity on the IABTechLab GitHub repositories — changes appear days or weeks before official press releases.</div>
-        <div class="checkpoint-q">2. What is the best way to use Claude to stay updated on agentic adtech?</div>
-        <button class="reveal-btn" onclick="revealAnswer(this)">Show answer</button>
-        <div class="checkpoint-a">Use a specific prompt asking Claude to search for recent news on AAMP, AdCP, and agentic advertising standards — naming the specific protocols to get current, synthesised results rather than stale training data.</div>
+      <div class="mcq-wrap">
+        <h3>&#x2713; Checkpoint — Test Your Understanding</h3>
+        <div class="mcq-question">
+          <div class="mcq-q">1. Which is the earliest reliable signal that a new ARTF or AAMP spec release is imminent?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Official press releases come after the spec is finalised — by then the information is already out. Not the earliest signal.')"><span class="opt-ltr">A</span>Official press releases on the IAB Tech Lab website</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. GitHub commit activity on IABTechLab repositories typically precedes official announcements by days or weeks. A spike in commits to ARTF or AAMP repos — especially to spec files, changelogs, or README — is the earliest reliable signal of an imminent release.')" data-correct><span class="opt-ltr">B</span>Commit activity on IABTechLab GitHub repositories</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'LinkedIn posts are a lagging indicator — they typically follow announcements rather than precede them.')"><span class="opt-ltr">C</span>LinkedIn posts from Anthony Katsur and IAB Tech Lab staff</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Conference announcements are planned events — spec changes often happen outside of conference cycles.')"><span class="opt-ltr">D</span>Agenda announcements at Advertising Week or Cannes Lions</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
+        <div class="mcq-question">
+          <div class="mcq-q">2. What is the best way to use Claude to stay current on agentic adtech developments?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Claude\'s training data has a knowledge cutoff — it won\'t include recent news from the past week. Always use web search for current developments.')"><span class="opt-ltr">A</span>Ask Claude to summarise its training knowledge on agentic advertising</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,true,'Correct. Prompt Claude to web-search for specific protocol names (AAMP, AdCP, ARTF) with a 7-day date constraint. Naming the specific protocols gets synthesised, current results rather than stale training data. The weekly automated task in this portal does exactly this.')" data-correct><span class="opt-ltr">B</span>Prompt Claude to web-search for specific protocol names with a 7-day date constraint</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Google Alerts are useful but provide raw articles, not synthesised analysis — Claude with web search gives better structured output.')"><span class="opt-ltr">C</span>Set up Google Alerts for "agentic advertising" and review daily</button>
+            <button class="mcq-opt" onclick="selectMCQ(this,false,'Social media is useful for real-time commentary but is noisy and lacks the synthesis a structured Claude prompt provides.')"><span class="opt-ltr">D</span>Follow IAB Tech Lab and AdCP accounts on social media for real-time updates</button>
+          </div>
+          <div class="mcq-feedback"></div>
+        </div>
       </div>
       <button class="done-btn" id="done-m6" onclick="markDone('m6')">&#10003; Mark as Complete</button>
     </div>
@@ -1460,11 +1931,30 @@ document.querySelectorAll('.gloss').forEach(el=>{
   el.addEventListener('click',()=>openGloss(el.dataset.key));
 });
 
-// ── CHECKPOINT ─────────────────────────────────────────────────────────────
+// ── CHECKPOINT (legacy reveal) ─────────────────────────────────────────────
 function revealAnswer(btn) {
   const a=btn.nextElementSibling;
   a.classList.toggle('show');
   btn.textContent=a.classList.contains('show')?'Hide answer':'Show answer';
+}
+
+// ── MCQ CHECKPOINTS ────────────────────────────────────────────────────────
+function selectMCQ(el, isCorrect, explanation) {
+  const q = el.closest('.mcq-question');
+  if (q.dataset.answered) return;
+  q.dataset.answered = 'true';
+  q.querySelectorAll('.mcq-opt').forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+  } else {
+    el.classList.add('wrong');
+    q.querySelectorAll('.mcq-opt[data-correct]').forEach(o => o.classList.add('show-correct'));
+  }
+  const fb = q.querySelector('.mcq-feedback');
+  if (fb) {
+    fb.textContent = explanation;
+    fb.classList.add('show', isCorrect ? 'correct-fb' : 'wrong-fb');
+  }
 }
 
 // ── PROGRESS ───────────────────────────────────────────────────────────────
