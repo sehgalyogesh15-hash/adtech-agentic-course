@@ -9,51 +9,72 @@
   --bg:#F0F4F2; --surface:#001B15; --surface2:#ffffff;
   --border:#D0DBD5; --accent:#4CD3CC; --accent2:#1A8C6E;
   --green:#1A8C6E; --yellow:#D4820A; --red:#C0392B;
-  --text:#001B15; --muted:#5A7568; --sidebar-w:260px;
+  --text:#001B15; --muted:#5A7568; --nav-h:52px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
 
-/* SIDEBAR */
-#sidebar{width:var(--sidebar-w);background:var(--surface);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden}
-.sidebar-header{padding:20px 18px 12px;border-bottom:1px solid rgba(255,255,255,.1)}
-.sidebar-title{color:#fff;font-size:15px;font-weight:700;letter-spacing:.3px}
-.sidebar-sub{color:rgba(255,255,255,.45);font-size:11px;margin-top:3px}
-.nav-section{margin-top:8px}
-.nav-section-label{color:rgba(255,255,255,.35);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:14px 18px 5px}
-.nav-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;color:rgba(255,255,255,.65);font-size:13px;border-left:2px solid transparent;transition:all .15s;user-select:none}
-.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
-.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(76,211,204,.08)}
-.nav-item .ico{width:16px;text-align:center;flex-shrink:0;font-size:13px}
-.nav-item .badge{margin-left:auto;font-size:10px;padding:1px 6px;border-radius:10px;background:rgba(76,211,204,.2);color:var(--accent)}
-.nav-item .badge.new{background:rgba(26,140,110,.25);color:#4ade80}
-.course-toggle .chevron{margin-left:auto;font-size:10px;transition:transform .2s;color:rgba(255,255,255,.4)}
-.course-toggle.open .chevron{transform:rotate(90deg)}
-.course-children{overflow:hidden;max-height:0;transition:max-height .25s ease}
-.course-children.open{max-height:400px}
-.nav-sub{padding:6px 18px 6px 42px;cursor:pointer;color:rgba(255,255,255,.5);font-size:12px;border-left:2px solid transparent;display:flex;align-items:center;gap:7px;transition:all .15s}
-.nav-sub:hover{color:rgba(255,255,255,.85)}
-.nav-sub.active{color:var(--accent);border-left-color:var(--accent)}
-.nav-sub .check{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0}
-.nav-sub.done .check{background:var(--accent2);border-color:var(--accent2);color:#fff}
-.sidebar-footer{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08)}
-.progress-bar-wrap{background:rgba(255,255,255,.1);border-radius:4px;height:4px;overflow:hidden}
-.progress-bar-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .4s}
-.progress-label{color:rgba(255,255,255,.4);font-size:10px;margin-bottom:5px}
+/* TOP NAV */
+#topnav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--surface);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:50;border-bottom:1px solid rgba(255,255,255,.07)}
+.tnav-brand{display:flex;align-items:center;gap:9px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;user-select:none}
+.tnav-brand span{color:#4CD3CC;font-size:11px;font-weight:400;color:rgba(255,255,255,.4)}
+.tnav-links{display:flex;gap:2px}
+.tnav-link{font-size:12px;color:rgba(255,255,255,.45);padding:6px 11px;border-radius:6px;cursor:pointer;transition:all .15s;user-select:none}
+.tnav-link:hover{color:#fff;background:rgba(255,255,255,.07)}
+.tnav-link.active{color:var(--accent);background:rgba(76,211,204,.1)}
 
 /* MAIN */
-#main{flex:1;overflow-y:auto;overflow-x:hidden;position:relative}
+#main{margin-top:var(--nav-h);min-height:calc(100vh - var(--nav-h))}
 .section{display:none;min-height:100%;animation:fadeIn .2s ease}
 .section.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
+/* HUB HOMEPAGE */
+.hub-hero{background:var(--surface);padding:36px 32px 40px;border-bottom:1px solid rgba(255,255,255,.07)}
+.hub-eyebrow{font-size:10px;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;font-weight:600}
+.hub-hero h1{font-size:22px;font-weight:600;color:#fff;margin:0 0 10px;line-height:1.35}
+.hub-hero p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;max-width:560px;margin:0 0 20px}
+.hub-tag-row{display:flex;gap:7px;flex-wrap:wrap}
+.hub-tag{font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.45);cursor:pointer;transition:all .15s}
+.hub-tag:hover{border-color:var(--accent);color:var(--accent)}
+.hub-body{padding:28px 32px 56px;max-width:1000px}
+.proto-block{margin-bottom:36px}
+.proto-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.proto-pill{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;letter-spacing:.4px;text-transform:uppercase}
+.proto-pill.found{background:#F3E8FF;color:#6B21A8}
+.proto-pill.adcp{background:#D1FAE5;color:#065F46}
+.proto-pill.artf{background:#FEF3C7;color:#92400E}
+.proto-pill.aamp{background:#DBEAFE;color:#1E40AF}
+.proto-name{font-size:13px;font-weight:600;color:var(--text)}
+.proto-meta{font-size:11px;color:var(--muted)}
+.hub-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hub-cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hub-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all .15s;text-align:left}
+.hub-card:hover{border-color:var(--accent);box-shadow:0 3px 12px rgba(0,27,21,.08)}
+.hub-card-type{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.hub-card h3{font-size:13px;font-weight:600;color:var(--text);line-height:1.45;margin-bottom:6px}
+.hub-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0 0 12px}
+.hub-card-cta{font-size:11px;color:var(--accent);font-weight:600}
+.hub-divider{height:1px;background:var(--border);margin:0 0 32px}
+.hub-formats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.hub-fmt{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .15s}
+.hub-fmt:hover{border-color:var(--accent)}
+.hub-fmt-icon{width:32px;height:32px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.hub-fmt-label{font-size:12px;font-weight:600;color:var(--text)}
+.hub-fmt-count{font-size:11px;color:var(--muted)}
+.hub-section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:0 0 12px}
+
+/* BACK BUTTON */
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);cursor:pointer;background:none;border:1px solid var(--border);border-radius:5px;padding:4px 10px;margin-bottom:14px;transition:all .15s;font-family:inherit}
+.back-btn:hover{color:var(--accent);border-color:var(--accent)}
+
 /* PAGE HEADER */
-.page-header{background:var(--surface2);border-bottom:1px solid var(--border);padding:22px 36px 20px;position:sticky;top:0;z-index:10}
-.page-header h1{font-size:20px;font-weight:700;color:var(--text)}
-.page-header p{color:var(--muted);font-size:13px;margin-top:4px}
+.page-header{background:var(--surface2);border-bottom:1px solid var(--border);padding:18px 36px 16px;position:sticky;top:var(--nav-h);z-index:10}
+.page-header h1{font-size:19px;font-weight:700;color:var(--text)}
+.page-header p{color:var(--muted);font-size:13px;margin-top:3px}
 
 /* CONTENT AREA */
-.content-body{padding:28px 36px 48px;max-width:860px}
+.content-body{padding:28px 36px 48px;max-width:880px}
 
 /* MODULE CONTENT */
 .module-meta{display:flex;gap:8px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
@@ -95,10 +116,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .reveal-btn{font-size:12px;cursor:pointer;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:4px;padding:3px 10px;margin-top:6px;margin-bottom:14px}
 .reveal-btn:hover{background:rgba(76,211,204,.1)}
 
-/* DONE BUTTON */
-.done-btn{margin-top:28px;padding:10px 22px;background:var(--accent2);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
-.done-btn:hover{background:#16785e}
-.done-btn.completed{background:#6B7280;cursor:default}
 
 /* GLOSSARY TERM */
 .gloss{color:var(--accent2);border-bottom:1px dashed var(--accent2);cursor:pointer;font-weight:500;transition:color .1s}
@@ -385,50 +402,184 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<nav id="sidebar">
-  <div class="sidebar-header">
-    <div class="sidebar-title">Agentic AdTech</div>
-    <div class="sidebar-sub">Personal Learning Portal &middot; 2026</div>
+<!-- TOP NAV -->
+<nav id="topnav">
+  <div class="tnav-brand" onclick="showSection('hub')">
+    <span style="font-size:18px">⬡</span>
+    Agentic AdTech
+    <span>/ Knowledge Hub</span>
   </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Learn</div>
-    <div class="nav-item course-toggle" id="course-toggle" onclick="toggleCourse()">
-      <span class="ico">📚</span> Agentic Course
-      <span class="chevron">&#9654;</span>
-    </div>
-    <div class="course-children" id="course-children">
-      <div class="nav-sub" data-module="m1" onclick="showModule('m1')"><span class="check" id="chk-m1"></span> 1. The Problem</div>
-      <div class="nav-sub" data-module="m2" onclick="showModule('m2')"><span class="check" id="chk-m2"></span> 2. AdCP</div>
-      <div class="nav-sub" data-module="m3" onclick="showModule('m3')"><span class="check" id="chk-m3"></span> 3. ARTF</div>
-      <div class="nav-sub" data-module="m4" onclick="showModule('m4')"><span class="check" id="chk-m4"></span> 4. AAMP</div>
-      <div class="nav-sub" data-module="m5" onclick="showModule('m5')"><span class="check" id="chk-m5"></span> 5. Standards Battle</div>
-      <div class="nav-sub" data-module="m6" onclick="showModule('m6')"><span class="check" id="chk-m6"></span> 6. Staying Current</div>
-    </div>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Resources</div>
-    <div class="nav-item" data-sec="videos" onclick="showSection('videos')"><span class="ico">▶️</span> Videos <span class="badge">7</span></div>
-    <div class="nav-item" data-sec="articles" onclick="showSection('articles')"><span class="ico">📰</span> Articles <span class="badge">8</span></div>
-    <div class="nav-item" data-sec="tools" onclick="showSection('tools')"><span class="ico">🔧</span> Tools &amp; Repos</div>
-    <div class="nav-item" data-sec="changelog" onclick="showSection('changelog')"><span class="ico">📋</span> Changelog <span class="badge new">May 11</span></div>
-  </div>
-
-  <div class="sidebar-footer">
-    <div class="progress-label" id="progress-label">0 of 6 modules complete</div>
-    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar" style="width:0%"></div></div>
+  <div class="tnav-links">
+    <div class="tnav-link active" data-sec="hub" onclick="showSection('hub')">Explore</div>
+    <div class="tnav-link" data-sec="videos" onclick="showSection('videos')">Videos</div>
+    <div class="tnav-link" data-sec="articles" onclick="showSection('articles')">Articles</div>
+    <div class="tnav-link" data-sec="tools" onclick="showSection('tools')">Tools</div>
+    <div class="tnav-link" data-sec="changelog" onclick="showSection('changelog')">Changelog</div>
   </div>
 </nav>
 
 <!-- MAIN -->
 <div id="main">
 
+<!-- HUB HOMEPAGE -->
+<div class="section active" id="sec-hub">
+  <div class="hub-hero">
+    <div class="hub-eyebrow">Open reference &middot; Updated weekly</div>
+    <h1>The protocols reshaping how AI agents buy and sell advertising</h1>
+    <p>A living knowledge base on AdCP, ARTF, and AAMP — the emerging standards governing agentic advertising. No sequence required. Start where it's relevant to you.</p>
+    <div class="hub-tag-row">
+      <span class="hub-tag" onclick="showSection('m2')">AdCP</span>
+      <span class="hub-tag" onclick="showSection('m3')">ARTF</span>
+      <span class="hub-tag" onclick="showSection('m4')">AAMP</span>
+      <span class="hub-tag" onclick="showSection('m1')">OpenRTB</span>
+      <span class="hub-tag" onclick="showSection('m4')">IAB Tech Lab</span>
+      <span class="hub-tag" onclick="showSection('m3')">gRPC</span>
+      <span class="hub-tag" onclick="showSection('m5')">Standards battle</span>
+    </div>
+  </div>
+
+  <div class="hub-body">
+
+    <!-- FOUNDATION -->
+    <div class="proto-block">
+      <div class="proto-hdr">
+        <span class="proto-pill found">Foundation</span>
+        <span class="proto-name">Why agentic advertising</span>
+        <span class="proto-meta">Start here if you're new to the space</span>
+      </div>
+      <div class="hub-cards two">
+        <div class="hub-card" onclick="showSection('m1')">
+          <div class="hub-card-type">Explainer</div>
+          <h3>The three ceilings that make today's RTB stack incompatible with AI agents</h3>
+          <p>Human bandwidth, walled garden ROI, and OpenRTB data compression — the structural limits agents break through.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m1')">
+          <div class="hub-card-type">Visual</div>
+          <h3>Standard programmatic flow — how RTB works today</h3>
+          <p>Annotated stack diagram from advertiser to publisher, with timing and the constraints agents face at each hop.</p>
+          <div class="hub-card-cta">View ›</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-divider"></div>
+
+    <!-- ADCP -->
+    <div class="proto-block">
+      <div class="proto-hdr">
+        <span class="proto-pill adcp">Protocol</span>
+        <span class="proto-name">AdCP — Ad Context Protocol</span>
+        <span class="proto-meta">adcontextprotocol.org &middot; Open spec &middot; Oct 2025</span>
+      </div>
+      <div class="hub-cards">
+        <div class="hub-card" onclick="showSection('m2')">
+          <div class="hub-card-type">Explainer</div>
+          <h3>What AdCP is and why it was built</h3>
+          <p>Built on MCP. Agent-to-agent negotiation. How any compatible buyer can transact with any compatible publisher without custom integrations.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m2')">
+          <div class="hub-card-type">Deep dive</div>
+          <h3>The four AdCP protocols and what a live deal looks like end to end</h3>
+          <p>Signals, Media Buy, Creative, and Curation Protocol — with the Scope3/Swivel production demo breakdown.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m2')">
+          <div class="hub-card-type">Analysis</div>
+          <h3>Honest challenges and tradeoffs — what AdCP doesn't solve</h3>
+          <p>Line item proliferation, legal accountability gaps, price discovery without auction signals, fraud exposure front-loading.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-divider"></div>
+
+    <!-- ARTF -->
+    <div class="proto-block">
+      <div class="proto-hdr">
+        <span class="proto-pill artf">Framework</span>
+        <span class="proto-name">ARTF — Agentic RTB Framework</span>
+        <span class="proto-meta">IAB Tech Lab &middot; v1.0 released Nov 13, 2025 &middot; Go reference impl: Index Exchange</span>
+      </div>
+      <div class="hub-cards">
+        <div class="hub-card" onclick="showSection('m3')">
+          <div class="hub-card-type">Explainer</div>
+          <h3>How ARTF lets agent logic run inside the bid stream without latency cost</h3>
+          <p>Containerisation — the core innovation. No external network hop, no blown bid windows. Up to 90% latency reduction.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m3')">
+          <div class="hub-card-type">Technical</div>
+          <h3>Bid mutation, RTBExtensionPoint, and Protocol Buffers</h3>
+          <p>gRPC service call, in-process container, four mutation types — deal activation, bid shading, segment addition, viewability signals.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m3')">
+          <div class="hub-card-type">Comparison</div>
+          <h3>ARTF vs AdCP — what each solves and where they meet</h3>
+          <p>Impression-level execution vs deal-level orchestration. Complementary layers, not competitors.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-divider"></div>
+
+    <!-- AAMP -->
+    <div class="proto-block">
+      <div class="proto-hdr">
+        <span class="proto-pill aamp">Standard</span>
+        <span class="proto-name">AAMP — Agentic Advertising Management Protocols</span>
+        <span class="proto-meta">IAB Tech Lab &middot; Announced Feb 26, 2026 &middot; AAMP 2.0 released Apr 24, 2026</span>
+      </div>
+      <div class="hub-cards two">
+        <div class="hub-card" onclick="showSection('m4')">
+          <div class="hub-card-type">Explainer</div>
+          <h3>AAMP's three pillars and how they unify IAB Tech Lab's agentic work</h3>
+          <p>Execution (ARTF) + Shared Protocols (Agentic Audiences, OpenDirect, Deals) + Governance (Agent Registry). The full operating system.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+        <div class="hub-card" onclick="showSection('m5')">
+          <div class="hub-card-type">Strategy</div>
+          <h3>The standards battle — AdCP vs AAMP and the fragmentation risk</h3>
+          <p>Origin story, key differences, the emerging complementary consensus, and the inflection signals to watch in 2026.</p>
+          <div class="hub-card-cta">Read ›</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-divider"></div>
+
+    <div class="hub-section-label">Browse by format</div>
+    <div class="hub-formats">
+      <div class="hub-fmt" onclick="showSection('videos')">
+        <div class="hub-fmt-icon">▶️</div>
+        <div><div class="hub-fmt-label">Videos</div><div class="hub-fmt-count">7 curated clips</div></div>
+      </div>
+      <div class="hub-fmt" onclick="showSection('articles')">
+        <div class="hub-fmt-icon">📰</div>
+        <div><div class="hub-fmt-label">Articles</div><div class="hub-fmt-count">8 deep reads</div></div>
+      </div>
+      <div class="hub-fmt" onclick="showSection('tools')">
+        <div class="hub-fmt-icon">🔧</div>
+        <div><div class="hub-fmt-label">Tools &amp; Repos</div><div class="hub-fmt-count">Reference implementations</div></div>
+      </div>
+      <div class="hub-fmt" onclick="showSection('changelog')">
+        <div class="hub-fmt-icon">📋</div>
+        <div><div class="hub-fmt-label">Changelog</div><div class="hub-fmt-count">Updated May 11</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- MODULE 1 -->
 <div class="section" id="sec-m1">
   <div class="page-header">
-    <h1>Module 1 — The Problem: Why Advertising Needs Agents</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>The Problem — Why Advertising Needs Agents</h1>
     <p>Before AdCP or ARTF, you need the broken world they're trying to fix.</p>
   </div>
   <div class="content-body">
@@ -566,7 +717,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m1" onclick="markDone('m1')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -574,7 +724,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 2 -->
 <div class="section" id="sec-m2">
   <div class="page-header">
-    <h1>Module 2 — AdCP: Ad Context Protocol</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>AdCP — Ad Context Protocol</h1>
     <p>What it is, how it works, the honest tradeoffs, and what it means for buyers and publishers.</p>
   </div>
   <div class="content-body">
@@ -1037,7 +1188,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m2" onclick="markDone('m2')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -1045,7 +1195,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 3 -->
 <div class="section" id="sec-m3">
   <div class="page-header">
-    <h1>Module 3 — ARTF: Agentic RTB Framework</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>ARTF — Agentic RTB Framework</h1>
     <p>IAB Tech Lab's standard for running AI agent logic inside the bid stream — not alongside it.</p>
   </div>
   <div class="content-body">
@@ -1332,7 +1483,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m3" onclick="markDone('m3')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -1340,7 +1490,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 4 -->
 <div class="section" id="sec-m4">
   <div class="page-header">
-    <h1>Module 4 — AAMP: The Big Picture</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>AAMP — The Big Picture</h1>
     <p>IAB Tech Lab's umbrella initiative announced Feb 26, 2026. The full operating system for agentic advertising.</p>
   </div>
   <div class="content-body">
@@ -1415,7 +1566,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m4" onclick="markDone('m4')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -1423,7 +1573,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 5 -->
 <div class="section" id="sec-m5">
   <div class="page-header">
-    <h1>Module 5 — AdCP vs AAMP/ARTF: The Standards Battle</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>AdCP vs AAMP/ARTF — The Standards Battle</h1>
     <p>Competing or complementary? An honest breakdown as of May 2026, including the emerging consensus.</p>
   </div>
   <div class="content-body">
@@ -1509,7 +1660,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m5" onclick="markDone('m5')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -1517,7 +1667,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- MODULE 6 -->
 <div class="section" id="sec-m6">
   <div class="page-header">
-    <h1>Module 6 — Staying Current &amp; Your Learning Roadmap</h1>
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
+    <h1>Staying Current — Sources, Signals &amp; Action Plan</h1>
     <p>This space moves fast. How to keep knowledge sharp as these standards evolve, plus a 3-month action plan.</p>
   </div>
   <div class="content-body">
@@ -1594,7 +1745,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
-      <button class="done-btn" id="done-m6" onclick="markDone('m6')">&#10003; Mark as Complete</button>
     </div>
   </div>
 </div>
@@ -1602,6 +1752,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- VIDEOS -->
 <div class="section" id="sec-videos">
   <div class="page-header">
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
     <h1>Videos</h1>
     <p>Talks, explainers, and bootcamp recordings on agentic advertising standards.</p>
   </div>
@@ -1675,6 +1826,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- ARTICLES -->
 <div class="section" id="sec-articles">
   <div class="page-header">
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
     <h1>Articles</h1>
     <p>Curated reading — major pieces on agentic advertising standards with short summaries.</p>
   </div>
@@ -1749,6 +1901,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- TOOLS & REPOS -->
 <div class="section" id="sec-tools">
   <div class="page-header">
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
     <h1>Tools &amp; Repos</h1>
     <p>Star and watch these GitHub repos for earliest signal on spec changes — commit activity precedes press releases.</p>
   </div>
@@ -1807,6 +1960,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <!-- CHANGELOG -->
 <div class="section" id="sec-changelog">
   <div class="page-header">
+    <button class="back-btn" onclick="showSection('hub')">← Hub</button>
     <h1>Changelog</h1>
     <p>Weekly update log — what changed, what was found, and which modules were updated.</p>
   </div>
@@ -1910,30 +2064,15 @@ const GLOSSARY = {
 // ── NAVIGATION ─────────────────────────────────────────────────────────────
 function showSection(sec) {
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  document.querySelectorAll('.nav-sub').forEach(n=>n.classList.remove('active'));
+  document.querySelectorAll('.tnav-link').forEach(n=>n.classList.remove('active'));
   const t=document.getElementById('sec-'+sec);
-  if(t) t.classList.add('active');
-  const ni=document.querySelector('.nav-item[data-sec="'+sec+'"]');
+  if(t){t.classList.add('active');window.scrollTo(0,0);}
+  const ni=document.querySelector('.tnav-link[data-sec="'+sec+'"]');
   if(ni) ni.classList.add('active');
-}
-
-function showModule(mod) {
-  showSection(mod);
-  document.querySelectorAll('.nav-sub').forEach(n=>n.classList.remove('active'));
-  const sub=document.querySelector('.nav-sub[data-module="'+mod+'"]');
-  if(sub) sub.classList.add('active');
-  openCourse();
-}
-
-function toggleCourse() {
-  document.getElementById('course-toggle').classList.toggle('open');
-  document.getElementById('course-children').classList.toggle('open');
-}
-
-function openCourse() {
-  document.getElementById('course-toggle').classList.add('open');
-  document.getElementById('course-children').classList.add('open');
+  else {
+    const hub=document.querySelector('.tnav-link[data-sec="hub"]');
+    if(hub) hub.classList.add('active');
+  }
 }
 
 // ── GLOSSARY ───────────────────────────────────────────────────────────────
@@ -1994,33 +2133,6 @@ function selectMCQ(el, isCorrect, explanation) {
   }
 }
 
-// ── PROGRESS ───────────────────────────────────────────────────────────────
-const MODULES=['m1','m2','m3','m4','m5','m6'];
-
-function loadProgress() {
-  MODULES.forEach(m=>{if(localStorage.getItem('done_'+m)==='1') applyDone(m);});
-  updateProgressBar();
-}
-
-function markDone(m) {
-  localStorage.setItem('done_'+m,'1');
-  applyDone(m);
-  updateProgressBar();
-}
-
-function applyDone(m) {
-  const c=document.getElementById('chk-'+m);
-  if(c){c.textContent='✓';c.parentElement.classList.add('done');}
-  const b=document.getElementById('done-'+m);
-  if(b){b.textContent='✓ Completed';b.classList.add('completed');b.disabled=true;}
-}
-
-function updateProgressBar() {
-  const done=MODULES.filter(m=>localStorage.getItem('done_'+m)==='1').length;
-  document.getElementById('progress-bar').style.width=(done/6*100)+'%';
-  document.getElementById('progress-label').textContent=done+' of 6 modules complete';
-}
-
 // ── VIDEO FILTER ───────────────────────────────────────────────────────────
 function filterVideos(tag,el) {
   document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
@@ -2031,9 +2143,7 @@ function filterVideos(tag,el) {
 }
 
 // ── INIT ───────────────────────────────────────────────────────────────────
-loadProgress();
-showModule('m1');
-openCourse();
+showSection('hub');
 </script>
 </body>
 </html>
