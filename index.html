@@ -37,9 +37,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .hub-eyebrow{font-size:10px;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;font-weight:600}
 .hub-hero h1{font-size:22px;font-weight:600;color:#fff;margin:0 0 10px;line-height:1.35}
 .hub-hero p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;max-width:560px;margin:0 0 20px}
-.hub-tag-row{display:flex;gap:7px;flex-wrap:wrap}
-.hub-tag{font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.45);cursor:pointer;transition:all .15s}
-.hub-tag:hover{border-color:var(--accent);color:var(--accent)}
+.hub-tag-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:4px}
+.hub-tag{font-size:12px;font-weight:700;padding:6px 16px;border-radius:8px;cursor:pointer;transition:all .15s;letter-spacing:.2px;box-shadow:0 2px 0 rgba(0,0,0,.25),0 3px 8px rgba(0,0,0,.2)}
+.hub-tag:hover{transform:translateY(-2px);box-shadow:0 4px 0 rgba(0,0,0,.25),0 6px 14px rgba(0,0,0,.25)}
+.hub-tag:active{transform:translateY(1px);box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.hub-tag.t-adcp{background:#D1FAE5;color:#065F46}
+.hub-tag.t-artf{background:#FEF3C7;color:#92400E}
+.hub-tag.t-aamp{background:#DBEAFE;color:#1E40AF}
+.hub-tag.t-openrtb{background:#F3F4F6;color:#374151}
+.hub-tag.t-battle{background:#F3E8FF;color:#6B21A8}
 .hub-layout{display:grid;grid-template-columns:1fr 272px;gap:40px;padding:28px 32px 56px;max-width:1280px;align-items:start}
 .hub-main{}
 .hub-sidebar{position:sticky;top:calc(var(--nav-h) + 20px)}
@@ -91,6 +97,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .hub-fmt-label{font-size:12px;font-weight:600;color:var(--text)}
 .hub-fmt-count{font-size:11px;color:var(--muted)}
 .hub-section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:0 0 12px}
+
+/* NEXT SECTION BUTTON */
+.next-section{margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.next-btn{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;cursor:pointer;transition:all .18s;width:100%;text-align:left;font-family:inherit;box-shadow:0 2px 0 #c5d2cc,0 3px 8px rgba(0,27,21,.06)}
+.next-btn:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 0 #a8bfb8,0 8px 20px rgba(0,27,21,.1)}
+.next-btn:active{transform:translateY(1px);box-shadow:0 1px 0 #c5d2cc}
+.next-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:5px}
+.next-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:3px}
+.next-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.next-arrow{font-size:28px;color:var(--accent);flex-shrink:0;margin-left:20px;line-height:1}
+
+/* TECH EXPLAINER CARDS */
+.tech-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.tech-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px}
+.tech-card-icon{font-size:22px;margin-bottom:8px}
+.tech-card-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.tech-card-body{font-size:13px;color:#1a2e25;line-height:1.6;margin-bottom:10px}
+.tech-card-analogy{font-size:12.5px;color:var(--muted);font-style:italic;background:var(--bg);border-radius:5px;padding:7px 10px;margin-bottom:10px}
+.tech-video-link{font-size:12px;color:var(--accent2);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.tech-video-link:hover{text-decoration:underline}
 
 /* BACK BUTTON */
 .back-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);cursor:pointer;background:none;border:1px solid var(--border);border-radius:5px;padding:4px 10px;margin-bottom:14px;transition:all .15s;font-family:inherit}
@@ -465,13 +491,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <h1>The protocols reshaping how AI agents buy and sell advertising</h1>
     <p>A living knowledge base on AdCP, ARTF, and AAMP — the emerging standards governing agentic advertising. No sequence required. Start where it's relevant to you.</p>
     <div class="hub-tag-row">
-      <span class="hub-tag" onclick="showSection('m2')">AdCP</span>
-      <span class="hub-tag" onclick="showSection('m3')">ARTF</span>
-      <span class="hub-tag" onclick="showSection('m4')">AAMP</span>
-      <span class="hub-tag" onclick="showSection('m1')">OpenRTB</span>
-      <span class="hub-tag" onclick="showSection('m4')">IAB Tech Lab</span>
-      <span class="hub-tag" onclick="showSection('m3')">gRPC</span>
-      <span class="hub-tag" onclick="showSection('m5')">Standards battle</span>
+      <span class="hub-tag t-adcp" onclick="showSection('m2')">AdCP</span>
+      <span class="hub-tag t-artf" onclick="showSection('m3')">ARTF</span>
+      <span class="hub-tag t-aamp" onclick="showSection('m4')">AAMP</span>
+      <span class="hub-tag t-openrtb" onclick="showSection('m1')">OpenRTB basics</span>
+      <span class="hub-tag t-battle" onclick="showSection('m5')">Standards battle</span>
     </div>
   </div>
 
@@ -696,9 +720,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="rtb-sep">›</div>
           <div class="rtb-node dsp-node"><div class="rtb-icon">💻</div><div class="rtb-label">DSP</div><div class="rtb-sub">Bids on inventory</div></div>
           <div class="rtb-sep">›</div>
-          <div class="rtb-node exchange"><div class="rtb-icon">⚖️</div><div class="rtb-label">Ad Exchange</div><div class="rtb-sub">Runs the auction</div></div>
-          <div class="rtb-sep">›</div>
-          <div class="rtb-node ssp-node"><div class="rtb-icon">📦</div><div class="rtb-label">SSP</div><div class="rtb-sub">Sells inventory</div></div>
+          <div class="rtb-node ssp-node"><div class="rtb-icon">⚖️</div><div class="rtb-label">SSP / Exchange</div><div class="rtb-sub">Auctions &amp; sells inventory</div></div>
           <div class="rtb-sep">›</div>
           <div class="rtb-node supply"><div class="rtb-icon">📰</div><div class="rtb-label">Publisher</div><div class="rtb-sub">Ad serves to user</div></div>
         </div>
@@ -745,7 +767,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 
       <div class="callout teal">
         <strong>The shared protocols gap</strong>
-        For agents to do this at scale, they need a shared language. Without it, every agent needs a custom integration per platform — the same fragmentation all over again, just at the agent layer. This is the gap AdCP (Module 2) and ARTF (Module 3) are designed to fill.
+        For agents to do this at scale, they need a shared language. Without it, every agent needs a custom integration per platform — the same fragmentation all over again, just at the agent layer. This is the gap AdCP and ARTF are designed to fill.
+      </div>
+
+      <h2>Under the Hood — Key Technical Concepts Explained Simply</h2>
+      <p class="sec-intro">When reading about ARTF and AAMP, four technical terms come up repeatedly. Here's what they actually mean — no engineering background required.</p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-card-icon">📦</div>
+          <div class="tech-card-title">Docker &amp; Containerisation</div>
+          <div class="tech-card-body">Packaging software with everything it needs to run — like a shipping container that holds all its contents and can be dropped on any ship, truck, or train without repacking.</div>
+          <div class="tech-card-analogy">"Instead of installing software differently on every computer, you ship a pre-packed box that works the same everywhere."</div>
+          <a class="tech-video-link" href="https://www.youtube.com/watch?v=Gjnup-PuquQ" target="_blank">▶ Watch: Docker in 100 seconds</a>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">🎛️</div>
+          <div class="tech-card-title">Kubernetes</div>
+          <div class="tech-card-body">The manager that automatically runs, scales, and restarts those containers across many servers. If one container crashes, Kubernetes spins up a new one. If traffic spikes, it launches more.</div>
+          <div class="tech-card-analogy">"It's like an airport operations centre — it doesn't fly the planes, it decides how many gates to open and reroutes when something breaks."</div>
+          <a class="tech-video-link" href="https://www.youtube.com/watch?v=PziYflu8cB8" target="_blank">▶ Watch: Kubernetes explained</a>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">⚡</div>
+          <div class="tech-card-title">gRPC</div>
+          <div class="tech-card-body">A fast communication channel between computers. Standard web APIs (REST) are like sending letters — flexible but slow. gRPC is like a direct phone line — faster and more efficient, especially for high-volume machine-to-machine calls like bid requests.</div>
+          <div class="tech-card-analogy">"REST is a regular road. gRPC is a dedicated express lane. At 100 million bids per day, the express lane matters."</div>
+          <a class="tech-video-link" href="https://www.youtube.com/watch?v=gnchfOojMk4" target="_blank">▶ Watch: gRPC explained</a>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">🗜️</div>
+          <div class="tech-card-title">Protocol Buffers</div>
+          <div class="tech-card-body">A compact data format that's smaller and faster to read than standard formats like JSON. Imagine sending a 10-page document vs. a compressed zip file — same information, much faster to transmit.</div>
+          <div class="tech-card-analogy">"JSON is readable English. Protocol Buffers is shorthand — 5x smaller, 5x faster to decode. At bid speed, that matters."</div>
+          <a class="tech-video-link" href="https://www.youtube.com/watch?v=46O73On0gyI" target="_blank">▶ Watch: Protocol Buffers explained</a>
+        </div>
       </div>
 
       <div class="flashcard-section">
@@ -815,6 +870,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           </div>
           <div class="mcq-feedback"></div>
         </div>
+      </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('m2')">
+          <div><div class="next-lbl">Up next</div><div class="next-title">AdCP — Ad Context Protocol</div><div class="next-desc">The open standard for agent-to-agent deal negotiation. How any buyer agent can transact with any publisher without custom integrations.</div></div>
+          <div class="next-arrow">›</div>
+        </button>
       </div>
     </div>
   </div>
@@ -1287,6 +1348,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('m3')">
+          <div><div class="next-lbl">Up next</div><div class="next-title">ARTF — Agentic RTB Framework</div><div class="next-desc">How IAB Tech Lab's framework puts agent logic inside the bid stream in real time — without any latency cost.</div></div>
+          <div class="next-arrow">›</div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1582,6 +1649,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('m4')">
+          <div><div class="next-lbl">Up next</div><div class="next-title">AAMP — The Big Picture</div><div class="next-desc">IAB Tech Lab's full operating system for agentic advertising — execution, shared protocols, and governance in one framework.</div></div>
+          <div class="next-arrow">›</div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1601,22 +1674,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 
       <h2>The Three Pillars of AAMP</h2>
       <h3>Pillar 1 — High-Performance Delivery (Execution)</h3>
-      <p>ARTF lives here. <span class="gloss" data-key="containerisation">Containerised</span> infrastructure for agents to operate inside real-time bidding at scale. Up to 90% latency reduction. Uses <span class="gloss" data-key="grpc">gRPC</span> and <span class="gloss" data-key="protobuf">Protocol Buffers</span> for high-throughput communication.</p>
+      <p>ARTF lives here — it's the engine under the hood. The core idea is simple: instead of an AI agent making a slow call to an external computer during a bid (which adds 20–50 milliseconds and blows the 100ms deadline), ARTF packages the agent's logic directly inside the same server that handles the bid. No round-trip. No latency penalty. Think of it like having a specialist colleague sitting next to you rather than calling them across the city every time you have a question.</p>
+      <p>The technical plumbing uses two tools: <strong>gRPC</strong> (a fast communication channel between computers — like a dedicated express lane vs. a regular road) and <strong>Protocol Buffers</strong> (a compact data format that travels faster than standard formats — like compressing a large file before emailing it). Both just mean the system moves data faster. You don't need to understand them to understand what ARTF does.</p>
 
       <h3>Pillar 2 — Shared Protocols (Standards)</h3>
+      <p>Seven standardised "languages" that agents use to talk to each other. Each one replaces a specific manual process that exists today:</p>
       <table>
-        <tr><th>Protocol</th><th>Based on</th><th>Purpose</th></tr>
-        <tr><td>Agentic Audiences (UCP)</td><td>User Context Protocol (LiveRamp donation)</td><td><span class="gloss" data-key="embeddings">Embedding</span>-based audience signal exchange between agents</td></tr>
-        <tr><td>Agentic Ad Objects</td><td>AdCOM</td><td>Standardised ad object definitions across contexts</td></tr>
-        <tr><td>Agentic Direct</td><td>OpenDirect</td><td>Agents negotiate and transact direct deals</td></tr>
-        <tr><td>Agentic Deals</td><td>Deals API</td><td>Agent-driven deal negotiation and activation</td></tr>
-        <tr><td>Agentic RTB</td><td><span class="gloss" data-key="openrtb">OpenRTB</span></td><td>ARTF integration — agents inside the bid stream</td></tr>
-        <tr><td>Agentic Mobile</td><td>CloudX donation</td><td>Agentic workflows in mobile app ecosystem</td></tr>
-        <tr><td>Agentic Measurement</td><td>OM SDK / Conversion API</td><td>Measurement signals for agentic transactions</td></tr>
+        <tr><th>Protocol</th><th>What it replaces</th><th>What agents can now do instead</th></tr>
+        <tr><td><strong>Agentic Audiences</strong></td><td>Manual data onboarding</td><td>Share audience signals privately, without exposing individual user IDs</td></tr>
+        <tr><td><strong>Agentic Ad Objects</strong></td><td>Custom ad format specs per platform</td><td>Define ad formats once, works everywhere</td></tr>
+        <tr><td><strong>Agentic Direct</strong></td><td>Human-negotiated IO deals</td><td>Agents negotiate and book direct deals automatically</td></tr>
+        <tr><td><strong>Agentic Deals</strong></td><td>Manual deal ID setup in platforms</td><td>Agents activate and manage PMP/PG deals without trafficking</td></tr>
+        <tr><td><strong>Agentic RTB</strong></td><td>Static bidding rules</td><td>AI logic runs inside the bid stream in real time (ARTF)</td></tr>
+        <tr><td><strong>Agentic Mobile</strong></td><td>Separate mobile integrations</td><td>Same agent workflows work in mobile app environments</td></tr>
+        <tr><td><strong>Agentic Measurement</strong></td><td>Post-campaign manual reporting</td><td>Measurement signals flow automatically as part of each transaction</td></tr>
       </table>
 
       <h3>Pillar 3 — Trust and Transparency (Governance)</h3>
-      <p>The <span class="gloss" data-key="agentregistry">Agent Registry</span> — a public database of verified agents. Any agent transacting in the ecosystem must be registered. Launched March 1, 2026 in IAB Tools Portal.</p>
+      <p>The <span class="gloss" data-key="agentregistry">Agent Registry</span> — a public database of every AI agent operating in the ecosystem. Any agent transacting must be registered with: who built it, what version it is, and who is legally accountable if it does something wrong. This is the accountability layer that makes it safe to let agents spend real money autonomously. Launched March 1, 2026 in IAB Tools Portal.</p>
 
       <h2>Agentic Audiences (formerly UCP)</h2>
       <p>Donated by LiveRamp November 3, 2025. Standardises how agents exchange identity and contextual signals using dense <span class="gloss" data-key="embeddings">vector embeddings</span> (256–1024 dimensions) in a privacy-preserving, machine-readable format. Aligned with <span class="gloss" data-key="tcf">TCF</span> and <span class="gloss" data-key="gpp">GPP</span> privacy frameworks.</p>
@@ -1624,18 +1699,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <h2>The Agent Registry</h2>
       <p>Every agent operating in the AAMP ecosystem must be registered in the <span class="gloss" data-key="agentregistry">Agent Registry</span>: who built it, what version is running, what protocols it supports, and who is accountable if something goes wrong. Directly addresses fraud and accountability risks of autonomous agents spending real money.</p>
 
-      <h2>AAMP 2.0 — Transaction-Ready SDKs (April 24, 2026)</h2>
-      <div class="callout green"><strong>New in AAMP 2.0</strong>The Buyer and Seller Agent SDKs have been upgraded from "reference implementations" to <strong>transaction-ready</strong> status. Agents can now negotiate rate cards, facilitate programmatic deals, and execute within existing standards — with all activity logged and audited for human oversight. PMG integrated AAMP 2.0 into its Alli OS (April 7); Kochava launched the first DSP workspace on StationOne with Yahoo DSP (May 5) — the first demand-side AAMP-compatible testing environment. AAMP 3.0 is already in development. Sources: <a href="https://iabtechlab.com/aamp-2-0-release-brings-transaction-ready-buyer-and-seller-agent-sdks/" target="_blank">IAB Tech Lab — AAMP 2.0</a>, <a href="https://www.globenewswire.com/news-release/2026/05/05/3287865/0/en/kochava-announces-new-yahoo-dsp-workspace-now-available-on-stationone-the-integrative-ai-hub-by-kochava.html" target="_blank">Kochava + Yahoo DSP Workspace</a></div>
+      <h2>AAMP 2.0 — What "Transaction-Ready" Actually Means</h2>
+      <div class="callout green"><strong>✓ Released — April 24, 2026</strong> AAMP 2.0 is complete and live. This is a significant milestone — here's what changed in plain terms:<br><br>
+      <strong>Before AAMP 2.0:</strong> The Buyer and Seller Agent SDKs were "reference implementations" — essentially working demonstrations. Good for learning and testing, but not suitable for live campaigns or real ad spend. Think of it as a car prototype that drives on a track but isn't road-legal yet.<br><br>
+      <strong>After AAMP 2.0:</strong> The SDKs are now "transaction-ready" — they can negotiate actual rate cards, activate real programmatic deals, and execute live campaigns with real money. The car passed its safety tests and is on the road. PMG (agency) integrated it into their Alli OS platform; Kochava + Yahoo DSP built the first buyer-side testing environment. AAMP 3.0 is already in development. Sources: <a href="https://iabtechlab.com/aamp-2-0-release-brings-transaction-ready-buyer-and-seller-agent-sdks/" target="_blank">IAB Tech Lab — AAMP 2.0</a>, <a href="https://www.globenewswire.com/news-release/2026/05/05/3287865/0/en/kochava-announces-new-yahoo-dsp-workspace-now-available-on-stationone-the-integrative-ai-hub-by-kochava.html" target="_blank">Kochava + Yahoo DSP Workspace</a></div>
 
-      <h2>2026 Roadmap Commitments</h2>
+      <h2>2026 Roadmap — Where Things Stand</h2>
       <ul>
-        <li>Open-source reference implementations of buyer and seller agents ✓ (released)</li>
-        <li>Transaction-ready Buyer and Seller Agent SDKs ✓ (AAMP 2.0 — April 24, 2026)</li>
-        <li>Neutral <span class="gloss" data-key="mcp">MCP</span> reference server</li>
-        <li>Standardised agent profiles</li>
-        <li><span class="gloss" data-key="protobuf">Protocol Buffers</span> and <span class="gloss" data-key="grpc">gRPC</span> mappings for existing specifications</li>
-        <li>Trust, provenance, and measurement signals for transaction integrity</li>
-        <li>AAMP 3.0 (extended transaction and media types) — in development</li>
+        <li>✅ Open-source buyer and seller agent reference implementations — released</li>
+        <li>✅ Transaction-ready Buyer and Seller Agent SDKs — AAMP 2.0, April 24, 2026</li>
+        <li>🔄 Neutral <span class="gloss" data-key="mcp">MCP</span> reference server — in progress</li>
+        <li>🔄 Standardised agent profiles — in progress</li>
+        <li>🔄 Faster data formats (Protocol Buffers) and communication channels (gRPC) for existing standards — in progress</li>
+        <li>🔄 Trust, provenance, and measurement signals for transaction integrity — in progress</li>
+        <li>🔜 AAMP 3.0 (extended transaction and media types) — in development</li>
       </ul>
 
       <h2>Future Role Impact</h2>
@@ -1664,6 +1741,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           </div>
           <div class="mcq-feedback"></div>
         </div>
+      </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('m5')">
+          <div><div class="next-lbl">Up next</div><div class="next-title">The Standards Battle</div><div class="next-desc">AdCP vs AAMP/ARTF — competing or complementary? The origin story, key differences, and who's winning in May 2026.</div></div>
+          <div class="next-arrow">›</div>
+        </button>
       </div>
     </div>
   </div>
@@ -1759,6 +1842,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           <div class="mcq-feedback"></div>
         </div>
       </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('m6')">
+          <div><div class="next-lbl">Up next</div><div class="next-title">Staying Current</div><div class="next-desc">Sources to bookmark, how to use Claude for weekly tracking, and a 3-month hands-on action plan.</div></div>
+          <div class="next-arrow">›</div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1843,6 +1932,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
           </div>
           <div class="mcq-feedback"></div>
         </div>
+      </div>
+      <div class="next-section">
+        <button class="next-btn" onclick="showSection('hub')">
+          <div><div class="next-lbl">You've covered it all</div><div class="next-title">Back to the Knowledge Hub</div><div class="next-desc">Explore videos, articles, tools, and the weekly changelog — or revisit any protocol section.</div></div>
+          <div class="next-arrow">⌂</div>
+        </button>
       </div>
     </div>
   </div>
