@@ -40,8 +40,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .hub-tag-row{display:flex;gap:7px;flex-wrap:wrap}
 .hub-tag{font-size:11px;padding:4px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.45);cursor:pointer;transition:all .15s}
 .hub-tag:hover{border-color:var(--accent);color:var(--accent)}
-.hub-body{padding:28px 32px 56px;max-width:1000px}
+.hub-layout{display:grid;grid-template-columns:1fr 272px;gap:40px;padding:28px 32px 56px;max-width:1280px;align-items:start}
+.hub-main{}
+.hub-sidebar{position:sticky;top:calc(var(--nav-h) + 20px)}
 .proto-block{margin-bottom:36px}
+
+/* WHAT'S NEW SIDEBAR */
+.wn-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.wn-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.wn-view-all{font-size:11px;color:var(--accent2);cursor:pointer;font-weight:600}
+.wn-view-all:hover{text-decoration:underline}
+.wn-feed{display:flex;flex-direction:column;gap:10px}
+.wn-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .15s;cursor:pointer}
+.wn-card:hover{border-color:var(--border)}
+.wn-card.shift{border-left:3px solid var(--accent);background:rgba(76,211,204,.04)}
+.wn-card.shift:hover{border-color:var(--accent);border-left-color:var(--accent)}
+.shift-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;background:#001B15;color:var(--accent);padding:2px 8px;border-radius:10px;margin-bottom:7px;letter-spacing:.3px}
+.wn-card-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:4px}
+.wn-card-meta{font-size:11px;color:var(--muted);margin-bottom:5px}
+.wn-card-body{font-size:12px;color:#3a5c4a;line-height:1.55}
+.wn-divider{height:1px;background:var(--border);margin:6px 0}
+.wn-active-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--yellow);margin-bottom:6px}
+.wn-active-card{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px;margin-top:14px}
+.wn-active-title{font-size:12px;font-weight:700;color:#92400e;margin-bottom:4px;line-height:1.4}
+.wn-active-body{font-size:11px;color:#78350f;line-height:1.5}
+.wn-active-link{font-size:11px;color:#b45309;font-weight:700;text-decoration:none;margin-top:5px;display:inline-block}
+.wn-active-link:hover{text-decoration:underline}
 .proto-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 .proto-pill{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
 .proto-pill.found{background:#F3E8FF;color:#6B21A8}
@@ -451,7 +475,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     </div>
   </div>
 
-  <div class="hub-body">
+  <div class="hub-layout">
+  <div class="hub-main">
 
     <!-- FOUNDATION -->
     <div class="proto-block">
@@ -585,7 +610,68 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
     </div>
 
-  </div>
+  </div><!-- /hub-main -->
+
+  <!-- WHAT'S NEW SIDEBAR -->
+  <div class="hub-sidebar">
+    <div class="wn-header">
+      <span class="wn-title">What's New</span>
+      <span class="wn-view-all" onclick="showSection('changelog')">Full log →</span>
+    </div>
+    <div class="wn-feed">
+
+      <div class="wn-card shift" onclick="showSection('m2')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">Omnicom confirms live AdCP media buys</div>
+        <div class="wn-card-meta">Apr 29, 2026 &middot; AdCP</div>
+        <div class="wn-card-body">First major holding company to confirm production agentic buying. AdCP is no longer experimental.</div>
+      </div>
+
+      <div class="wn-card shift" onclick="showSection('m4')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">AAMP 2.0 — transaction-ready SDKs released</div>
+        <div class="wn-card-meta">Apr 24, 2026 &middot; AAMP</div>
+        <div class="wn-card-body">Buyer and Seller SDKs upgraded from reference to production-ready. The prototype era is over.</div>
+      </div>
+
+      <div class="wn-card shift" onclick="showSection('m5')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">The Trade Desk launches AI agents with Stagwell</div>
+        <div class="wn-card-meta">Apr 2026 &middot; AdCP · DSP</div>
+        <div class="wn-card-body">First major DSP with a named agentic client in production. Working with PubMatic, Scope3, Magnite.</div>
+      </div>
+
+      <div class="wn-divider"></div>
+
+      <div class="wn-card" onclick="showSection('m4')">
+        <div class="wn-card-title">Kochava + Yahoo DSP on StationOne</div>
+        <div class="wn-card-meta">May 5, 2026 &middot; AAMP</div>
+        <div class="wn-card-body">First demand-side AAMP-compatible testing environment. Buyers can now run agentic workflows against Yahoo DSP.</div>
+      </div>
+
+      <div class="wn-card" onclick="showSection('m4')">
+        <div class="wn-card-title">AAMP Agent Registry goes live</div>
+        <div class="wn-card-meta">Mar 1, 2026 &middot; AAMP</div>
+        <div class="wn-card-body">Every agent transacting in the ecosystem must now be registered. Accountability layer is real.</div>
+      </div>
+
+      <div class="wn-card" onclick="showSection('m2')">
+        <div class="wn-card-title">PubMatic: 250+ agentic deals transacted</div>
+        <div class="wn-card-meta">Since Dec 2025 &middot; AdCP</div>
+        <div class="wn-card-body">AgenticOS live in production. SSP-as-agent-layer model is working at scale.</div>
+      </div>
+
+    </div>
+
+    <div class="wn-active-card">
+      <div class="wn-active-label">⏱ Act Now</div>
+      <div class="wn-active-title">OpenRTB Live Content — public comment open</div>
+      <div class="wn-active-body">IAB Tech Lab seeking input on new liveness signals in the bidstream. Deadline May 28, 2026.</div>
+      <a class="wn-active-link" href="https://iabtechlab.com/press-releases/iab-tech-lab-announces-new-openrtb-attributes-including-live-content-for-public-comment/" target="_blank">Submit comment →</a>
+    </div>
+  </div><!-- /hub-sidebar -->
+
+  </div><!-- /hub-layout -->
 </div>
 
 <!-- MODULE 1 -->
