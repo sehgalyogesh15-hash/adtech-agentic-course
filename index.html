@@ -594,13 +594,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <span class="proto-meta">Start here if you're new to the space</span>
       </div>
       <div class="hub-cards two">
-        <div class="hub-card" onclick="showSection('m1')">
+        <div class="hub-card" onclick="showSectionAt('m1','m1-ceilings')">
           <div class="hub-card-type">Explainer</div>
           <h3>The three ceilings that make today's RTB stack incompatible with AI agents</h3>
           <p>Human bandwidth, walled garden ROI, and OpenRTB data compression — the structural limits agents break through.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m1')">
+        <div class="hub-card" onclick="showSectionAt('m1',null)">
           <div class="hub-card-type">Visual</div>
           <h3>Standard programmatic flow — how RTB works today</h3>
           <p>Annotated stack diagram from advertiser to publisher, with timing and the constraints agents face at each hop.</p>
@@ -619,19 +619,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <span class="proto-meta">adcontextprotocol.org &middot; Open spec &middot; Oct 2025</span>
       </div>
       <div class="hub-cards">
-        <div class="hub-card" onclick="showSection('m2')">
+        <div class="hub-card" onclick="showSectionAt('m2',null)">
           <div class="hub-card-type">Explainer</div>
           <h3>What AdCP is and why it was built</h3>
           <p>Built on MCP. Agent-to-agent negotiation. How any compatible buyer can transact with any compatible publisher without custom integrations.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m2')">
+        <div class="hub-card" onclick="showSectionAt('m2','m2-how-it-works')">
           <div class="hub-card-type">Deep dive</div>
           <h3>The four AdCP protocols and what a live deal looks like end to end</h3>
           <p>Signals, Media Buy, Creative, and Curation Protocol — with the Scope3/Swivel production demo breakdown.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m2')">
+        <div class="hub-card" onclick="showSectionAt('m2','m2-challenges')">
           <div class="hub-card-type">Analysis</div>
           <h3>Honest challenges and tradeoffs — what AdCP doesn't solve</h3>
           <p>Line item proliferation, legal accountability gaps, price discovery without auction signals, fraud exposure front-loading.</p>
@@ -650,19 +650,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <span class="proto-meta">IAB Tech Lab &middot; v1.0 released Nov 13, 2025 &middot; Go reference impl: Index Exchange</span>
       </div>
       <div class="hub-cards">
-        <div class="hub-card" onclick="showSection('m3')">
+        <div class="hub-card" onclick="showSectionAt('m3',null)">
           <div class="hub-card-type">Explainer</div>
           <h3>How ARTF lets agent logic run inside the bid stream without latency cost</h3>
           <p>Containerisation — the core innovation. No external network hop, no blown bid windows. Up to 90% latency reduction.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m3')">
+        <div class="hub-card" onclick="showSectionAt('m3','m3-architecture')">
           <div class="hub-card-type">Technical</div>
           <h3>Bid mutation, RTBExtensionPoint, and Protocol Buffers</h3>
           <p>gRPC service call, in-process container, four mutation types — deal activation, bid shading, segment addition, viewability signals.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m3')">
+        <div class="hub-card" onclick="showSectionAt('m3','m3-vs-adcp')">
           <div class="hub-card-type">Comparison</div>
           <h3>ARTF vs AdCP — what each solves and where they meet</h3>
           <p>Impression-level execution vs deal-level orchestration. Complementary layers, not competitors.</p>
@@ -681,13 +681,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <span class="proto-meta">IAB Tech Lab &middot; Announced Feb 26, 2026 &middot; AAMP 2.0 released Apr 24, 2026</span>
       </div>
       <div class="hub-cards two">
-        <div class="hub-card" onclick="showSection('m4')">
+        <div class="hub-card" onclick="showSectionAt('m4','m4-pillars')">
           <div class="hub-card-type">Explainer</div>
           <h3>AAMP's three pillars and how they unify IAB Tech Lab's agentic work</h3>
           <p>Execution (ARTF) + Shared Protocols (Agentic Audiences, OpenDirect, Deals) + Governance (Agent Registry). The full operating system.</p>
           <div class="hub-card-cta">Read ›</div>
         </div>
-        <div class="hub-card" onclick="showSection('m5')">
+        <div class="hub-card" onclick="showSectionAt('m5',null)">
           <div class="hub-card-type">Strategy</div>
           <h3>The standards battle — AdCP vs AAMP and the fragmentation risk</h3>
           <p>Origin story, key differences, the emerging complementary consensus, and the inflection signals to watch in 2026.</p>
@@ -813,7 +813,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 
       <p>This works at massive scale. But it forces <strong>rich, strategic campaign intent</strong> into a compressed bid request structure. The nuance is lost, intermediaries compound fees, and only ~41% of spend reaches working media.</p>
 
-      <h2>Part 2 — The Three Ceilings</h2>
+      <h2 id="m1-ceilings">Part 2 — The Three Ceilings</h2>
       <p class="sec-intro">Every existing buying model has a structural ceiling. These aren't execution failures — they're fundamental architectural limits.</p>
 
       <div class="ceiling-grid">
@@ -1139,7 +1139,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
 
       <!-- PART 3: HOW IT WORKS -->
-      <h2>Part 3 — How AdCP Works</h2>
+      <h2 id="m2-how-it-works">Part 3 — How AdCP Works</h2>
       <p class="sec-intro">The agent-to-agent flow, the four protocols, and what a live deal actually looks like end to end.</p>
 
       <p>AdCP defines two roles: a <strong>Buyer Agent</strong> (representing an advertiser or agency) and a <strong>Seller Agent</strong> (representing a publisher or SSP). The protocol provides the shared language they use to communicate — so neither side needs to know the other's internal systems.</p>
@@ -1277,7 +1277,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
 
       <!-- PART 5: CHALLENGES -->
-      <h2>Part 5 — Honest Challenges &amp; Tradeoffs</h2>
+      <h2 id="m2-challenges">Part 5 — Honest Challenges &amp; Tradeoffs</h2>
       <p class="sec-intro">AdCP is genuinely promising — but the industry commentary overstates readiness and understates the unsolved problems. Here's what to watch.</p>
 
       <p>A sharp question worth sitting with: <strong>Is this really progress, or are we just automating the IO model with better software?</strong> The structural comparison between AdCP and Direct IO is closer than AdCP advocates admit:</p>
@@ -1537,7 +1537,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
 
       <!-- PART 3: TECHNICAL ARCHITECTURE -->
-      <h2>Part 3 — Technical Architecture</h2>
+      <h2 id="m3-architecture">Part 3 — Technical Architecture</h2>
       <p class="sec-intro">The RTBExtensionPoint, what agents can actually do with it, and Index Exchange's role.</p>
 
       <p>ARTF exposes a service called <strong><span class="gloss" data-key="rtbext">RTBExtensionPoint</span></strong> via <span class="gloss" data-key="grpc">gRPC</span>. When a bid request arrives, the bid server calls RTBExtensionPoint with the full <span class="gloss" data-key="openrtb">OpenRTB</span> bid request. The agent analyses it and returns a set of <strong>mutations</strong> — proposed changes to how this impression should be handled.</p>
@@ -1656,7 +1656,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
 
       <!-- PART 5: ARTF VS ADCP -->
-      <h2>Part 5 — ARTF vs AdCP: Same Stack, Different Layers</h2>
+      <h2 id="m3-vs-adcp">Part 5 — ARTF vs AdCP: Same Stack, Different Layers</h2>
       <p class="sec-intro">The most common confusion in agentic adtech. ARTF and AdCP are not competing — they operate at fundamentally different levels.</p>
 
       <table>
@@ -1756,7 +1756,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <h2>What is AAMP?</h2>
       <p>Agentic Advertising Management Protocols (AAMP) is the umbrella initiative announced February 26, 2026 at Beet Retreat. It unifies all of IAB Tech Lab's agentic work under one coordinated roadmap — infrastructure + protocols + governance.</p>
 
-      <h2>The Three Pillars of AAMP</h2>
+      <h2 id="m4-pillars">The Three Pillars of AAMP</h2>
       <h3>Pillar 1 — High-Performance Delivery (Execution)</h3>
       <p>ARTF lives here — it's the engine under the hood. The core idea is simple: instead of an AI agent making a slow call to an external computer during a bid (which adds 20–50 milliseconds and blows the 100ms deadline), ARTF packages the agent's logic directly inside the same server that handles the bid. No round-trip. No latency penalty. Think of it like having a specialist colleague sitting next to you rather than calling them across the city every time you have a question.</p>
       <p>The technical plumbing uses two tools: <strong>gRPC</strong> (a fast communication channel between computers — like a dedicated express lane vs. a regular road) and <strong>Protocol Buffers</strong> (a compact data format that travels faster than standard formats — like compressing a large file before emailing it). Both just mean the system moves data faster. You don't need to understand them to understand what ARTF does.</p>
@@ -2534,6 +2534,29 @@ function showSection(sec) {
     if(hub) hub.classList.add('active');
   }
   buildTOC(sec);
+}
+
+// ── SECTION + ANCHOR NAVIGATION ───────────────────────────────────────────
+function showSectionAt(sec, anchorId) {
+  showSection(sec);
+  if (!anchorId) return;
+  // Wait for section to become visible, then scroll to anchor
+  setTimeout(() => {
+    const el = document.getElementById(anchorId);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({top, behavior:'smooth'});
+      // Briefly highlight the heading so user knows where they landed
+      el.style.transition = 'background .3s';
+      el.style.background = 'rgba(76,211,204,.15)';
+      el.style.borderRadius = '4px';
+      el.style.padding = '2px 6px';
+      setTimeout(() => {
+        el.style.background = '';
+        el.style.padding = '';
+      }, 1800);
+    }
+  }, 60);
 }
 
 // ── TOC ────────────────────────────────────────────────────────────────────
