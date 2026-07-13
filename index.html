@@ -714,7 +714,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
       <div class="hub-fmt" onclick="showSection('changelog')">
         <div class="hub-fmt-icon">📋</div>
-        <div><div class="hub-fmt-label">Changelog</div><div class="hub-fmt-count">Updated May 11</div></div>
+        <div><div class="hub-fmt-label">Changelog</div><div class="hub-fmt-count">Updated Jul 13</div></div>
       </div>
     </div>
 
@@ -727,6 +727,43 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <span class="wn-view-all" onclick="showSection('changelog')">Full log →</span>
     </div>
     <div class="wn-feed">
+
+      <div class="wn-card shift" onclick="showSection('m2')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">Microsoft shuts down Xandr/Invest DSP</div>
+        <div class="wn-card-meta">May 14, 2026 &middot; DSP · AdCP</div>
+        <div class="wn-card-body">Cites incompatibility with "a conversational and agentic world." A major DSP exiting the model entirely, not adapting it.</div>
+      </div>
+
+      <div class="wn-card shift" onclick="showSection('m2')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">AdCP reaches v3.1; v2 sunsets Aug 1</div>
+        <div class="wn-card-meta">Jul 2026 &middot; AdCP</div>
+        <div class="wn-card-body">Production-hardening release adds Broadcast TV support. Anything still on v2 needs a migration plan.</div>
+      </div>
+
+      <div class="wn-card shift" onclick="showSection('m4')">
+        <div class="shift-badge">⚡ Industry Shift</div>
+        <div class="wn-card-title">AAMP 3.0 reported — three-tier agent hierarchy</div>
+        <div class="wn-card-meta">Jul 2026 &middot; AAMP · Unconfirmed</div>
+        <div class="wn-card-body">Portfolio Manager / Channel Specialists / Functional Agents. Official ship date not yet confirmed — verify before relying on this.</div>
+      </div>
+
+      <div class="wn-divider"></div>
+
+      <div class="wn-card" onclick="showSection('m5')">
+        <div class="wn-card-title">Magnite Orchestration + LiveRamp Agent Builders launch</div>
+        <div class="wn-card-meta">Jun 11 &amp; Jun 17, 2026 &middot; AdCP</div>
+        <div class="wn-card-body">Two more platforms ship agent coordination layers. LiveRamp's LAB program opens third-party agent building via MCP.</div>
+      </div>
+
+      <div class="wn-card" onclick="showSection('m5')">
+        <div class="wn-card-title">The Trade Desk: "architecture over autonomy"</div>
+        <div class="wn-card-meta">Jul 6, 2026 &middot; DSP</div>
+        <div class="wn-card-body">TTD builds its own Open Agentic Kit rather than adopting AAMP natively — a real answer to the DSP-adoption watch signal.</div>
+      </div>
+
+      <div class="wn-divider"></div>
 
       <div class="wn-card shift" onclick="showSection('m2')">
         <div class="shift-badge">⚡ Industry Shift</div>
@@ -969,11 +1006,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 <div class="section" id="sec-m2">
   <div class="page-header">
     <button class="back-btn" onclick="showSection('hub')">← Hub</button><button class="listen-btn" id="listen-m2" onclick="listenSection('m2')">🔊 Listen</button>
-    <h1>AdCP — Ad Context Protocol</h1>
-    <p>What it is, how it works, the honest tradeoffs, and what it means for buyers and publishers.</p>
+    <h1>AdCP — Ad Context Protocol</h1>    <p>What it is, how it works, the honest tradeoffs, and what it means for buyers and publishers.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-06</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-07-13</span></div>
     <div class="module-body">
 
       <!-- PART 1: WHAT IS ADCP -->
@@ -1387,12 +1423,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       </div>
 
       <!-- PART 6: ADOPTION -->
-      <h2>Part 6 — Adoption Reality (May 2026)</h2>
+      <h2>Part 6 — Adoption Reality (July 2026)</h2>
       <div class="callout green">
         <strong>&#9889; Major milestone — April 29, 2026</strong>
         Omnicom CEO John Wren confirmed on Q1 2026 earnings call that Omnicom has executed live media buys for several clients using an agent-to-agent framework built around AdCP. First major holding company to confirm production use — AdCP is no longer experimental.
       </div>
       <p>PubMatic has transacted 250+ agentic deals since December 2025. The Trade Desk launched Koa-powered AI agents with Stagwell as first client, working alongside PubMatic, Scope3, and Magnite. The demand-side is moving faster than most anticipated.</p>
+
+      <div class="callout teal">
+        <strong>&#9889; Protocol update — July 2026</strong>
+        AdCP has iterated fast: now at <strong>v3.1</strong> (general availability) after passing through v2.0 — <strong>v2 reaches end-of-life August 1, 2026</strong>. Recent releases add Broadcast TV support (Ad-ID identifiers, linear :15/:30/:60 spot formats), offline reporting delivery to buyer cloud storage, and a named release cadence (patch monthly, minor quarterly, major annual). The Curation Protocol's "Q2 2026" target has passed without a confirmed public launch — flagged as unverified. Source: <a href="https://docs.adcontextprotocol.org/docs/reference/release-notes" target="_blank">AdCP Release Notes</a>
+      </div>
+      <div class="callout">
+        <strong>&#9889; Strategic signal — May 14, 2026</strong>
+        Microsoft announced it's shutting down the Xandr/Invest DSP entirely (effective Feb 28, 2026), stating its current model is "not achievable" in "a conversational and agentic world." Not an AdCP/AAMP adoption story — a major platform concluding the traditional DSP model itself doesn't survive the transition. Sources: <a href="https://digiday.com/media-buying/microsoft-advertising-is-closing-the-xandr-dsp/" target="_blank">Digiday</a>, <a href="https://www.emarketer.com/content/microsoft-invest-closure-watershed-programmatic-ad-buying-ai" target="_blank">eMarketer</a>
+      </div>
 
       <h2>Future Role Impact</h2>
       <p><strong>Media Buyer / Agency Trading Desk</strong> — Brief an agent in natural language across every compatible publisher simultaneously. Your role shifts from manual plan-building to brief quality and agent oversight.</p>
@@ -1450,16 +1495,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <p>IAB Tech Lab's standard for running AI agent logic inside the bid stream — not alongside it.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-08</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-07-13</span></div>
     <div class="module-body">
 
       <!-- PART 1: WHAT IS ARTF -->
       <h2>Part 1 — What is ARTF?</h2>
       <p class="sec-intro">ARTF is not a new auction format. It is infrastructure that lets agent decision logic run inside the real-time bid pipeline — without the latency cost of an external server call.</p>
 
-      <p>The <strong>Agentic RTB Framework (ARTF) v1.0</strong> is an IAB Tech Lab standard released November 13, 2025. It solves a specific problem: AI agents need to make intelligent decisions on individual ad impressions in real time — but external AI calls are too slow for a sub-100ms bid window.</p>
+      <p>The <strong>Agentic RTB Framework (ARTF) v1.0</strong> is an IAB Tech Lab standard. <strong>Correction (Jul 2026):</strong> this page previously said ARTF v1.0 was "released" November 13, 2025 — that date was actually when the spec was announced for public comment. Public comment closed January 15, 2026, and v1.0 finalized in March 2026 (the same month IAB Tech Lab folded all agentic work under the AAMP umbrella). It solves a specific problem: AI agents need to make intelligent decisions on individual ad impressions in real time — but external AI calls are too slow for a sub-100ms bid window.</p>
 
-      <p><strong>Release:</strong> November 13, 2025 &nbsp;|&nbsp; <strong>Governing body:</strong> IAB Tech Lab &nbsp;|&nbsp; <strong>Reference implementation:</strong> Go (credited to Index Exchange Inc.) &nbsp;|&nbsp; <strong>Foundation:</strong> <span class="gloss" data-key="openrtb">OpenRTB</span> &nbsp;|&nbsp; <strong>AAMP role:</strong> Pillar 1 — Execution Infrastructure</p>
+      <p><strong>Public comment announced:</strong> November 13, 2025 &nbsp;|&nbsp; <strong>Public comment closed:</strong> January 15, 2026 &nbsp;|&nbsp; <strong>v1.0 finalized:</strong> March 2026 &nbsp;|&nbsp; <strong>Governing body:</strong> IAB Tech Lab &nbsp;|&nbsp; <strong>Reference implementation:</strong> Go (credited to Index Exchange Inc.) &nbsp;|&nbsp; <strong>Foundation:</strong> <span class="gloss" data-key="openrtb">OpenRTB</span> &nbsp;|&nbsp; <strong>AAMP role:</strong> Pillar 1 — Execution Infrastructure</p>
 
       <div class="callout teal">
         <strong>The core innovation in one sentence</strong>
@@ -1751,7 +1796,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <p>IAB Tech Lab's umbrella initiative announced Feb 26, 2026. The full operating system for agentic advertising.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-11</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-07-13</span></div>
     <div class="module-body">
       <h2>What is AAMP?</h2>
       <p>Agentic Advertising Management Protocols (AAMP) is the umbrella initiative announced February 26, 2026 at Beet Retreat. It unifies all of IAB Tech Lab's agentic work under one coordinated roadmap — infrastructure + protocols + governance.</p>
@@ -1788,6 +1833,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
       <strong>Before AAMP 2.0:</strong> The Buyer and Seller Agent SDKs were "reference implementations" — essentially working demonstrations. Good for learning and testing, but not suitable for live campaigns or real ad spend. Think of it as a car prototype that drives on a track but isn't road-legal yet.<br><br>
       <strong>After AAMP 2.0:</strong> The SDKs are now "transaction-ready" — they can negotiate actual rate cards, activate real programmatic deals, and execute live campaigns with real money. The car passed its safety tests and is on the road. PMG (agency) integrated it into their Alli OS platform; Kochava + Yahoo DSP built the first buyer-side testing environment. AAMP 3.0 is already in development. Sources: <a href="https://iabtechlab.com/aamp-2-0-release-brings-transaction-ready-buyer-and-seller-agent-sdks/" target="_blank">IAB Tech Lab — AAMP 2.0</a>, <a href="https://www.globenewswire.com/news-release/2026/05/05/3287865/0/en/kochava-announces-new-yahoo-dsp-workspace-now-available-on-stationone-the-integrative-ai-hub-by-kochava.html" target="_blank">Kochava + Yahoo DSP Workspace</a></div>
 
+      <div class="callout teal"><strong>⚠ AAMP 3.0 — reported for July 2026, unconfirmed as officially shipped.</strong> Multiple trade sources describe a three-tier agent hierarchy applied in parallel to both Buyer and Seller SDKs: <strong>Level 1 — Portfolio Manager</strong> (strategic budget allocation across channels, sets performance targets, doesn't place individual bids); <strong>Level 2 — Channel Specialists</strong> (translate strategy into channel execution — CTV, display, video, mobile, native); <strong>Level 3 — Functional Agents</strong> (bounded tasks — research, audience planning, bid execution, pricing, avails). The point of the hierarchy is separating decisions an LLM should make from ones it shouldn't. No official IAB Tech Lab press release or GitHub release tag confirming ship status was found — verify directly at iabtechlab.com before relying on this. Source: <a href="https://digiday.com/media-buying/ad-tech-briefing-iab-tech-lab-accelerates-push-to-make-agentic-ai-more-practical/" target="_blank">Digiday — Ad Tech Briefing</a> (background only, doesn't confirm a 3.0 ship date)</div>
+
       <h2>2026 Roadmap — Where Things Stand</h2>
       <ul>
         <li>✅ Open-source buyer and seller agent reference implementations — released</li>
@@ -1796,7 +1843,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <li>🔄 Standardised agent profiles — in progress</li>
         <li>🔄 Faster data formats (Protocol Buffers) and communication channels (gRPC) for existing standards — in progress</li>
         <li>🔄 Trust, provenance, and measurement signals for transaction integrity — in progress</li>
-        <li>🔜 AAMP 3.0 (extended transaction and media types) — in development</li>
+        <li>🔜 AAMP 3.0 (extended transaction and media types, three-tier agent hierarchy) — reported July 2026, ship status unconfirmed</li>
       </ul>
 
       <h2>Future Role Impact</h2>
@@ -1841,10 +1888,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
   <div class="page-header">
     <button class="back-btn" onclick="showSection('hub')">← Hub</button><button class="listen-btn" id="listen-m5" onclick="listenSection('m5')">🔊 Listen</button>
     <h1>AdCP vs AAMP/ARTF — The Standards Battle</h1>
-    <p>Competing or complementary? An honest breakdown as of May 2026, including the emerging consensus.</p>
+    <p>Competing or complementary? An honest breakdown as of July 2026, including the emerging consensus.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-11</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-07-13</span></div>
     <div class="module-body">
       <h2>The Origin Story</h2>
       <p>When AdCP launched in October 2025, IAB Tech Lab CEO Anthony Katsur publicly questioned whether the industry needed "another industry trade group." Six weeks later, IAB Tech Lab released ARTF. Then in February 2026, AAMP was unveiled. IAB Tech Lab's framing: AAMP is not a reaction to AdCP — it's months of pre-existing work. The timing tells a story regardless.</p>
@@ -1883,6 +1930,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <tr><td>Buyer/Seller Agent SDKs released</td><td>Early 2026</td><td>Open-source on GitHub</td></tr>
         <tr><td>AAMP 2.0 released</td><td>Apr 24, 2026</td><td>SDKs upgraded to transaction-ready status; AAMP 3.0 now underway</td></tr>
         <tr><td>Kochava + Yahoo DSP on StationOne</td><td>May 5, 2026</td><td>First DSP-level AAMP-compatible workspace — buyers run agentic workflows against Yahoo DSP without custom integrations</td></tr>
+        <tr><td>Microsoft announces Xandr/Invest DSP shutdown</td><td>May 14, 2026</td><td>Cites incompatibility with "a conversational and agentic world"; effective Feb 28, 2026 — exits rather than adapts</td></tr>
+        <tr><td>Magnite Orchestration launches</td><td>Jun 11, 2026</td><td>Buyer/seller agent coordination layer; testing with dentsu, DIRECTV Advertising; aligns to AdCP</td></tr>
+        <tr><td>LiveRamp Agent Builders (LAB) program</td><td>Jun 17, 2026</td><td>Third-party agents via MCP servers on LiveRamp's data platform</td></tr>
+        <tr><td>The Trade Desk: Koa Agents to alpha, "architecture over autonomy"</td><td>Jul 6, 2026</td><td>TTD builds proprietary Open Agentic Kit rather than adopting AAMP natively</td></tr>
+        <tr><td>AdCP reaches v3.1; v2 sunset confirmed</td><td>Aug 1, 2026 (EOL)</td><td>Production-hardening release; Broadcast TV support added</td></tr>
       </table>
 
       <div class="callout green">
@@ -1893,10 +1945,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
         <strong>&#9889; AAMP 2.0 signal — April 24, 2026</strong>
         Transaction-ready Buyer and Seller Agent SDKs mark the shift from prototype to production-capable AAMP infrastructure. PMG (Alli OS) and Kochava (StationOne) are first documented integrators. Sources: <a href="https://iabtechlab.com/aamp-2-0-release-brings-transaction-ready-buyer-and-seller-agent-sdks/" target="_blank">IAB Tech Lab</a>, <a href="https://www.globenewswire.com/news-release/2026/05/05/3287865/0/en/kochava-announces-new-yahoo-dsp-workspace-now-available-on-stationone-the-integrative-ai-hub-by-kochava.html" target="_blank">Kochava + Yahoo DSP</a>
       </div>
+      <div class="callout" style="margin-top:12px">
+        <strong>&#9889; Structural signal — May 14, 2026</strong>
+        Microsoft is shutting down the Xandr/Invest DSP entirely rather than adapting it, stating its current model is "not achievable" in "a conversational and agentic world." A different — arguably bigger — kind of signal than any single protocol's adoption count. Sources: <a href="https://digiday.com/media-buying/microsoft-advertising-is-closing-the-xandr-dsp/" target="_blank">Digiday</a>, <a href="https://www.emarketer.com/content/microsoft-invest-closure-watershed-programmatic-ad-buying-ai" target="_blank">eMarketer</a>
+      </div>
 
       <h2>What to Watch — Key Inflection Signals</h2>
       <ul>
-        <li>Will major <span class="gloss" data-key="dsp">DSPs</span> (The Trade Desk, DV360) announce AAMP integration?</li>
+        <li>Will major <span class="gloss" data-key="dsp">DSPs</span> (The Trade Desk, DV360) announce AAMP integration? <strong>Partially answered (Jul 2026):</strong> TTD is explicitly not going AAMP-native — building its own Open Agentic Kit instead. Watch DV360 next.</li>
         <li>Will AdCP reach 50+ publisher implementations?</li>
         <li>Will AAMP <span class="gloss" data-key="agentregistry">Agent Registry</span> see registrations from AdCP members (indicating convergence)?</li>
         <li>ARTF v2.0 spec release timeline</li>
@@ -1944,7 +2000,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <p>This space moves fast. How to keep knowledge sharp as these standards evolve, plus a 3-month action plan.</p>
   </div>
   <div class="content-body">
-    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-05-11</span></div>
+    <div class="module-meta"><span class="pill updated">Updated</span><span class="module-date">Last updated: 2026-07-13</span></div>
     <div class="module-body">
       <h2>How to Stay Updated Using Claude</h2>
       <blockquote>"Search the web and find the latest news from the past 7 days on: IAB Tech Lab AAMP agentic advertising, AdCP Ad Context Protocol, ARTF agentic RTB framework. Summarise any new spec releases, GitHub updates, or major company adoptions. What changed?"</blockquote>
@@ -2409,6 +2465,50 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <p>Weekly update log — what changed, what was found, and which modules were updated.</p>
   </div>
   <div class="changelog-body">
+    <div class="changelog-entry">
+      <div class="changelog-date">Jul 13, 2026</div>
+      <div class="changelog-headline">No update ran between May 11 and today — a 9-week gap caused by a sandbox network restriction blocking GitHub pushes and a Slack auth failure, not a scheduling problem. This entry catches up the full gap. Biggest developments: AdCP has advanced to v3.1 (v2 sunsets Aug 1, 2026); AAMP 3.0 is reportedly rolling out in July with a three-tier agent hierarchy (unconfirmed as officially shipped); and Microsoft is shutting down the Xandr/Invest DSP entirely, citing incompatibility with "a conversational and agentic world." A factual correction was also made — ARTF v1.0 finalized in March 2026, not November 2025 as previously stated.</div>
+      <div class="changelog-section">
+        <h4>Module Changes</h4>
+        <ul>
+          <li><strong>Module 2 (AdCP)</strong> — Updated to v3.1 / v2 EOL Aug 1, 2026; added Broadcast TV support, offline reporting delivery, release cadence policy; added Microsoft Xandr/Invest DSP shutdown as a strategic adoption signal. Sources: <a href="https://docs.adcontextprotocol.org/docs/reference/release-notes" target="_blank">AdCP Release Notes</a>, <a href="https://digiday.com/media-buying/microsoft-advertising-is-closing-the-xandr-dsp/" target="_blank">Digiday — Xandr shutdown</a></li>
+          <li><strong>Module 3 (ARTF) — Correction:</strong> "Released Nov 13, 2025" was inaccurate — that was the public comment announcement. Public comment closed Jan 15, 2026; v1.0 finalized March 2026. Added Index Exchange's Index Cloud / ARTF content as resources. Sources: <a href="https://iabtechlab.com/standards/artf/" target="_blank">IAB Tech Lab — ARTF</a>, <a href="https://iabtechlab.com/wp-content/uploads/2026/03/Agentic-Real-Time-Framework-Version-1.0-FINAL.pdf" target="_blank">ARTF v1.0 FINAL (Mar 2026)</a></li>
+          <li><strong>Module 4 (AAMP)</strong> — Added AAMP 3.0: reported three-tier hierarchy (Portfolio Manager / Channel Specialists / Functional Agents) — flagged unconfirmed, no primary-source ship confirmation found. Source: <a href="https://digiday.com/media-buying/ad-tech-briefing-iab-tech-lab-accelerates-push-to-make-agentic-ai-more-practical/" target="_blank">Digiday</a></li>
+          <li><strong>Module 5 (Comparison)</strong> — Adoption table extended: Magnite Orchestration (Jun 11), LiveRamp Agent Builders (Jun 17), TTD "architecture over autonomy" / Koa Agents alpha (Jul 6), Microsoft Xandr shutdown (May 14). DSP-AAMP-adoption watch signal partially answered (TTD: not going AAMP-native). Sources: <a href="https://www.magnite.com/press/introducing-magnite-orchestration-powering-the-future-of-agentic-advertising/" target="_blank">Magnite</a>, <a href="https://liveramp.com/blog/advancing-the-foundation-for-agentic-marketing" target="_blank">LiveRamp</a>, <a href="https://www.mi-3.com.au/06-07-2026/architecture-over-autonomy-trade-desk-rejects-silicon-valleys-ai-orthodoxy-says" target="_blank">Mi3 — The Trade Desk</a></li>
+          <li><strong>Module 6 (Staying Current)</strong> — OpenRTB Live Content comment period marked closed (May 28). Added AAMP 3.0 watch item. Flagged a possible GitHub repo rename (`agentic-rtb-framework` → `agentic-real-time-framework`) — verify before relying on the link.</li>
+          <li>Module 1 — No change</li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <h4>Competitor Content This Week</h4>
+        <div class="comp-item">
+          <div class="comp-company">Index Exchange</div>
+          <div class="comp-entry"><strong>"Building for Programmatic's Agentic Future With ARTF"</strong> &middot; Article &middot; <a href="https://www.indexexchange.com/2026/05/12/building-programmatics-agentic-future-artf/" target="_blank">indexexchange.com</a> — What ARTF means in practice and why it's a turning point for sell-side decisioning. Published May 12.</div>
+          <div class="comp-entry"><strong>"Innovators Unscripted: Inside the Industry's First Containerized DSP With Bedrock and Index Cloud"</strong> &middot; Article &middot; <a href="https://www.indexexchange.com/2026/05/21/innovators-unscripted-inside-industrys-first-containerized-dsp/" target="_blank">indexexchange.com</a> — Bedrock's containerized DSP on Index Cloud. Published May 21.</div>
+          <div class="comp-entry"><strong>"This Industry Isn't Done Innovating": Andrew Casale on Index Exchange's Containerised Future and a DSP Renaissance</strong> &middot; Interview (third-party, not IX-authored) &middot; <a href="https://www.exchangewire.com/blog/2026/06/16/this-industry-isnt-done-innovating-andrew-casale-on-index-exchanges-containerised-future-and-a-dsp-renaissance/" target="_blank">exchangewire.com</a> — ExchangeWire interview with Andrew Casale ahead of his ATS Singapore (Jul 8) and ATS London appearances. Mostly about containerization/Index Cloud/DSP economics; agentic advertising gets one brief mention rather than being the main subject. Published Jun 16.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">PubMatic</div>
+          <div class="comp-entry"><strong>"Programmatic Promised Transparency, Agentic Is Built to Deliver It: Introducing the Detailed Reasoning Agent"</strong> &middot; Article &middot; <a href="https://pubmatic.com/blog/programmatic-promised-transparency-agentic-is-built-to-deliver-it-introducing-the-detailed-reasoning-agent/" target="_blank">pubmatic.com</a> — New AgenticOS capability for auditable agent decisions. Published May 20.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">Magnite</div>
+          <div class="comp-entry"><strong>"Introducing Magnite Orchestration: Powering the Future of Agentic Advertising"</strong> &middot; Press release/article &middot; <a href="https://www.magnite.com/press/introducing-magnite-orchestration-powering-the-future-of-agentic-advertising/" target="_blank">magnite.com</a> — New buyer/seller agent coordination layer; testing with dentsu, DIRECTV. Published ~Jun 11.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">LiveRamp</div>
+          <div class="comp-entry"><strong>"Advancing the Foundation for Agentic Marketing"</strong> &middot; Article &middot; <a href="https://liveramp.com/blog/advancing-the-foundation-for-agentic-marketing" target="_blank">liveramp.com</a> — Launches Agent Builders (LAB) program for third-party agents via MCP. Published Jun 17.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-company">The Trade Desk</div>
+          <div class="comp-entry"><strong>"Architecture over autonomy" — coverage of TTD's agentic AI position and Koa Agents alpha</strong> &middot; Article (third-party, not TTD's own blog) &middot; <a href="https://www.mi-3.com.au/06-07-2026/architecture-over-autonomy-trade-desk-rejects-silicon-valleys-ai-orthodoxy-says" target="_blank">mi-3.com.au</a> — TTD bets on governance/orchestration and proprietary Open Agentic Kit over AAMP-native adoption. Published Jul 6.</div>
+        </div>
+      </div>
+      <div class="changelog-section">
+        <h4>Deployment note</h4>
+        <p>Same two blockers as the May 11 run: the Cowork sandbox blocks outbound GitHub API traffic (push must be run from a local Terminal), and Slack posting requires the connector to be reachable. See full changelog for the exact manual command and Slack message. Full changelog: <code>/changelogs/update-2026-07-13.md</code></p>
+      </div>
+    </div>
     <div class="changelog-entry">
       <div class="changelog-date">May 11, 2026</div>
       <div class="changelog-headline">Quiet week for new spec announcements — AAMP's practical adoption footprint continued to expand. Kochava launched the first DSP-integrated workspace on StationOne (Yahoo DSP, May 5), the first demand-side AAMP-compatible testing environment. AAMP 2.0 (transaction-ready SDKs, released April 24) was missed in last week's update and is now reflected in Modules 4 and 5. IAB Tech Lab's OpenRTB Live Content public comment period is now active through May 28, 2026.</div>
